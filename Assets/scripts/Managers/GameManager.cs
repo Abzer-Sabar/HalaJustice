@@ -6,6 +6,12 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public Dialogues dialogue;
+    public GameObject gameplayUI;
+    public GameObject startSceneUI;
+    public GameObject dialogueBoxUI;
+    public GameObject tutorialsUI;
+
     [SerializeField]
     private Transform respawnPlayerPoint;
 
@@ -14,10 +20,12 @@ public class GameManager : MonoBehaviour
 
     private CinemachineVirtualCamera camera;
     private static bool gameIsPaused = false;
+    private bool StartGame = false;
 
     private void Start()
     {
         camera = GameObject.Find("player Camera").GetComponent<CinemachineVirtualCamera>();
+        HideEverything();
     }
     public void respawn()
     {
@@ -37,7 +45,17 @@ public class GameManager : MonoBehaviour
             {
                 pauseGame();
             }
-        }        
+        }
+
+        if (!StartGame)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                showEverything();
+                TriggerDialogue();
+                StartGame = true;
+            }
+        }
     }
 
     private void pauseGame()
@@ -64,5 +82,26 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene("Main Menu");
+    }
+
+    public void TriggerDialogue()
+    {
+        FindObjectOfType<DialogueSystem>().StartDialogue(dialogue);
+    }
+
+    private void HideEverything()
+    {
+        startSceneUI.SetActive(true);
+        gameplayUI.SetActive(false);
+        dialogueBoxUI.SetActive(false);
+        tutorialsUI.SetActive(false);
+    }
+
+    private void showEverything()
+    {
+        dialogueBoxUI.SetActive(true);
+        gameplayUI.SetActive(true);
+        tutorialsUI.SetActive(true);
+        startSceneUI.SetActive(false);
     }
 }
