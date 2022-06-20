@@ -5,7 +5,11 @@ using UnityEngine;
 public class playerInventory : MonoBehaviour
 {
     public bool[] isFull;
+    
     public GameObject[] slots;
 
+    public void consumeDate()
+    {
 
+    }
 }
