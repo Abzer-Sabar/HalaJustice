@@ -7,7 +7,7 @@ public class playerCombat : MonoBehaviour
     [SerializeField]
     private bool combatEnabled;
     [SerializeField]
-    private float inputTimer, attackRadius, attackDamage;
+    private float inputTimer, attackRadius, attackDamage = 20f;
     [SerializeField]
     private Transform attackHitboxPos;
     [SerializeField]
@@ -116,5 +116,17 @@ public class playerCombat : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(attackHitboxPos.position, attackRadius);
+    }
+
+    //attack powerup
+
+    public void attackPowerup(float attackDamage)
+    {
+        this.attackDamage = attackDamage;
+    }
+
+    public void revertAttackDamage()
+    {
+        this.attackDamage = 20f;
     }
 }

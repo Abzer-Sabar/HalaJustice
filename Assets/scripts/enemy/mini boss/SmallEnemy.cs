@@ -34,6 +34,7 @@ public class SmallEnemy : MonoBehaviour
     //private RaycastHit2D hit;
     [SerializeField]
     private playerHealth ph;
+    [SerializeField]
     private Animator anim;
     private float distance; //Store the distance b/w enemy and player
     private bool attackMode;
@@ -52,7 +53,7 @@ public class SmallEnemy : MonoBehaviour
     {
         selectTarget();
         intTimer = timer; //Store the inital value of timer
-        anim = GetComponent<Animator>();
+       // anim = GetComponent<Animator>();
         currentHealth = maxHealth;
     }
 
@@ -80,7 +81,7 @@ public class SmallEnemy : MonoBehaviour
         {
             moveSpeed = 2;
         }
-            touchDamage();
+            //touchDamage();
 
     }
 
@@ -127,12 +128,12 @@ public class SmallEnemy : MonoBehaviour
 
         if(transform.position.x < target.position.x)
         {
-            rotate.y = 180f;
+            rotate.y = 0f;
 
         }
         else
         {
-            rotate.y = 0f;
+            rotate.y = 180f;
         }
         transform.eulerAngles = rotate;
     }
@@ -163,7 +164,7 @@ public class SmallEnemy : MonoBehaviour
     {
         anim.SetBool("moving", true);
 
-        if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
+        if (!anim.GetCurrentAnimatorStateInfo(0).IsName("miniBoss_attack"))
         {
             Vector2 targetPosition = new Vector2(target.position.x, transform.position.y);
 
@@ -210,8 +211,10 @@ public class SmallEnemy : MonoBehaviour
 
     private void damagePlayer()
     {
+        
         if (PlayerInSight())
         {
+            Debug.Log("The player is in sight");
             ph.takeDamage(playerDamage);
         }
     }
@@ -238,11 +241,7 @@ public class SmallEnemy : MonoBehaviour
         Debug.Log("Enemy died");
     }
 
-    IEnumerator killGameObject()
-    {
-        yield return new WaitForSeconds(1);
-        Destroy(gameObject);
-    }
+    
 
     private void OnDrawGizmos()
     {

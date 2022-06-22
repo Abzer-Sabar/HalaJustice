@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Enemy
   - deadzone
+  - Date
+  - Coffee
+  - Laban
   layers:
   - Default
   - TransparentFX

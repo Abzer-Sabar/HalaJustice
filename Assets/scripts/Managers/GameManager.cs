@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         camera = GameObject.Find("player Camera").GetComponent<CinemachineVirtualCamera>();
-       // HideEverything();
+        //HideEverything();
     }
     public void respawn()
     {
@@ -47,7 +47,7 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        /*if (!StartGame)
+       /* if (!StartGame)
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {

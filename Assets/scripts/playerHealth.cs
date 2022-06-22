@@ -14,8 +14,9 @@ public class playerHealth : MonoBehaviour
 
     private void Start()
     {
-        currentHealth = maxHealth;
+        currentHealth = 80;
         hb.setMaxHealth(maxHealth);
+        hb.setHealth(currentHealth);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -29,7 +30,7 @@ public class playerHealth : MonoBehaviour
     {
         currentHealth -= damage;
         hb.setHealth(currentHealth);
-
+        Debug.Log("player taking damage");
         if(currentHealth <= 0.0f)
         {
             Die();
@@ -42,5 +43,12 @@ public class playerHealth : MonoBehaviour
         Destroy(gameObject);
         Destroy(gameObject);
         Debug.Log("You are dead");
+    }
+
+    public void healPlayer(float heal)
+    {
+        currentHealth += heal;
+        hb.setHealth(currentHealth);
+        Debug.Log("player has healed");
     }
 }

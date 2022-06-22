@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class playerController : MonoBehaviour
 {
-    public float moveSpeed = 10f;
+    public float moveSpeed = 7f;
     public float jumpForce = 16f;
     public float groundCheckRadius = 0.3f;
     public float airDrag = 0.95f;
@@ -387,4 +387,17 @@ public class playerController : MonoBehaviour
     {
         return isDashing;
     }
+
+
+    //player movement powerup
+    public void applyMovementPowerup(float speed)
+    {
+        this.moveSpeed = speed;
+    }
+
+    public void revertMovement()
+    {
+        this.moveSpeed = 7f;
+    }
+
 }
