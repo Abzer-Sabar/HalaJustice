@@ -4,20 +4,31 @@ using UnityEngine;
 
 public class parallax : MonoBehaviour
 {
-    private float length, startpos;
-    public GameObject cam;
-    public float parallexEffect;
-    void Start()
+    public Vector2 parallaxEffect;
+
+    public Transform camera;
+    private Vector3 lastCamPosition;
+    private float textureUnitSizeX;
+
+    private void Start()
     {
-        startpos = transform.position.x;
-        length = GetComponent<SpriteRenderer>().bounds.size.x;
+        camera = Camera.main.transform;
+        lastCamPosition = camera.position;
+        Sprite sprite = GetComponent<SpriteRenderer>().sprite;
+        Texture2D texture = sprite.texture;
+        textureUnitSizeX = (texture.width / sprite.pixelsPerUnit) * transform.localScale.x;
     }
-    void Update()
+
+    private void LateUpdate()
     {
-        float temp = (cam.transform.position.x * (1 - parallexEffect));
-        float dist = (cam.transform.position.x * parallexEffect);
-        transform.position = new Vector3(startpos + dist, transform.position.y, transform.position.z);
-        if (temp > startpos + length) startpos += length;
-        else if (temp < startpos - length) startpos -= length;
+        Vector3 deltaMovement = camera.position - lastCamPosition;
+        transform.position += new Vector3(deltaMovement.x * parallaxEffect.x, deltaMovement.y * parallaxEffect.y);
+        lastCamPosition = camera.position;
+
+        if(Mathf.Abs(camera.position.x - transform.position.x) >= textureUnitSizeX)
+        {
+            float offsetPositionX = (camera.position.x - transform.position.x) % textureUnitSizeX;
+            transform.position = new Vector3(camera.position.x + offsetPositionX, transform.position.y);
+        }
     }
 }
