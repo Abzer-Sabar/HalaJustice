@@ -7,7 +7,7 @@ public class playerCombat : MonoBehaviour
     [SerializeField]
     private bool combatEnabled;
     [SerializeField]
-    private float inputTimer, attackRadius, attackDamage = 20f;
+    private float inputTimer = 0.2f, attackRadius = 0.47f, attackDamage = 20f;
     [SerializeField]
     private Transform attackHitboxPos;
     [SerializeField]

@@ -5,18 +5,18 @@ using UnityEngine;
 public class playerController : MonoBehaviour
 {
     public float moveSpeed = 7f;
-    public float jumpForce = 16f;
+    public float jumpForce = 18.05f;
     public float groundCheckRadius = 0.3f;
-    public float airDrag = 0.95f;
+    public float airDrag = 1f;
     public float airMovement = 10f;
     public float jumPHeightMultiplier = 0.5f;
-    public float dashTime;
-    public float dashSpeedAir, dashSpeedGround;
-    public float distanceBtwImages;
-    public float dashCoolDown;
-    public float knockBackDuration;
+    public float dashTime = 0.5f;
+    public float dashSpeedAir = 10f, dashSpeedGround = 20f;
+    public float distanceBtwImages = 0.2f;
+    public float dashCoolDown = 2.5f;
+    public float knockBackDuration = 0.1f;
     public float jumpTimerSet = 0.15f;
-    public int amountOfJumps;
+    public int amountOfJumps = 1;
 
     public Vector2 knockbackSpeed;
     public Transform groundCheck;
@@ -370,7 +370,7 @@ public class playerController : MonoBehaviour
     {
         knockBack = true;
         knockBackStartTime = Time.time;
-
+        Debug.Log("Player is getting knocked back");
         rb.velocity = new Vector2(knockbackSpeed.x * direction, knockbackSpeed.y);
     }
 

@@ -6,7 +6,7 @@ public class ItemSlot : MonoBehaviour
 {
     public playerInventory inventory;
     public playerController controller;
-    public playerCombat combat;
+    public combat combat;
     public playerHealth health;
     public KeyCode keycode = KeyCode.E;
     public int i;

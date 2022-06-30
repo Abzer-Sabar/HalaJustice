@@ -4,31 +4,33 @@ using UnityEngine;
 
 public class parallax : MonoBehaviour
 {
-    public Vector2 parallaxEffect;
+    private float length, startpos, ypos;
+    public GameObject cam;
+    public float parallaxEffect;
 
-    public Transform camera;
-    private Vector3 lastCamPosition;
-    private float textureUnitSizeX;
-
-    private void Start()
+    // Start is called before the first frame update
+    void Start()
     {
-        camera = Camera.main.transform;
-        lastCamPosition = camera.position;
-        Sprite sprite = GetComponent<SpriteRenderer>().sprite;
-        Texture2D texture = sprite.texture;
-        textureUnitSizeX = (texture.width / sprite.pixelsPerUnit) * transform.localScale.x;
+        startpos = transform.position.x;
+        ypos = transform.position.y;
+        length = GetComponent<SpriteRenderer>().bounds.size.x;
     }
 
-    private void LateUpdate()
+    // Update is called once per frame
+    void Update()
     {
-        Vector3 deltaMovement = camera.position - lastCamPosition;
-        transform.position += new Vector3(deltaMovement.x * parallaxEffect.x, deltaMovement.y * parallaxEffect.y);
-        lastCamPosition = camera.position;
+        float temp = (cam.transform.position.x * (1 - parallaxEffect));
+        float dist = (cam.transform.position.x * parallaxEffect);
+        float ydist = (cam.transform.position.y * parallaxEffect);
 
-        if(Mathf.Abs(camera.position.x - transform.position.x) >= textureUnitSizeX)
+        transform.position = new Vector3(startpos + dist, ypos + ydist, transform.position.z);
+        if (temp > startpos + length)
         {
-            float offsetPositionX = (camera.position.x - transform.position.x) % textureUnitSizeX;
-            transform.position = new Vector3(camera.position.x + offsetPositionX, transform.position.y);
+            startpos += length;
+        }
+        else if (temp < startpos - length)
+        {
+            startpos -= length;
         }
     }
 }

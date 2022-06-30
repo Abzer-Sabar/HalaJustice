@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 03b8b31a37525624ca1dca6068f6ca94
+guid: 98351f73b79861b46b60430761f50885
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -104,13 +104,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sprite sheet finalized sword run_0
+      name: small trap_0
       rect:
         serializedVersion: 2
-        x: 19
-        y: 10
-        width: 41
-        height: 82
+        x: 7
+        y: 4
+        width: 24
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,20 +118,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 92517a0677db86a49b0955b0a8342f09
-      internalID: 2050390765
+      spriteID: 72f7abadce4bf594a95cca73e9bde2fd
+      internalID: 835057123
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sprite sheet finalized sword run_1
+      name: small trap_1
       rect:
         serializedVersion: 2
-        x: 72
-        y: 10
-        width: 40
-        height: 80
+        x: 31
+        y: 4
+        width: 68
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -139,20 +139,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 728abc66e6164f348aecb8534c59f015
-      internalID: -2038509919
+      spriteID: 582fb8c36efa1824da80bf3277246050
+      internalID: -427211735
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sprite sheet finalized sword run_2
+      name: small trap_2
       rect:
         serializedVersion: 2
-        x: 123
-        y: 9
-        width: 70
-        height: 79
+        x: 99
+        y: 4
+        width: 24
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -160,113 +160,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0638add4e4237fe498de473a89dc7002
-      internalID: -1999340597
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sprite sheet finalized sword run_3
-      rect:
-        serializedVersion: 2
-        x: 201
-        y: 10
-        width: 69
-        height: 78
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ab5784871f75426469c2a6eac95df5f8
-      internalID: 1704974049
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sprite sheet finalized sword run_4
-      rect:
-        serializedVersion: 2
-        x: 277
-        y: 9
-        width: 65
-        height: 81
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2c58f2b02eee5a54f86a6755b7f2d375
-      internalID: -26670448
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sprite sheet finalized sword run_5
-      rect:
-        serializedVersion: 2
-        x: 353
-        y: 9
-        width: 76
-        height: 82
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 94ce2d7830592a145837413ce06dc6ee
-      internalID: 989250929
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sprite sheet finalized sword run_6
-      rect:
-        serializedVersion: 2
-        x: 444
-        y: 10
-        width: 66
-        height: 79
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1f35dca7a36f4a348a50162788c93191
-      internalID: 404339295
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sprite sheet finalized sword run_7
-      rect:
-        serializedVersion: 2
-        x: 512
-        y: 10
-        width: 66
-        height: 81
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d97c93c00f26b974bb7d5d18e3aa63ee
-      internalID: 508866632
+      spriteID: f5837e6e07809224bac8b60201dd97b9
+      internalID: 39696364
       vertices: []
       indices: 
       edges: []
@@ -282,14 +177,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      sprite sheet finalized sword run_7: 404339295
-      sprite sheet finalized sword run_4: 1704974049
-      sprite sheet finalized sword run_0: 1409773156
-      sprite sheet finalized sword run_6: 989250929
-      sprite sheet finalized sword run_3: -1999340597
-      sprite sheet finalized sword run_2: -2038509919
-      sprite sheet finalized sword run_5: -26670448
-      sprite sheet finalized sword run_1: 2050390765
+      small trap_1: -427211735
+      small trap_2: 39696364
+      small trap_0: 835057123
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

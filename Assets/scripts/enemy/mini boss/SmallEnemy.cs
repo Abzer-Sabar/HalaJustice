@@ -65,7 +65,7 @@ public class SmallEnemy : MonoBehaviour
             Move();
         }
 
-        if(!InsideBounds() && !inRange && !anim.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
+        if(!InsideBounds() && !inRange && !anim.GetCurrentAnimatorStateInfo(0).IsName("miniBoss_Attack"))
         {
             selectTarget();
         }
@@ -81,7 +81,7 @@ public class SmallEnemy : MonoBehaviour
         {
             moveSpeed = 2;
         }
-            //touchDamage();
+            touchDamage();
 
     }
 
@@ -164,7 +164,7 @@ public class SmallEnemy : MonoBehaviour
     {
         anim.SetBool("moving", true);
 
-        if (!anim.GetCurrentAnimatorStateInfo(0).IsName("miniBoss_attack"))
+        if (!anim.GetCurrentAnimatorStateInfo(0).IsName("miniBoss_Attack"))
         {
             Vector2 targetPosition = new Vector2(target.position.x, transform.position.y);
 
@@ -219,7 +219,7 @@ public class SmallEnemy : MonoBehaviour
         }
     }
 
-    private void Damage(float[] attackDetails)
+    public void Damage(float[] attackDetails)
     {
         currentHealth -= attackDetails[0];
         enemyHealthBar.setHealth(currentHealth, maxHealth);
