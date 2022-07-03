@@ -9,6 +9,11 @@ public class MainMenu : MonoBehaviour
     public float transitionTime;
 
     public Animator animator;
+
+    private void Start()
+    {
+        FindObjectOfType<AudioManager>().play("Desert Ambient");
+    }
     public void Exit()
     {
         Application.Quit();
