@@ -64,7 +64,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0f;
         gameIsPaused = true;
     }
-    private void resumeGame()
+    public void resumeGame()
     {
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
