@@ -9972,7 +9972,7 @@ MonoBehaviour:
   leftLimit: {fileID: 351432349}
   rayCastLength: 6
   attackDistance: 1
-  moveSpeed: 0
+  moveSpeed: 1
   maxHealth: 100
   timer: 2
   playerDamage: 10
@@ -9992,6 +9992,7 @@ MonoBehaviour:
   damageAreaWidth: 0.64
   damageAreaHeight: 1.55
   touchdamage: 1
+  speed: 0
   damageCheck: {fileID: 257276386}
   whatIsPlayer:
     serializedVersion: 2
@@ -11062,7 +11063,7 @@ MonoBehaviour:
   leftLimit: {fileID: 351432349}
   rayCastLength: 6
   attackDistance: 1
-  moveSpeed: 0
+  moveSpeed: 1
   maxHealth: 100
   timer: 2
   playerDamage: 10
@@ -11082,6 +11083,7 @@ MonoBehaviour:
   damageAreaWidth: 0.64
   damageAreaHeight: 1.55
   touchdamage: 1
+  speed: 0
   damageCheck: {fileID: 6140283436027369593}
   whatIsPlayer:
     serializedVersion: 2
@@ -11148,7 +11150,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6140283435861069514}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.27, y: -2.179, z: -1.0138526}
+  m_LocalPosition: {x: -5.28, y: -2.179, z: -1.0138526}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

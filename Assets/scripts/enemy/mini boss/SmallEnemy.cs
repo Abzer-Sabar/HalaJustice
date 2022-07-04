@@ -23,7 +23,7 @@ public class SmallEnemy : MonoBehaviour
     public enemyHealthBar enemyHealthBar;
     public GameObject deathEffect;
 
-    public float DamageCooldown, lastDamageTime, damageAreaWidth, damageAreaHeight, touchdamage;
+    public float DamageCooldown, lastDamageTime, damageAreaWidth, damageAreaHeight, touchdamage, speed;
     public Transform damageCheck;
     public LayerMask whatIsPlayer;
     private Vector2 damageBotLeft, damageTopRight;
@@ -48,6 +48,7 @@ public class SmallEnemy : MonoBehaviour
     {
         currentHealth = maxHealth;
         enemyHealthBar.setHealth(currentHealth, maxHealth);
+        speed = moveSpeed;
     }
     void Awake()
     {
@@ -74,12 +75,12 @@ public class SmallEnemy : MonoBehaviour
 
         if (inRange)
         {
-            moveSpeed = 4;
+            speed = 4;
             EnemyLogic();
         }
         else
         {
-            moveSpeed = 2;
+            speed = moveSpeed;
         }
             touchDamage();
 
@@ -168,7 +169,7 @@ public class SmallEnemy : MonoBehaviour
         {
             Vector2 targetPosition = new Vector2(target.position.x, transform.position.y);
 
-            transform.position = Vector2.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, targetPosition, speed* Time.deltaTime);
         }
     }
 
