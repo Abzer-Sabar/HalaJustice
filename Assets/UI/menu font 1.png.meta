@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 70e3a375065933548997b4ea60f3824d
+guid: b278c2e4849d04544a494d280f1bcb33
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -104,13 +104,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: attack animation sword slice_0
+      name: menu font 1_0
       rect:
         serializedVersion: 2
-        x: 190
-        y: 5
-        width: 127
-        height: 220
+        x: 31
+        y: 14
+        width: 339
+        height: 97
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,20 +118,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2cbf14579a39e534aa988fcdbaae7c8d
-      internalID: 1503528434
+      spriteID: 7dacb973728e4dd4b84efff6dadd9ce9
+      internalID: 235837254
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: attack animation sword slice_1
+      name: menu font 1_1
       rect:
         serializedVersion: 2
-        x: 396
-        y: 5
-        width: 159
-        height: 217
+        x: 400
+        y: 12
+        width: 348
+        height: 99
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -139,20 +139,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1314c2876cc55b24b920f965d01ae867
-      internalID: 956820377
+      spriteID: 01c78deb4d0aae44cb478039b406c4d7
+      internalID: 1765173411
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: attack animation sword slice_2
+      name: menu font 1_2
       rect:
         serializedVersion: 2
-        x: 632
-        y: 5
-        width: 163
-        height: 228
+        x: 782
+        y: 12
+        width: 349
+        height: 101
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -160,92 +160,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e52ed23c0e3a2424082f086984cdd23d
-      internalID: 2094319326
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: attack animation sword slice_3
-      rect:
-        serializedVersion: 2
-        x: 884
-        y: 5
-        width: 219
-        height: 230
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7bced364de163cb4c97f8fb29da40b93
-      internalID: 907540755
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: attack animation sword slice_4
-      rect:
-        serializedVersion: 2
-        x: 1159
-        y: 5
-        width: 219
-        height: 230
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c9e9095afbde26d4d949ff88fe14f046
-      internalID: 2065141453
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: attack animation sword slice_5
-      rect:
-        serializedVersion: 2
-        x: 1428
-        y: 5
-        width: 221
-        height: 230
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e8e3a3bba7f0ea1448a3b3ade54280d3
-      internalID: -447416282
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: attack animation sword slice_6
-      rect:
-        serializedVersion: 2
-        x: 1714
-        y: 5
-        width: 160
-        height: 230
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4c4617304f4c8b943b113fe498abb02e
-      internalID: 811035934
+      spriteID: 320bed1af3d14be44b4d5ec74acd87c8
+      internalID: 960909080
       vertices: []
       indices: 
       edges: []
@@ -261,13 +177,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      attack animation sword slice_0: 1503528434
-      attack animation sword slice_2: 2094319326
-      attack animation sword slice_1: 956820377
-      attack animation sword slice_6: 811035934
-      attack animation sword slice_3: 907540755
-      attack animation sword slice_5: -447416282
-      attack animation sword slice_4: 2065141453
+      menu font 1_2: 960909080
+      menu font 1_0: 235837254
+      menu font 1_1: 1765173411
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

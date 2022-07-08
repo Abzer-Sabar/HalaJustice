@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5f066cdec86c25746b7fcf8505fb32fe
+guid: a02800acfa03780408e75b2cdcfa94cc
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -104,13 +104,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: jump up and down_0
+      name: SilverButton700px_0
       rect:
         serializedVersion: 2
-        x: 12
-        y: 6
-        width: 143
-        height: 232
+        x: 59
+        y: 229
+        width: 603
+        height: 196
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,29 +118,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f73637ea0da8d3d40a8a74a9f89c00c5
-      internalID: -1576739660
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: jump up and down_1
-      rect:
-        serializedVersion: 2
-        x: 219
-        y: 12
-        width: 160
-        height: 226
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 713eabad09d90e94e9ca47c5d1a04905
-      internalID: 571823344
+      spriteID: 16f41bb9a599cb14093acc8438ae4614
+      internalID: -1454195940
       vertices: []
       indices: 
       edges: []
@@ -156,8 +135,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      jump up and down_0: -1576739660
-      jump up and down_1: 571823344
+      SilverButton700px_0: -1454195940
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

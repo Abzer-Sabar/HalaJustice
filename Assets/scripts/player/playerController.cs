@@ -22,6 +22,8 @@ public class playerController : MonoBehaviour
     public Transform groundCheck;
     public LayerMask whatIsGround;
     public afterImagePool afterImage;
+    public GameObject trail;
+    public GameObject DashEffect;
 
     private Rigidbody2D rb;
     private Animator animator;
@@ -51,6 +53,7 @@ public class playerController : MonoBehaviour
         rb = this.GetComponent<Rigidbody2D>();
         animator = this.GetComponent<Animator>();
         amountOfJumpsLeft = amountOfJumps;
+        trail.SetActive(false);
     }
 
     private void Update()
@@ -388,16 +391,25 @@ public class playerController : MonoBehaviour
         return isDashing;
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Trap"))
+        {
+            applyKnockBack(1);
+        }
+    }
 
     //player movement powerup
     public void applyMovementPowerup(float speed)
     {
         this.moveSpeed = speed;
+        trail.SetActive(true);
     }
 
     public void revertMovement()
     {
         this.moveSpeed = 7f;
+        trail.SetActive(false);
     }
 
 }

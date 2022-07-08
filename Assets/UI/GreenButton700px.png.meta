@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 98351f73b79861b46b60430761f50885
+guid: a150467b334cc404c88549da1979175c
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -104,13 +104,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: small trap_0
+      name: GreenButton700px_0
       rect:
         serializedVersion: 2
-        x: 7
-        y: 4
-        width: 24
-        height: 28
+        x: 58
+        y: 229
+        width: 604
+        height: 196
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,50 +118,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 72f7abadce4bf594a95cca73e9bde2fd
-      internalID: 835057123
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: small trap_1
-      rect:
-        serializedVersion: 2
-        x: 31
-        y: 4
-        width: 68
-        height: 28
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 582fb8c36efa1824da80bf3277246050
-      internalID: -427211735
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: small trap_2
-      rect:
-        serializedVersion: 2
-        x: 99
-        y: 4
-        width: 24
-        height: 28
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f5837e6e07809224bac8b60201dd97b9
-      internalID: 39696364
+      spriteID: 8688a8068a00d9140bf7f5a731922017
+      internalID: -1278702461
       vertices: []
       indices: 
       edges: []
@@ -177,9 +135,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      small trap_1: -427211735
-      small trap_2: 39696364
-      small trap_0: 835057123
+      GreenButton700px_0: -1278702461
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

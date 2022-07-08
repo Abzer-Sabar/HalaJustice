@@ -6,6 +6,7 @@ public class playerHealth : MonoBehaviour
 {
     public healthBar hb;
     public GameObject deathEffectParticle;
+    public float trapDamage = 10f;
 
     [SerializeField]
     private float maxHealth;
@@ -25,7 +26,14 @@ public class playerHealth : MonoBehaviour
         {
             Die();
         }
+
+        if (collision.gameObject.tag == "Trap")
+        {
+            takeDamage(trapDamage);
+        }
     }
+
+    
     public void takeDamage(float damage)
     {
         currentHealth -= damage;
@@ -51,4 +59,6 @@ public class playerHealth : MonoBehaviour
         hb.setHealth(currentHealth);
         Debug.Log("player has healed");
     }
+
+
 }

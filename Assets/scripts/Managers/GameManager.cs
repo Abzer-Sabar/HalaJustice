@@ -61,6 +61,7 @@ public class GameManager : MonoBehaviour
     private void pauseGame()
     {
         pauseMenu.SetActive(true);
+        FindObjectOfType<AudioManager>().play("Pause");
         Time.timeScale = 0f;
         gameIsPaused = true;
     }

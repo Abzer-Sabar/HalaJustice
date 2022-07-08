@@ -58,6 +58,7 @@ public class ItemSlot : MonoBehaviour
 
    IEnumerator consumeCoffee()
     {
+        Debug.Log("Movement increased");
         controller.applyMovementPowerup(tempMoveSpeed);
         yield return new WaitForSeconds(10);
         Debug.Log("Time up");
@@ -66,6 +67,7 @@ public class ItemSlot : MonoBehaviour
 
     IEnumerator consumeLaban()
     {
+        Debug.Log("Damage Increased");
         combat.attackPowerup(tempAttackDamage);
         yield return new WaitForSeconds(10);
         combat.revertAttackDamage();

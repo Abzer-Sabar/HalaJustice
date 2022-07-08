@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4654652587258742458}
   m_Layer: 5
   m_Name: coffe icon 1
-  m_TagString: Laban
+  m_TagString: Coffee
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
