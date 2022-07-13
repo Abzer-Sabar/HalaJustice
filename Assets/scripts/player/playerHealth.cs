@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class playerHealth : MonoBehaviour
@@ -27,13 +25,17 @@ public class playerHealth : MonoBehaviour
             Die();
         }
 
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
         if (collision.gameObject.tag == "Trap")
         {
             takeDamage(trapDamage);
         }
     }
 
-    
+
     public void takeDamage(float damage)
     {
         currentHealth -= damage;
