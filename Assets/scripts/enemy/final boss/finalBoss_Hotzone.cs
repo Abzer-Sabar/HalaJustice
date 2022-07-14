@@ -5,11 +5,11 @@ using UnityEngine;
 public class finalBoss_Hotzone : MonoBehaviour
 {
     public playerHealth health;
-    public finallBoss boss;
+    //public finallBoss boss;
 
     public float hotZoneDamage;
 
-    private bool playerInZone = false;
+    
 
 
    

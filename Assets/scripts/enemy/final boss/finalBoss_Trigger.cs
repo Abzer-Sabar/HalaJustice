@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class finalBoss_Trigger : MonoBehaviour
 {
-    public finallBoss boss;
-
+    public idleState idlestate;
+    public GameObject hotZoneEffect;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            boss.playerInSight = true;
+            idlestate.playerInSight = true;
             gameObject.SetActive(false);
+            hotZoneEffect.SetActive(true);
         }
     }
 }

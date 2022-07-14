@@ -5,12 +5,14 @@ using UnityEngine;
 public class idleState : States
 {
     public AttackState attackState;
+    
 
-    private bool playerInSight;
+    public bool playerInSight;
     public override States runCurrentState()
     {
         if (playerInSight)
         {
+            Debug.Log("player is in sight");
             return attackState;
         }
         else
@@ -18,4 +20,5 @@ public class idleState : States
             return this;
         }
     }
+
 }

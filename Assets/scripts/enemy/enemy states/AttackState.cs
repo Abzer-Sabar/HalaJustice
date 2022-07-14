@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class AttackState : States
 {
+    public bool playerInRange = false;
     public override States runCurrentState()
     {
-        throw new System.NotImplementedException();
+        Debug.Log("i have attacked the player");
+        return this;
     }
 }

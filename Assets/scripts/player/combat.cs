@@ -8,6 +8,7 @@ public class combat : MonoBehaviour
     public float attackRange = 0.2f;
     public LayerMask enemyLayers;
     public float attackDamage = 20f, attackRate = 3f;
+    public GameObject powerupEffect;
 
 
 
@@ -23,6 +24,7 @@ public class combat : MonoBehaviour
         animator = this.GetComponent<Animator>();
         pc = GetComponent<playerController>();
         ph = GetComponent<playerHealth>();
+        powerupEffect.SetActive(false);
     }
 
     private void Update()
@@ -89,10 +91,12 @@ public class combat : MonoBehaviour
     public void attackPowerup(float attackDamage)
     {
         this.attackDamage = attackDamage;
+        powerupEffect.SetActive(true);
     }
 
     public void revertAttackDamage()
     {
         this.attackDamage = 20f;
+        powerupEffect.SetActive(false);
     }
 }
