@@ -27,6 +27,7 @@ public class MainMenu : MonoBehaviour
 
     public void playSaharaHunting()
     {
+        FindObjectOfType<AudioManager>().stop("Desert Ambient");
         SceneManager.LoadScene("Sahara hunting");
     }
     public void backToMainMenu()

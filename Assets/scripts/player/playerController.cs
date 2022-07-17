@@ -24,6 +24,7 @@ public class playerController : MonoBehaviour
     public afterImagePool afterImage;
     public GameObject trail;
     public GameObject DashEffect;
+    public GameObject DashParticle;
 
     private Rigidbody2D rb;
     private Animator animator;
@@ -120,11 +121,13 @@ public class playerController : MonoBehaviour
     {
         if (isDashing)
         {
+           
             if (dashTimeLeft > 0 && isGrounded == true)
             {
                 canMove = false;
                 canFlip = false;
                 rb.velocity = new Vector2(dashSpeedGround * facingDirection, 0.0f);
+                Instantiate(DashParticle, transform.position, Quaternion.identity);
                 dashTimeLeft -= Time.deltaTime;
 
                 if (Mathf.Abs(transform.position.x - lastImageXPos) > distanceBtwImages)
@@ -140,6 +143,7 @@ public class playerController : MonoBehaviour
                     canMove = false;
                     canFlip = false;
                     rb.velocity = new Vector2(dashSpeedAir * facingDirection, 0.0f);
+                    Instantiate(DashParticle, transform.position, Quaternion.identity);
                     dashTimeLeft -= Time.deltaTime;
 
                     if (Mathf.Abs(transform.position.x - lastImageXPos) > distanceBtwImages)
