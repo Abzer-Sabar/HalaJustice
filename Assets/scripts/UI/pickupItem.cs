@@ -24,6 +24,7 @@ public class pickupItem : MonoBehaviour
                 if(inventory.isFull[i] == false)
                 {
                     //add item to inventory
+                    FindObjectOfType<AudioManager>().play("Pickup");
                     inventory.isFull[i] = true;
                     Instantiate(itemButton, inventory.slots[i].transform, false);
                     Destroy(gameObject);

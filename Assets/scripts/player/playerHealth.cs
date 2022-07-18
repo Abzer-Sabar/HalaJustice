@@ -39,6 +39,7 @@ public class playerHealth : MonoBehaviour
     public void takeDamage(float damage)
     {
         currentHealth -= damage;
+        FindObjectOfType<AudioManager>().play("Hurt");
         hb.setHealth(currentHealth);
         Debug.Log("player taking damage");
         if(currentHealth <= 0.0f)
@@ -49,6 +50,7 @@ public class playerHealth : MonoBehaviour
 
     private void Die()
     {
+        FindObjectOfType<AudioManager>().play("Die");
         Instantiate(deathEffectParticle, this.transform.position, deathEffectParticle.transform.rotation);
         Destroy(gameObject);
         Destroy(gameObject);
