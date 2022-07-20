@@ -13,6 +13,7 @@ public class MainMenu : MonoBehaviour
     private void Start()
     {
         FindObjectOfType<AudioManager>().play("Desert Ambient");
+        FindObjectOfType<AudioManager>().play("Main");
     }
     public void Exit()
     {

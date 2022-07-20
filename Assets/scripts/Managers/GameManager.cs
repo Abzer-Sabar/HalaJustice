@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     public GameObject gameplayUI;
     public GameObject startSceneUI;
     public GameObject dialogueBoxUI;
+    public GameObject portal;
+    public GameObject playerCharacter;
     public GameObject tutorialsUI;
 
     [SerializeField]
@@ -96,6 +98,7 @@ public class GameManager : MonoBehaviour
         gameplayUI.SetActive(false);
         dialogueBoxUI.SetActive(false);
         tutorialsUI.SetActive(false);
+        playerCharacter.SetActive(false);
     }
 
     private void showEverything()
@@ -104,5 +107,7 @@ public class GameManager : MonoBehaviour
         gameplayUI.SetActive(true);
         tutorialsUI.SetActive(true);
         startSceneUI.SetActive(false);
+        portal.SetActive(true);
+        playerCharacter.SetActive(true);
     }
 }

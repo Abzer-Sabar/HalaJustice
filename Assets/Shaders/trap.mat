@@ -42,7 +42,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _AlphaClip: 0
-    - _Bits: 8
+    - _Bits: 500
     - _Blend: 0
     - _CastShadows: 1
     - _Cull: 2
@@ -55,7 +55,7 @@ Material:
     - _ZWrite: 0
     - _ZWriteControl: 0
     m_Colors:
-    - _Color: {r: 1340.314, g: 1340.314, b: 1340.314, a: 1}
+    - _Color: {r: 3.2111173, g: 3.2111173, b: 3.2111173, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &3614442895727887386
 MonoBehaviour:
