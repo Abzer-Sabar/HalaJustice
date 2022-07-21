@@ -14,6 +14,7 @@ public class MainMenu : MonoBehaviour
     {
         FindObjectOfType<AudioManager>().play("Desert Ambient");
         FindObjectOfType<AudioManager>().play("Main");
+       
     }
     public void Exit()
     {
@@ -30,6 +31,7 @@ public class MainMenu : MonoBehaviour
     {
         FindObjectOfType<AudioManager>().stop("Desert Ambient");
         SceneManager.LoadScene("Sahara hunting");
+        FindObjectOfType<AudioManager>().stop("Main");
     }
     public void backToMainMenu()
     {
