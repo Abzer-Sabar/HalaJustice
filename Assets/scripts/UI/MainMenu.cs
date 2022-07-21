@@ -7,13 +7,15 @@ public class MainMenu : MonoBehaviour
 {
     public GameObject selectLevelMenu;
     public float transitionTime;
-
+    public GameObject flames;
     public Animator animator;
 
     private void Start()
     {
+        flames.SetActive(false);
         FindObjectOfType<AudioManager>().play("Desert Ambient");
         FindObjectOfType<AudioManager>().play("Main");
+        StartCoroutine(startFlames());
     }
     public void Exit()
     {
@@ -35,10 +37,12 @@ public class MainMenu : MonoBehaviour
     {
         selectLevelMenu.SetActive(false);
     }
-    IEnumerator Transition(float time)
+    IEnumerator startFlames()
     {
-        animator.SetTrigger("End");
-        yield return new WaitForSeconds(time);
-        selectLevelMenu.SetActive(true);
+        yield return new WaitForSeconds(3f);
+        FindObjectOfType<AudioManager>().play("FireStart");
+        flames.SetActive(true);
+        yield return new WaitForSeconds(5f);
+        FindObjectOfType<AudioManager>().play("FireBurning");
     }
 }
