@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 78539b9e182f84c449812759365d8b15
+=======
+guid: 75576e5cbeaba324b91e7f79d6980f9e
+>>>>>>> parent of 3f03115 (Revert "temp update 10")
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
