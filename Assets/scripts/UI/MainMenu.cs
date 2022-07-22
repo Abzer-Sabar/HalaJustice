@@ -7,12 +7,13 @@ public class MainMenu : MonoBehaviour
 {
     public GameObject selectLevelMenu;
     public float transitionTime;
-    public GameObject flames;
+    public GameObject flames, flamesParticles;
     public Animator animator;
 
     private void Start()
     {
         flames.SetActive(false);
+        flamesParticles.SetActive(false);
         FindObjectOfType<AudioManager>().play("Desert Ambient");
         FindObjectOfType<AudioManager>().play("Main");
         StartCoroutine(startFlames());
@@ -31,6 +32,7 @@ public class MainMenu : MonoBehaviour
     public void playSaharaHunting()
     {
         FindObjectOfType<AudioManager>().stop("Desert Ambient");
+        //FindObjectOfType<AudioManager>().stop("Main");
         SceneManager.LoadScene("Sahara hunting");
     }
     public void backToMainMenu()
@@ -39,9 +41,10 @@ public class MainMenu : MonoBehaviour
     }
     IEnumerator startFlames()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(2f);
         FindObjectOfType<AudioManager>().play("FireStart");
         flames.SetActive(true);
+        flamesParticles.SetActive(true);
         yield return new WaitForSeconds(5f);
         FindObjectOfType<AudioManager>().play("FireBurning");
     }
