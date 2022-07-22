@@ -49,39 +49,40 @@ public class GameManager : MonoBehaviour
             }
         }
 
-       /* if (!StartGame)
+        /*if (!StartGame)
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 showEverything();
+                startDialogue();
                 TriggerDialogue();
                 StartGame = true;
             }
         }*/
     }
 
-    private void pauseGame()
+    private void pauseGame() //button function
     {
         pauseMenu.SetActive(true);
         FindObjectOfType<AudioManager>().play("Pause");
         Time.timeScale = 0f;
         gameIsPaused = true;
     }
-    public void resumeGame()
+    public void resumeGame() //button function
     {
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
         gameIsPaused = false;
     }
 
-    public void reloadScene()
+    public void reloadScene() //button function
     {
         Time.timeScale = 1f;
         Scene scene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(scene.name);
     }
 
-    public void mainMenu()
+    public void mainMenu() //button function
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene("Main Menu");
@@ -103,11 +104,18 @@ public class GameManager : MonoBehaviour
 
     private void showEverything()
     {
-        dialogueBoxUI.SetActive(true);
         gameplayUI.SetActive(true);
         tutorialsUI.SetActive(true);
         startSceneUI.SetActive(false);
         portal.SetActive(true);
         playerCharacter.SetActive(true);
     }
+
+    private void startDialogue()
+    {
+        dialogueBoxUI.SetActive(true);
+        LeanTween.scale(dialogueBoxUI, new Vector3(0f, 0f, 0f), 0.5f);
+    }
+
+
 }

@@ -233,6 +233,7 @@ GameObject:
   - component: {fileID: 5204818903370674184}
   - component: {fileID: 5204818903370674186}
   - component: {fileID: 5204818903370674185}
+  - component: {fileID: 1146386432619057132}
   m_Layer: 0
   m_Name: laban up
   m_TagString: Laban
@@ -296,3 +297,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 10.565939, y: 16.305447}
   m_EdgeRadius: 0
+--- !u!114 &1146386432619057132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5204818903370674189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b85e8a799f8bd7044b72fcbafd24f134, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BounceHeight: 0
+  bounceTime: 0

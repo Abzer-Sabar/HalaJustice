@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5307915524767572744}
   - component: {fileID: 6349824744932441509}
   - component: {fileID: 6349824744932441504}
+  - component: {fileID: 5988937969918476010}
   m_Layer: 0
   m_Name: 'DATE '
   m_TagString: Laban
@@ -74,6 +75,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemButton: {fileID: 52020513589236384, guid: fea13515e49b1b54b90edf308a771031, type: 3}
+--- !u!114 &5988937969918476010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3314780030575548706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b85e8a799f8bd7044b72fcbafd24f134, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BounceHeight: 0
+  bounceTime: 0
 --- !u!1 &6003238269672945200
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class BounceScript : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public float BounceHeight, bounceTime;
 
-    // Update is called once per frame
-    void Update()
+    private float yValue;
+
+  
+    private void OnEnable()
     {
-        
+        LeanTween.moveY(gameObject, BounceHeight, bounceTime).setLoopPingPong();
     }
 }
