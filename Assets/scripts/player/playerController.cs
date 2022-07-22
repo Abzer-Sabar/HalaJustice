@@ -127,7 +127,7 @@ public class playerController : MonoBehaviour
                 canMove = false;
                 canFlip = false;
                 rb.velocity = new Vector2(dashSpeedGround * facingDirection, 0.0f);
-                Instantiate(DashParticle, transform.position, Quaternion.identity);
+                
                 dashTimeLeft -= Time.deltaTime;
 
                 if (Mathf.Abs(transform.position.x - lastImageXPos) > distanceBtwImages)
@@ -143,7 +143,7 @@ public class playerController : MonoBehaviour
                     canMove = false;
                     canFlip = false;
                     rb.velocity = new Vector2(dashSpeedAir * facingDirection, 0.0f);
-                    Instantiate(DashParticle, transform.position, Quaternion.identity);
+                   
                     dashTimeLeft -= Time.deltaTime;
 
                     if (Mathf.Abs(transform.position.x - lastImageXPos) > distanceBtwImages)

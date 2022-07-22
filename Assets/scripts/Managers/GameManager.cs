@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     public Dialogues dialogue;
     public GameObject gameplayUI;
     public GameObject startSceneUI;
-    public GameObject dialogueBoxUI;
+    public GameObject messages, introDialogueBox;
     public GameObject portal;
     public GameObject playerCharacter;
     public GameObject tutorialsUI;
@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         camera = GameObject.Find("player Camera").GetComponent<CinemachineVirtualCamera>();
-        //HideEverything();
+        HideEverything();
     }
     public void respawn()
     {
@@ -49,16 +49,16 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        /*if (!StartGame)
+        if (!StartGame)
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 showEverything();
-                startDialogue();
+                startIntro();
                 TriggerDialogue();
                 StartGame = true;
             }
-        }*/
+        }
     }
 
     private void pauseGame() //button function
@@ -97,9 +97,10 @@ public class GameManager : MonoBehaviour
     {
         startSceneUI.SetActive(true);
         gameplayUI.SetActive(false);
-        dialogueBoxUI.SetActive(false);
+        messages.SetActive(false);
         tutorialsUI.SetActive(false);
         playerCharacter.SetActive(false);
+        portal.SetActive(false);
     }
 
     private void showEverything()
@@ -107,15 +108,27 @@ public class GameManager : MonoBehaviour
         gameplayUI.SetActive(true);
         tutorialsUI.SetActive(true);
         startSceneUI.SetActive(false);
-        portal.SetActive(true);
-        playerCharacter.SetActive(true);
+        messages.SetActive(true);
+        //portal.SetActive(true);
+         playerCharacter.SetActive(true);
     }
 
-    private void startDialogue()
+    private void startIntro()
     {
-        dialogueBoxUI.SetActive(true);
-        LeanTween.scale(dialogueBoxUI, new Vector3(0f, 0f, 0f), 0.5f);
+        LeanTween.scale(introDialogueBox, new Vector3(1f, 1f, 1f), 1f).setDelay(0.5f).setEase(LeanTweenType.easeOutElastic);
     }
+
+    public void finishIntro()
+    {
+        LeanTween.scale(introDialogueBox, new Vector3(0f, 0f, 0f), 1f).setDelay(0.5f).setEase(LeanTweenType.easeOutElastic).setOnComplete(openPortal);
+    }
+
+    void openPortal()
+    {
+        portal.SetActive(true);
+        LeanTween.scale(portal, new Vector3(5.47f, 5.47f, 5.47f), 2f).setDelay(0.5f);
+    }
+
 
 
 }

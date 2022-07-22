@@ -8,7 +8,7 @@ using TMPro;
 public class DialogueSystem : MonoBehaviour
 {
     public TextMeshProUGUI dialogueText;
-
+    public GameManager gameManager;
 
     private Queue<string> sentences;
 
@@ -36,6 +36,7 @@ public class DialogueSystem : MonoBehaviour
     {
         if(sentences.Count == 0)
         {
+            gameManager.finishIntro();
             return;
         }
         string sentence = sentences.Dequeue();

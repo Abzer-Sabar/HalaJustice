@@ -82,7 +82,7 @@ public class SmallEnemy : MonoBehaviour
         {
             speed = moveSpeed;
         }
-            touchDamage();
+           // touchDamage();
 
     }
 
