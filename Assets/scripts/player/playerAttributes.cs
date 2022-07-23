@@ -14,7 +14,7 @@ public class playerAttributes : MonoBehaviour
 
     private float currentTime;
 
-    private bool stopWatchActive = true;
+    private bool stopWatchActive = false, TimerStart = false;
     private int goldAmount;
     private int[] possibleGoldAmounts = {10, 11, 15};
 
@@ -30,8 +30,12 @@ public class playerAttributes : MonoBehaviour
         {
             currentTime = currentTime + Time.deltaTime;
         }
+
+        if(TimerStart == true)
+        {
         TimeSpan time = TimeSpan.FromSeconds(currentTime);
         stopWatchText.text = time.ToString(@"mm\:ss");
+        }
     }
     public void startStopWatch()
     {
@@ -41,6 +45,11 @@ public class playerAttributes : MonoBehaviour
     public void stopStopWatch()
     {
         stopWatchActive = true;
+    }
+
+    public void startTimer()
+    {
+        TimerStart = true;
     }
     public void setGold()
     {

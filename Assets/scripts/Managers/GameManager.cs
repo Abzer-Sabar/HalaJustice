@@ -7,11 +7,11 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public Dialogues dialogue;
+    public playerAttributes playerAtt;
     public GameObject gameplayUI;
     public GameObject startSceneUI;
     public GameObject messages, introDialogueBox;
     public GameObject portal;
-    public GameObject playerCharacter;
     public GameObject tutorialsUI;
 
     [SerializeField]
@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         camera = GameObject.Find("player Camera").GetComponent<CinemachineVirtualCamera>();
-        HideEverything();
+        //HideEverything();
     }
     public void respawn()
     {
@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        if (!StartGame)
+       /* if (!StartGame)
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
@@ -58,7 +58,7 @@ public class GameManager : MonoBehaviour
                 TriggerDialogue();
                 StartGame = true;
             }
-        }
+        }*/
     }
 
     private void pauseGame() //button function
@@ -99,8 +99,8 @@ public class GameManager : MonoBehaviour
         gameplayUI.SetActive(false);
         messages.SetActive(false);
         tutorialsUI.SetActive(false);
-        playerCharacter.SetActive(false);
         portal.SetActive(false);
+        //player.SetActive(false);
     }
 
     private void showEverything()
@@ -110,7 +110,7 @@ public class GameManager : MonoBehaviour
         startSceneUI.SetActive(false);
         messages.SetActive(true);
         //portal.SetActive(true);
-         playerCharacter.SetActive(true);
+        
     }
 
     private void startIntro()
@@ -126,7 +126,15 @@ public class GameManager : MonoBehaviour
     void openPortal()
     {
         portal.SetActive(true);
-        LeanTween.scale(portal, new Vector3(5.47f, 5.47f, 5.47f), 2f).setDelay(0.5f);
+        LeanTween.scale(portal, new Vector3(5.47f, 5.47f, 5.47f), 3f).setDelay(0.5f).setOnComplete(spawnPlayer);
+    }
+
+    void spawnPlayer()
+    {
+        player.SetActive(true);
+        LeanTween.scale(player, new Vector3(1f, 1f, 1f), 0f);
+        playerAtt.stopStopWatch();
+        playerAtt.startTimer();
     }
 
 
