@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         camera = GameObject.Find("player Camera").GetComponent<CinemachineVirtualCamera>();
-        //HideEverything();
+       // HideEverything();
     }
     public void respawn()
     {
