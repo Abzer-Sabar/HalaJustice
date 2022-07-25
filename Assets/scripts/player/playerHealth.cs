@@ -10,9 +10,12 @@ public class playerHealth : MonoBehaviour
     private float maxHealth;
 
     private float currentHealth;
+    private float damageReduction = 0f;
 
+    private combat playerCombat;
     private void Start()
     {
+        playerCombat = this.GetComponent<combat>();
         currentHealth = 80;
         hb.setMaxHealth(maxHealth);
         hb.setHealth(currentHealth);
@@ -38,7 +41,8 @@ public class playerHealth : MonoBehaviour
 
     public void takeDamage(float damage)
     {
-        currentHealth -= damage;
+        float damageTaken = damage - damageReduction;
+        currentHealth -= damageTaken;
         FindObjectOfType<AudioManager>().play("Hurt");
         hb.setHealth(currentHealth);
         Debug.Log("player taking damage");
@@ -62,6 +66,22 @@ public class playerHealth : MonoBehaviour
         currentHealth += heal;
         hb.setHealth(currentHealth);
         Debug.Log("player has healed");
+    }
+
+    //Armor Upgrade Funtions
+
+    public void silverArmor()
+    {
+        damageReduction = 5f;
+        playerCombat.increaseAttackDamage = 10;
+        Debug.Log("Player has equipped silver armor");
+    }
+
+    public void GoldArmor()
+    {
+        damageReduction = 10f;
+        playerCombat.increaseAttackDamage = 15f;
+        Debug.Log("Player has equipped gold armor");
     }
 
 

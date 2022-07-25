@@ -8,8 +8,5 @@ public class playerInventory : MonoBehaviour
     
     public GameObject[] slots;
 
-    public void consumeDate()
-    {
-
-    }
+   
 }

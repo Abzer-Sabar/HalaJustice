@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class combat : MonoBehaviour
 {
+    [HideInInspector]
+    public float increaseAttackDamage = 0f;
+
     public Transform attackPoint;
     public float attackRange = 0.2f;
     public LayerMask enemyLayers;
@@ -49,7 +52,7 @@ public class combat : MonoBehaviour
     {
 
             Collider2D[] hit = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
-            attackDetails[0] = attackDamage;
+            attackDetails[0] = attackDamage + increaseAttackDamage;
             attackDetails[1] = transform.position.x;
             foreach (Collider2D enemy in hit)
             {

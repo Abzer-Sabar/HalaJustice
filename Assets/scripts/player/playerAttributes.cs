@@ -20,7 +20,8 @@ public class playerAttributes : MonoBehaviour
     private float currentTime;
 
     private bool stopWatchActive = false, TimerStart = false;
-    private int goldAmount;
+    
+    public  int goldAmount;
     private int[] possibleGoldAmounts = {10, 11, 15};
 
     private void Start()
@@ -93,15 +94,4 @@ public class playerAttributes : MonoBehaviour
         LeanTween.scale(artifactDialogueBox, new Vector3(0f, 0f, 0f), 0.3f).setEase(LeanTweenType.easeOutElastic);
     }
 
-    public void buyDates()
-    {
-        if(goldAmount >= datePrice)
-        {
-            Instantiate(datePrefab, transform.position, Quaternion.identity);
-        }
-        else
-        {
-            Debug.Log("Not enough Gold");
-        }
-    }
 }
