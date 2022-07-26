@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class enemy : MonoBehaviour
 {
+    public int goldAmount = 5;
+
     [SerializeField]
     private playerAttributes playerAtt;
 
@@ -227,7 +229,7 @@ public class enemy : MonoBehaviour
 
     private void EnterDead()
     {
-        playerAtt.setGold();
+        playerAtt.setGold(goldAmount);
         Instantiate(deathEffectParticle, body.transform.position, deathEffectParticle.transform.rotation);
         Destroy(gameObject);
     }

@@ -22,6 +22,7 @@ public class playerAttributes : MonoBehaviour
     private bool stopWatchActive = false, TimerStart = false;
     
     public  int goldAmount;
+    public int goldMultiplier = 1;
     private int[] possibleGoldAmounts = {10, 11, 15};
 
     private void Start()
@@ -68,12 +69,12 @@ public class playerAttributes : MonoBehaviour
     {
         TimerStart = true;
     }
-    public void setGold()
+    public void setGold(int gold)
     {
-        int length = possibleGoldAmounts.Length;
-        int index = UnityEngine.Random.Range(0, length);
-
-        goldAmount += possibleGoldAmounts[index];
+        //int length = possibleGoldAmounts.Length;
+        //int index = UnityEngine.Random.Range(0, length);
+        goldAmount = gold * goldMultiplier;
+        //goldAmount += possibleGoldAmounts[index];
 
         goldText.text = "" + goldAmount;
     }

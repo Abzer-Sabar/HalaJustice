@@ -123,7 +123,7 @@ public class EnemyPatrol : MonoBehaviour
     {
         anim.SetTrigger("die");
         this.enabled = false;
-        playerAtt.setGold();
+        //playerAtt.setGold();
         StartCoroutine(killGameObject());
         Debug.Log("Enemy died");
     }

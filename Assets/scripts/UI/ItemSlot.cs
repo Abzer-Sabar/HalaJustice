@@ -12,11 +12,13 @@ public class ItemSlot : MonoBehaviour
     public int i;
 
     private float tempMoveSpeed = 10f, tempAttackDamage = 40;
+    private playerAttributes playerAtt;
 
 
     private void Start()
     {
         inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<playerInventory>();
+        playerAtt = GameObject.FindGameObjectWithTag("Player").GetComponent<playerAttributes>();
     }
 
     private void Update()
@@ -47,6 +49,13 @@ public class ItemSlot : MonoBehaviour
                     StartCoroutine(consumeLaban());
                     Destroy(child.gameObject);
                 }
+
+                if (child.CompareTag("Tea"))
+                {
+                    StartCoroutine(consumeTea());
+                    Destroy(child.gameObject);
+                }
+
             }
         }
     }
@@ -71,5 +80,18 @@ public class ItemSlot : MonoBehaviour
         combat.attackPowerup(tempAttackDamage);
         yield return new WaitForSeconds(10);
         combat.revertAttackDamage();
+    }
+
+    IEnumerator consumeTea()
+    {
+        Debug.Log("Gold is doubled");
+        playerAtt.goldMultiplier = 2;
+        yield return new WaitForSeconds(10f);
+        revertGoldMultiplier();
+    }
+
+    private void revertGoldMultiplier()
+    {
+        playerAtt.goldMultiplier = 1;
     }
 }

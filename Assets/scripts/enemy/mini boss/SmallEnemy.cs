@@ -11,7 +11,7 @@ public class SmallEnemy : MonoBehaviour
     public float attackDistance; //Minimum distance for attack
     public float moveSpeed, maxHealth;
     public float timer; //Timer for cooldown between attacks
-    public int playerDamage;
+    public int playerDamage, goldAmount = 30;
     public GameObject hotZone, triggerArea;
     public playerAttributes playerAtt;
     [HideInInspector]public bool inRange;
@@ -236,7 +236,7 @@ public class SmallEnemy : MonoBehaviour
     {
         anim.SetTrigger("die");
         this.enabled = false;
-        playerAtt.setGold();
+        playerAtt.setGold(goldAmount);
         Instantiate(deathEffect, this.transform.position, deathEffect.transform.rotation);
         Destroy(gameObject);
         Debug.Log("Enemy died");

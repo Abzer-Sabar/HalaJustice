@@ -12,6 +12,7 @@ TagManager:
   - Trap
   - Rock
   - Dagger
+  - Tea
   layers:
   - Default
   - TransparentFX
