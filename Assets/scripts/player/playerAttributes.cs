@@ -79,6 +79,12 @@ public class playerAttributes : MonoBehaviour
         goldText.text = "" + goldAmount;
     }
 
+    public void deductGold(int gold)
+    {
+        goldAmount = gold;
+        goldText.text = "" + goldAmount;
+    }
+
     private void openDialogue()
     {
         LeanTween.scale(artifactDialogueBox, new Vector3(1f, 1f, 1f), 0.3f).setEase(LeanTweenType.easeInElastic);

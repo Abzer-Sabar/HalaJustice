@@ -14,10 +14,15 @@ public class ItemShop : MonoBehaviour
     public string notEnoughGold, inventoryFull;
 
     private playerInventory inventory;
+    private playerAttributes playerAtt;
+    private Vector3 finalPos, startPos;
 
-
+    //item shop ui elements
+    public GameObject dateIcon, labanIcon, coffeeIcon, teaIcon, silverArmorIcon, goldArmorIcon;
     private void Start()
     {
+        finalPos = new Vector3(Screen.width * 0.5f, Screen.height * 0.5f, 0);
+        startPos = new Vector3(Screen.width * 0.5f, 6f, 0);
         inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<playerInventory>();
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -39,13 +44,21 @@ public class ItemShop : MonoBehaviour
     private void openShop()
     {
 
-        LeanTween.scale(itemShopUI, new Vector3(1f, 1f, 1f), 0.3f).setEase(inType);
-       
+        // LeanTween.scale(itemShopUI, new Vector3(1f, 1f, 1f), 0.3f).setEase(inType);
+        LeanTween.move(itemShopUI, finalPos, 0.3f).setEase(LeanTweenType.easeOutQuad);
+        LeanTween.alpha(itemShopUI.GetComponent<RectTransform>(), 1f, 0.3f).setDelay(0f).setEase(LeanTweenType.easeInBack).setOnComplete(openShopElements);
     }
 
     private void closeShop()
     {
-        LeanTween.scale(itemShopUI, new Vector3(0f, 0f, 0f), 0.5f).setDelay(0.3f).setEase(outType);
+        //LeanTween.scale(itemShopUI, new Vector3(0f, 0f, 0f), 0.5f).setDelay(0.3f).setEase(outType);
+        LeanTween.move(itemShopUI, startPos, 0.3f).setEase(LeanTweenType.easeOutQuad);
+        LeanTween.alpha(itemShopUI.GetComponent<RectTransform>(), 0f, 0.3f).setDelay(0f).setEase(LeanTweenType.easeInBack);
+    }
+
+    private void openShopElements()
+    {
+        LeanTween.scale(dateIcon, new Vector3(1f, 1f, 1f), 0.3f).setEase(inType);
     }
 
     private void failedPurchaseUIOpen(string text)

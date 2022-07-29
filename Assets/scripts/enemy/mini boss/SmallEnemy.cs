@@ -7,24 +7,24 @@ public class SmallEnemy : MonoBehaviour
 {
     #region Public Variables
     public Transform rightLimit, leftLimit;
-    public float rayCastLength;
-    public float attackDistance; //Minimum distance for attack
-    public float moveSpeed, maxHealth;
-    public float timer; //Timer for cooldown between attacks
-    public int playerDamage, goldAmount = 30;
+    public float rayCastLength = 6f;
+    public float attackDistance = 1f; //Minimum distance for attack
+    public float moveSpeed = 2f, maxHealth = 100f;
+    public float timer = 2f; //Timer for cooldown between attacks
+    public int playerDamage = 10, goldAmount = 30;
     public GameObject hotZone, triggerArea;
     public playerAttributes playerAtt;
     [HideInInspector]public bool inRange;
     [HideInInspector]public Transform target;
 
     //recent changes
-    public float range, attackCooldown, colliderDistance;
+    public float range = 2.5f, attackCooldown = 2f, colliderDistance = 0.19f;
     public BoxCollider2D boxCollider;
     public enemyHealthBar enemyHealthBar;
     public GameObject deathEffect;
 
-    public float DamageCooldown, lastDamageTime, damageAreaWidth, damageAreaHeight, touchdamage, speed;
-    public Transform damageCheck;
+    public float DamageCooldown = 0.2f, lastDamageTime, damageAreaWidth = 0.64f, damageAreaHeight = 1.55f, touchdamage = 1, speed;
+   // public Transform damageCheck;
     public LayerMask whatIsPlayer;
     private Vector2 damageBotLeft, damageTopRight;
     private float[] attackDetails = new float[2];
@@ -87,7 +87,7 @@ public class SmallEnemy : MonoBehaviour
     }
 
 
-    private void touchDamage()
+   /* private void touchDamage()
     {
         if (Time.time >= DamageCooldown + lastDamageTime)
         {
@@ -105,7 +105,7 @@ public class SmallEnemy : MonoBehaviour
                 hit.transform.SendMessage("Damage", attackDetails);
             }
         }
-    }
+    }*/
 
     public void selectTarget()
     {
@@ -225,7 +225,6 @@ public class SmallEnemy : MonoBehaviour
         currentHealth -= attackDetails[0];
         enemyHealthBar.setHealth(currentHealth, maxHealth);
         Debug.Log("You have damaged me!");
-
         if (currentHealth <= 0.0f)
         {
             die();
@@ -246,15 +245,15 @@ public class SmallEnemy : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Vector2 botRight = new Vector2(damageCheck.position.x + (damageAreaWidth / 2), damageCheck.position.y - (damageAreaHeight / 2));
-        Vector2 botLeft = new Vector2(damageCheck.position.x - (damageAreaWidth / 2), damageCheck.position.y - (damageAreaHeight / 2));
-        Vector2 topRight = new Vector2(damageCheck.position.x + (damageAreaWidth / 2), damageCheck.position.y + (damageAreaHeight / 2));
-        Vector2 topLeft = new Vector2(damageCheck.position.x - (damageAreaWidth / 2), damageCheck.position.y + (damageAreaHeight / 2));
+        //Vector2 botRight = new Vector2(damageCheck.position.x + (damageAreaWidth / 2), damageCheck.position.y - (damageAreaHeight / 2));
+       // Vector2 botLeft = new Vector2(damageCheck.position.x - (damageAreaWidth / 2), damageCheck.position.y - (damageAreaHeight / 2));
+       // Vector2 topRight = new Vector2(damageCheck.position.x + (damageAreaWidth / 2), damageCheck.position.y + (damageAreaHeight / 2));
+       // Vector2 topLeft = new Vector2(damageCheck.position.x - (damageAreaWidth / 2), damageCheck.position.y + (damageAreaHeight / 2));
 
-        Gizmos.DrawLine(botLeft, botRight);
-        Gizmos.DrawLine(botRight, topRight);
-        Gizmos.DrawLine(topRight, topLeft);
-        Gizmos.DrawLine(topLeft, botLeft);
+        //Gizmos.DrawLine(botLeft, botRight);
+       // Gizmos.DrawLine(botRight, topRight);
+        //Gizmos.DrawLine(topRight, topLeft);
+        //Gizmos.DrawLine(topLeft, botLeft);
     }
 
     private bool PlayerInSight()

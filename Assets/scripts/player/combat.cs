@@ -57,6 +57,7 @@ public class combat : MonoBehaviour
             foreach (Collider2D enemy in hit)
             {
                 enemy.transform.parent.SendMessage("Damage", attackDetails);
+            //Debug.Log("Attack damage is: " + increaseAttackDamage);
             }
             
 

@@ -13,6 +13,7 @@ TagManager:
   - Rock
   - Dagger
   - Tea
+  - Rocks
   layers:
   - Default
   - TransparentFX

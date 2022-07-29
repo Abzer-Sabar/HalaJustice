@@ -1,0 +1,870 @@
+fileFormatVersion: 2
+guid: 3ae6d490019ed964aa07becfe340a1ee
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: cave boss knight spritesheet animation_0
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 676
+        width: 99
+        height: 91
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43c260e7acfa9f64cbb9f5a13b08b832
+      internalID: -916642927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cave boss knight spritesheet animation_1
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 676
+        width: 90
+        height: 87
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 144a8775d329c4444aa19bd6507b9819
+      internalID: 1617606273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cave boss knight spritesheet animation_2
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 676
+        width: 97
+        height: 86
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35617463644bafd47a330a01a61b417e
+      internalID: -658256584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cave boss knight spritesheet animation_3
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 676
+        width: 97
+        height: 87
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51a498bf7a8996242b3f49244bc0b8e8
+      internalID: -1845945304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cave boss knight spritesheet animation_4
+      rect:
+        serializedVersion: 2
+        x: 596
+        y: 676
+        width: 95
+        height: 83
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08039c21f5837f841877aacd7bfdd0de
+      internalID: -2119219043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cave boss knight spritesheet animation_5
+      rect:
+        serializedVersion: 2
+        x: 713
+        y: 676
+        width: 95
+        height: 86
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b74f9d257319aa144968dca0c170840e
+      internalID: 95183952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cave boss knight spritesheet animation_6
+      rect:
+        serializedVersion: 2
+        x: 855
+        y: 675
+        width: 92
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 156851c2992e5ca4fad6be752175ddec
+      internalID: -1561740979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cave boss knight spritesheet animation_7
+      rect:
+        serializedVersion: 2
+        x: 982
+        y: 676
+        width: 83
+        height: 109
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb5166027e059474a8097efaa8b5f09c
+      internalID: 1516829308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cave boss knight spritesheet animation_8
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 528
+        width: 82
+        height: 110
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: feb7e004cb927204583e4344da40ba4c
+      internalID: -1778552013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cave boss knight spritesheet animation_9
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 528
+        width: 82
+        height: 109
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 185eef4531aa0ac4d8c30b2d8176bfd2
+      internalID: 1133756695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cave boss knight spritesheet animation_10
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 528
+        width: 84
+        height: 112
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8cbf9698414e17348b9f62d8258a8fa4
+      internalID: 1969804918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cave boss knight spritesheet animation_11
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 528
+        width: 70
+        height: 112
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d2db13a82f15f14f89011d05c7aa0ff
+      internalID: 827367627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cave boss knight spritesheet animation_12
+      rect:
+        serializedVersion: 2
+        x: 487
+        y: 528
+        width: 57
+        height: 111
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 333ee7ebacacf1a45b64c9c0aff4d481
+      internalID: -1562965658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cave boss knight spritesheet animation_13
+      rect:
+        serializedVersion: 2
+        x: 578
+        y: 528
+        width: 62
+        height: 110
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42b51b8c4568aa647a5eb74a29269bd9
+      internalID: -1175146007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cave boss knight spritesheet animation_14
+      rect:
+        serializedVersion: 2
+        x: 675
+        y: 528
+        width: 53
+        height: 109
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 690d806ea2b877243b6c8f16095c4d98
+      internalID: 1805858747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cave boss knight spritesheet animation_15
+      rect:
+        serializedVersion: 2
+        x: 763
+        y: 528
+        width: 56
+        height: 109
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af047f24dee724a49aa8d63e939c2425
+      internalID: 1126283403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cave boss knight spritesheet animation_16
+      rect:
+        serializedVersion: 2
+        x: 856
+        y: 528
+        width: 53
+        height: 111
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49850a9ab208c36438db4569d24b84f4
+      internalID: 1166702669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cave boss knight spritesheet animation_17
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 366
+        width: 58
+        height: 113
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44f0a2c9d37ac6248b05ea0bff51b3c0
+      internalID: -1725661354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cave boss knight spritesheet animation_18
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 366
+        width: 68
+        height: 112
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f43d93563e2d024f80b1d6748b37399
+      internalID: -415340187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cave boss knight spritesheet animation_19
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 366
+        width: 86
+        height: 112
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f82e5aa7d3447e940a3119d31f9d5fe0
+      internalID: 827931263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cave boss knight spritesheet animation_20
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 366
+        width: 70
+        height: 130
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13b7b8ef477dc4445a274c2d56eb3dd4
+      internalID: 1676545013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cave boss knight spritesheet animation_21
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 366
+        width: 66
+        height: 132
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c047ba12d07942d4fbac1eac971849c0
+      internalID: 1322349443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cave boss knight spritesheet animation_22
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 196
+        width: 71
+        height: 130
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b43669b4df713b489809dde5eaa193a
+      internalID: -1426695465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cave boss knight spritesheet animation_23
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 196
+        width: 68
+        height: 132
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a7f199e360ac1f44a82b7d1b664ace7
+      internalID: -1708815672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cave boss knight spritesheet animation_24
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 196
+        width: 64
+        height: 129
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78f4e6077e8f66d4fba52c1afe810255
+      internalID: -734885640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cave boss knight spritesheet animation_25
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 196
+        width: 66
+        height: 127
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3d30015b2612774eb3125609fcaf3bd
+      internalID: 31771270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cave boss knight spritesheet animation_26
+      rect:
+        serializedVersion: 2
+        x: 469
+        y: 196
+        width: 67
+        height: 127
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e37394dcd13c06146a4bd744fb6892e5
+      internalID: 505642298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cave boss knight spritesheet animation_27
+      rect:
+        serializedVersion: 2
+        x: 565
+        y: 196
+        width: 68
+        height: 127
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba3b8f5bfda0886488b1a24920c6abb2
+      internalID: -831247782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cave boss knight spritesheet animation_28
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 27
+        width: 66
+        height: 129
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc3ff69d9103dd1458bb2a3e1399cfc5
+      internalID: 250637614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cave boss knight spritesheet animation_29
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 27
+        width: 64
+        height: 134
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 983cdf5f3e9cb1449aab56547a9a7496
+      internalID: 1863488748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cave boss knight spritesheet animation_30
+      rect:
+        serializedVersion: 2
+        x: 251
+        y: 27
+        width: 64
+        height: 131
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fae340888e2e334aaf7c8726e88b871
+      internalID: -545168701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cave boss knight spritesheet animation_31
+      rect:
+        serializedVersion: 2
+        x: 363
+        y: 27
+        width: 76
+        height: 131
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b70e5fc4043e434baa5f80d5b188fb0
+      internalID: -2002563011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cave boss knight spritesheet animation_32
+      rect:
+        serializedVersion: 2
+        x: 474
+        y: 27
+        width: 119
+        height: 121
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25386331ccf76284eadb4e0eccdc4c23
+      internalID: -715748916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cave boss knight spritesheet animation_33
+      rect:
+        serializedVersion: 2
+        x: 619
+        y: 27
+        width: 72
+        height: 131
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b784cc7aa52632418b5a0fa5cf4cffa
+      internalID: -1668836860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      cave boss knight spritesheet animation_11: 827367627
+      cave boss knight spritesheet animation_31: -2002563011
+      cave boss knight spritesheet animation_3: -1845945304
+      cave boss knight spritesheet animation_30: -545168701
+      cave boss knight spritesheet animation_2: -658256584
+      cave boss knight spritesheet animation_19: 827931263
+      cave boss knight spritesheet animation_27: -831247782
+      cave boss knight spritesheet animation_8: -1778552013
+      cave boss knight spritesheet animation_25: 31771270
+      cave boss knight spritesheet animation_20: 1676545013
+      cave boss knight spritesheet animation_6: -1561740979
+      cave boss knight spritesheet animation_13: -1175146007
+      cave boss knight spritesheet animation_1: 1617606273
+      cave boss knight spritesheet animation_14: 1805858747
+      cave boss knight spritesheet animation_10: 1969804918
+      cave boss knight spritesheet animation_7: 1516829308
+      cave boss knight spritesheet animation_9: 1133756695
+      cave boss knight spritesheet animation_5: 95183952
+      cave boss knight spritesheet animation_23: -1708815672
+      cave boss knight spritesheet animation_15: 1126283403
+      cave boss knight spritesheet animation_18: -415340187
+      cave boss knight spritesheet animation_4: -2119219043
+      cave boss knight spritesheet animation_26: 505642298
+      cave boss knight spritesheet animation_29: 1863488748
+      cave boss knight spritesheet animation_0: -916642927
+      cave boss knight spritesheet animation_24: -734885640
+      cave boss knight spritesheet animation_17: -1725661354
+      cave boss knight spritesheet animation_16: 1166702669
+      cave boss knight spritesheet animation_21: 1322349443
+      cave boss knight spritesheet animation_22: -1426695465
+      cave boss knight spritesheet animation_33: -1668836860
+      cave boss knight spritesheet animation_32: -715748916
+      cave boss knight spritesheet animation_12: -1562965658
+      cave boss knight spritesheet animation_28: 250637614
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
