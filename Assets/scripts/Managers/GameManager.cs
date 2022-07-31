@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 using UnityEngine.SceneManagement;
+using TMPro;
+using System;
 
 public class GameManager : MonoBehaviour
 {
@@ -19,15 +21,28 @@ public class GameManager : MonoBehaviour
 
     [SerializeField]
     private GameObject player, pauseMenu;
+    [SerializeField]
+    private TextMeshProUGUI goldText;
+    [SerializeField]
+    private TextMeshProUGUI stopWatchText;
+
+    [HideInInspector]
+    public int goldAmount;
+    [HideInInspector]
+    public int goldMultiplier = 1;
 
     private CinemachineVirtualCamera camera;
+    private float currentTime;
     private static bool gameIsPaused = false;
     private bool StartGame = false;
+    private bool stopWatchActive = false, TimerStart = false;
 
     private void Start()
     {
         camera = GameObject.Find("player Camera").GetComponent<CinemachineVirtualCamera>();
-       // HideEverything();
+        goldAmount = 0;
+        currentTime = 0;
+        // HideEverything();
     }
     public void respawn()
     {
@@ -49,16 +64,59 @@ public class GameManager : MonoBehaviour
             }
         }
 
-       /* if (!StartGame)
+        /* if (!StartGame)
+         {
+             if (Input.GetKeyDown(KeyCode.Space))
+             {
+                 showEverything();
+                 startIntro();
+                 TriggerDialogue();
+                 StartGame = true;
+             }
+         }*/
+
+        if (stopWatchActive == true)
         {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                showEverything();
-                startIntro();
-                TriggerDialogue();
-                StartGame = true;
-            }
-        }*/
+            currentTime = currentTime + Time.deltaTime;
+        }
+
+        if (TimerStart == true)
+        {
+            TimeSpan time = TimeSpan.FromSeconds(currentTime);
+            stopWatchText.text = time.ToString(@"mm\:ss");
+        }
+    }
+
+    public void startStopWatch()
+    {
+        stopWatchActive = false;
+    }
+
+    public void stopStopWatch()
+    {
+        stopWatchActive = true;
+    }
+
+    public void startTimer()
+    {
+        TimerStart = true;
+    }
+
+    //gold function
+    public void setGold(int gold)
+    {
+        //int length = possibleGoldAmounts.Length;
+        //int index = UnityEngine.Random.Range(0, length);
+        goldAmount += gold * goldMultiplier;
+        //goldAmount += possibleGoldAmounts[index];
+
+        goldText.text = "" + goldAmount;
+    }
+
+    public void deductGold(int gold)
+    {
+        goldAmount = gold;
+        goldText.text = "" + goldAmount;
     }
 
     private void pauseGame() //button function
@@ -133,8 +191,8 @@ public class GameManager : MonoBehaviour
     {
         player.SetActive(true);
         LeanTween.scale(player, new Vector3(1f, 1f, 1f), 0f);
-        playerAtt.stopStopWatch();
-        playerAtt.startTimer();
+        stopStopWatch();
+        startTimer();
     }
 
 

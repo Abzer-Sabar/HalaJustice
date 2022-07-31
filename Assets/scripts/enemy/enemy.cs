@@ -7,7 +7,7 @@ public class enemy : MonoBehaviour
     public int goldAmount = 5;
 
     [SerializeField]
-    private playerAttributes playerAtt;
+    private GameManager manager;
 
     [SerializeField]
     private Transform groundCheck, wallCheck, damageCheck;
@@ -229,7 +229,7 @@ public class enemy : MonoBehaviour
 
     private void EnterDead()
     {
-        playerAtt.setGold(goldAmount);
+        manager.setGold(goldAmount);
         Instantiate(deathEffectParticle, body.transform.position, deathEffectParticle.transform.rotation);
         Destroy(gameObject);
     }

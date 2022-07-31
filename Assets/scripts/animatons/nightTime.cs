@@ -6,10 +6,11 @@ using UnityEngine.Rendering.Universal;
 public class nightTime : MonoBehaviour
 {
 
-    public float caveLightIntensity, nightLightIntensity;
+    public float nightLightIntensity;
 
-    public GameObject desertBg;
+    public GameObject nightBg;
     public GameObject caveBg;
+    public GameObject desertBg;
     public GameObject caveParticles;
     public GameObject restriction1;
     public Light2D globalLight;
@@ -24,9 +25,11 @@ public class nightTime : MonoBehaviour
     }
     private void changeWeatherToNight()
     {
-        desertBg.SetActive(true);
+        nightBg.SetActive(true);
+        restriction1.SetActive(true);
         caveBg.SetActive(false);
+        desertBg.SetActive(false);
         caveParticles.SetActive(false);
-        globalLight.intensity = caveLightIntensity;
+        globalLight.intensity = nightLightIntensity;
     }
 }

@@ -14,7 +14,8 @@ public class ItemShop : MonoBehaviour
     public string notEnoughGold, inventoryFull;
 
     private playerInventory inventory;
-    private playerAttributes playerAtt;
+    [SerializeField]
+    private GameManager manager;
     private Vector3 finalPos, startPos;
 
     //item shop ui elements
@@ -82,7 +83,7 @@ public class ItemShop : MonoBehaviour
     //item shop buttons
     public void buyDates()
     {
-        int gold = FindObjectOfType<playerAttributes>().goldAmount;
+        int gold = manager.goldAmount;
         
         if(gold >= datePrice)
         {
@@ -106,7 +107,7 @@ public class ItemShop : MonoBehaviour
 
     public void buyLabanUp()
     {
-        int gold = FindObjectOfType<playerAttributes>().goldAmount;
+        int gold = manager.goldAmount;
         if (gold >= labanPrice)
         {
             for (int i = 0; i < inventory.slots.Length; i++)
@@ -131,7 +132,7 @@ public class ItemShop : MonoBehaviour
 
     public void buyCoffee()
     {
-        int gold = FindObjectOfType<playerAttributes>().goldAmount;
+        int gold = manager.goldAmount;
         if (gold >= coffeePrice)
         {
             for (int i = 0; i < inventory.slots.Length; i++)
@@ -155,9 +156,9 @@ public class ItemShop : MonoBehaviour
 
     public void silverArmorUpgrade()
     {
-        int gold = FindObjectOfType<playerAttributes>().goldAmount;
+        int gold = manager.goldAmount;
 
-        if(gold >= silverArmorPrice)
+        if (gold >= silverArmorPrice)
         {
             //upgrade the armor
 

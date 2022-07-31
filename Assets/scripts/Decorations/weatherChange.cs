@@ -21,13 +21,7 @@ public class weatherChange : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            changeWeatherToNight();
-        }
-    }
+   
 
 
     private void changeWeatherToCave()
@@ -39,11 +33,5 @@ public class weatherChange : MonoBehaviour
         globalLight.intensity = caveLightIntensity;
     }
 
-    private void changeWeatherToNight()
-    {
-        desertBg.SetActive(true);
-        caveBg.SetActive(false);
-        caveParticles.SetActive(false);
-        globalLight.intensity = caveLightIntensity;
-    }
+   
 }

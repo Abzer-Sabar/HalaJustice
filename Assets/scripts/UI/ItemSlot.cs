@@ -7,18 +7,19 @@ public class ItemSlot : MonoBehaviour
     public playerInventory inventory;
     public playerController controller;
     public combat combat;
+    public GameManager manager;
     public playerHealth health;
     public KeyCode keycode = KeyCode.E;
     public int i;
 
     private float tempMoveSpeed = 10f, tempAttackDamage = 40;
-    private playerAttributes playerAtt;
+    
 
 
     private void Start()
     {
         inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<playerInventory>();
-        playerAtt = GameObject.FindGameObjectWithTag("Player").GetComponent<playerAttributes>();
+      
     }
 
     private void Update()
@@ -85,13 +86,13 @@ public class ItemSlot : MonoBehaviour
     IEnumerator consumeTea()
     {
         Debug.Log("Gold is doubled");
-        playerAtt.goldMultiplier = 2;
+        manager.goldMultiplier = 2;
         yield return new WaitForSeconds(10f);
         revertGoldMultiplier();
     }
 
     private void revertGoldMultiplier()
     {
-        playerAtt.goldMultiplier = 1;
+        manager.goldMultiplier = 1;
     }
 }

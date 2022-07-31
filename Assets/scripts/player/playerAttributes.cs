@@ -9,41 +9,9 @@ public class playerAttributes : MonoBehaviour
     public string[] artifactMessages;
     public TextMeshProUGUI artifactTextBox;
     public GameObject artifactDialogueBox;
-    public GameObject datePrefab;
-    public int datePrice = 10;
-    [SerializeField]
-    private TextMeshProUGUI goldText;
-
-    [SerializeField]
-    private TextMeshProUGUI stopWatchText;
-
-    private float currentTime;
-
-    private bool stopWatchActive = false, TimerStart = false;
     
-    public  int goldAmount;
-    public int goldMultiplier = 1;
-    private int[] possibleGoldAmounts = {10, 11, 15};
+ 
 
-    private void Start()
-    {
-        goldAmount = 0;
-        currentTime = 0;
-    }
-
-    private void Update()
-    {
-        if(stopWatchActive == true)
-        {
-            currentTime = currentTime + Time.deltaTime;
-        }
-
-        if(TimerStart == true)
-        {
-        TimeSpan time = TimeSpan.FromSeconds(currentTime);
-        stopWatchText.text = time.ToString(@"mm\:ss");
-        }
-    }
 
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -54,35 +22,36 @@ public class playerAttributes : MonoBehaviour
             setArtifactText(artifactMessages[0]);
             Destroy(collision.gameObject);
         }
-    }
-    public void startStopWatch()
-    {
-        stopWatchActive = false;
-    }
-
-    public void stopStopWatch()
-    {
-        stopWatchActive = true;
-    }
-
-    public void startTimer()
-    {
-        TimerStart = true;
-    }
-    public void setGold(int gold)
-    {
-        //int length = possibleGoldAmounts.Length;
-        //int index = UnityEngine.Random.Range(0, length);
-        goldAmount = gold * goldMultiplier;
-        //goldAmount += possibleGoldAmounts[index];
-
-        goldText.text = "" + goldAmount;
-    }
-
-    public void deductGold(int gold)
-    {
-        goldAmount = gold;
-        goldText.text = "" + goldAmount;
+        if (collision.gameObject.CompareTag("Bow"))
+        {
+            openDialogue();
+            setArtifactText(artifactMessages[1]);
+            Destroy(collision.gameObject);
+        }
+        if (collision.gameObject.CompareTag("Arrow"))
+        {
+            openDialogue();
+            setArtifactText(artifactMessages[2]);
+            Destroy(collision.gameObject);
+        }
+        if (collision.gameObject.CompareTag("Flag"))
+        {
+            openDialogue();
+            setArtifactText(artifactMessages[3]);
+            Destroy(collision.gameObject);
+        }
+        if (collision.gameObject.CompareTag("Pearl"))
+        {
+            openDialogue();
+            setArtifactText(artifactMessages[4]);
+            Destroy(collision.gameObject);
+        }
+        if (collision.gameObject.CompareTag("Knife"))
+        {
+            openDialogue();
+            setArtifactText(artifactMessages[5]);
+            Destroy(collision.gameObject);
+        }
     }
 
     private void openDialogue()

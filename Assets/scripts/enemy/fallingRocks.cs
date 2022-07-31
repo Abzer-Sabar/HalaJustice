@@ -6,6 +6,7 @@ public class fallingRocks : MonoBehaviour
 {
     public GameObject[] fallingRock;
     public GameManager gameManager;
+    public camerShake camera;
 
     public float rockSpawnTime = 1f;
 
@@ -40,6 +41,7 @@ public class fallingRocks : MonoBehaviour
             pos.z = 0.0f;
             var prefab = fallingRock[Random.Range(0, fallingRock.Length)];
             Instantiate(prefab, pos, Quaternion.identity);
+           
         }else
         {
             return;
