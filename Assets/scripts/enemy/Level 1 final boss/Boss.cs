@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Boss : MonoBehaviour
 {
-    
+    [HideInInspector]
     public bool playerInSight, playerInRange;
     public GameObject[] spawnPoints;
     public float StartTimeBtwShots, maxHealth = 100, damageReduction = 0;

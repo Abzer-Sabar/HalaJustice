@@ -11,7 +11,6 @@ public class warZoneCheck : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             boss.playerInRange = true;
-            Debug.Log("Player is in warzone");
         }
     }
 
