@@ -40,7 +40,8 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         camera = GameObject.Find("player Camera").GetComponent<CinemachineVirtualCamera>();
-        goldAmount = 0;
+        goldAmount = 19;
+        setGold(goldAmount);
         currentTime = 0;
         // HideEverything();
     }
@@ -105,17 +106,14 @@ public class GameManager : MonoBehaviour
     //gold function
     public void setGold(int gold)
     {
-        //int length = possibleGoldAmounts.Length;
-        //int index = UnityEngine.Random.Range(0, length);
-        goldAmount += gold * goldMultiplier;
-        //goldAmount += possibleGoldAmounts[index];
-
+        int currentGold = gold * goldMultiplier;
+        goldAmount += currentGold;
         goldText.text = "" + goldAmount;
     }
 
     public void deductGold(int gold)
     {
-        goldAmount = gold;
+        goldAmount -= gold;
         goldText.text = "" + goldAmount;
     }
 

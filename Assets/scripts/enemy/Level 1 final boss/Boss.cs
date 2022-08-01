@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Boss : MonoBehaviour
 {
-    [HideInInspector]
+    
     public bool playerInSight, playerInRange;
     public GameObject[] spawnPoints;
     public float StartTimeBtwShots, maxHealth = 100, damageReduction = 0;
@@ -13,6 +13,7 @@ public class Boss : MonoBehaviour
     public Transform firePoint;
 
     private float timeBtwShots, currentHealth;
+    private Animator anim;
     private State states;
     private enum State
     {
@@ -26,6 +27,7 @@ public class Boss : MonoBehaviour
     {
         timeBtwShots = StartTimeBtwShots;
         currentHealth = maxHealth;
+        anim = GetComponent<Animator>();
     }
 
     private void Update()
@@ -37,6 +39,7 @@ public class Boss : MonoBehaviour
 
             case State.Idle:
                 Debug.Log("Enemey Idle state");
+                anim.SetBool("Awake", true);
                 checkForPlayer();
                 break;
 
@@ -73,10 +76,12 @@ public class Boss : MonoBehaviour
         if (playerInRange)
         {
             shoot();
+            anim.SetBool("InRange", true);
         }
         else
         {
             states = State.Idle;
+            anim.SetBool("InRange", false);
         }
     }
 
