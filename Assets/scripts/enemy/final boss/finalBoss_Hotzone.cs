@@ -18,7 +18,7 @@ public class finalBoss_Hotzone : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("player is in the hot zone");
+            
             InvokeRepeating("tickDamage", 1f, 1f);
         }
     }

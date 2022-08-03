@@ -5,6 +5,7 @@ using UnityEngine.Rendering.Universal;
 public class weatherChange : MonoBehaviour
 {
     public float caveLightIntensity, nightLightIntensity;
+    public GameObject desertEnemies, caveEnemies, nightEnemies;
 
     public GameObject desertBg;
     public GameObject caveBg;
@@ -18,6 +19,9 @@ public class weatherChange : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             changeWeatherToCave();
+            desertEnemies.SetActive(false);
+            caveEnemies.SetActive(true);
+            nightEnemies.SetActive(false);
         }
     }
 

@@ -8,6 +8,7 @@ public class nightTime : MonoBehaviour
 
     public float nightLightIntensity;
 
+    public GameObject desertEnemies, caveEnemies, nightEnemies;
     public GameObject nightBg;
     public GameObject caveBg;
     public GameObject desertBg;
@@ -21,6 +22,9 @@ public class nightTime : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             changeWeatherToNight();
+            desertEnemies.SetActive(false);
+            caveEnemies.SetActive(false);
+            nightEnemies.SetActive(true);
         }
     }
     private void changeWeatherToNight()

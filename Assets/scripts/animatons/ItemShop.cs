@@ -168,7 +168,7 @@ public class ItemShop : MonoBehaviour
                     Instantiate(dateButton, inventory.slots[i].transform, false);
                     manager.deductGold(datePrice);
                    
-                    dateButtonUI.GetComponent<shopButton>().changeColor();
+                   
                     break;
                 }
             }

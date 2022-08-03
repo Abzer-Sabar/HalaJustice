@@ -6,7 +6,7 @@ public class Boss : MonoBehaviour
 {
     [HideInInspector]
     public bool playerInSight, playerInRange;
-    public GameObject[] spawnPoints;
+    public Transform[] spawnPoints;
     public float StartTimeBtwShots, maxHealth = 100, damageReduction = 0;
     public GameObject plasmaBall, hotzone;
     public enemyHealthBar healthBar;
@@ -38,7 +38,6 @@ public class Boss : MonoBehaviour
                 break;
 
             case State.Idle:
-                Debug.Log("Enemey Idle state");
                 anim.SetBool("Awake", true);
                 checkForPlayer();
                 break;
@@ -107,20 +106,23 @@ public class Boss : MonoBehaviour
 
     private void teleport()
     {
-
+        Transform position = spawnPoints[Random.Range(0, spawnPoints.Length)];
+        Vector2 nextPosition = new Vector2(position.position.x, position.position.y);
+        transform.position = nextPosition;
     }
 
     public void Damage(float[] attackDetails)
     {
-        float damageTaken = attackDetails[0] - damageReduction;
+        Debug.Log("You have damaged me!");
+        float damageTaken = attackDetails[0];
         currentHealth -= damageTaken;
         healthBar.setHealth(currentHealth, maxHealth);
-        Debug.Log("You have damaged me!");
-
         if (currentHealth <= 0.0f)
         {
             states = State.Death;
+            return;
         }
+        teleport();
     }
 
   

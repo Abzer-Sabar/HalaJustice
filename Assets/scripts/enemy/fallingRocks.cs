@@ -20,6 +20,7 @@ public class fallingRocks : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             playerInRange = true;
+            Debug.Log("player is in the zone");
             StartCoroutine(rockWave());
         }
     }

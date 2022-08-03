@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class caveBossScript : MonoBehaviour
 {
+    public GameObject fallingRockTrigger;
+
     #region Public Variables
     public Transform rightLimit, leftLimit;
     public float rayCastLength = 6f;
@@ -224,6 +226,13 @@ public class caveBossScript : MonoBehaviour
         currentHealth -= attackDetails[0];
         enemyHealthBar.setHealth(currentHealth, maxHealth);
         Debug.Log("You have damaged me!");
+
+        if(currentHealth <= 75)
+        {
+            //activate falling rock trigger
+            fallingRockTrigger.SetActive(true);
+        }
+
         if (currentHealth <= 0.0f)
         {
             die();
