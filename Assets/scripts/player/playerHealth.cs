@@ -4,6 +4,7 @@ public class playerHealth : MonoBehaviour
 {
     public healthBar hb;
     public GameObject deathEffectParticle;
+    public Transform spawnPosition1, spawnPosition2, spawnPosition3;
     public float trapDamage = 10f;
 
     [SerializeField]
@@ -11,6 +12,7 @@ public class playerHealth : MonoBehaviour
 
     private float currentHealth;
     private float damageReduction = 0f;
+    private Vector2 respawnPosition;
 
     private combat playerCombat;
     private void Start()
@@ -19,13 +21,23 @@ public class playerHealth : MonoBehaviour
         currentHealth = 80;
         hb.setMaxHealth(maxHealth);
         hb.setHealth(currentHealth);
+        respawnPosition = new Vector2(spawnPosition1.position.x, spawnPosition1.position.y);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "deadzone")
         {
-            Die();
+            respawn();
+        }
+     
+        if (collision.gameObject.tag == "checkpoint2")
+        {
+            respawnPosition = new Vector2(spawnPosition2.position.x, spawnPosition2.position.y);
+        }
+        if (collision.gameObject.tag == "checkpoint3")
+        {
+            respawnPosition = new Vector2(spawnPosition3.position.x, spawnPosition3.position.y);
         }
 
     }
@@ -48,6 +60,19 @@ public class playerHealth : MonoBehaviour
         Debug.Log("player taking damage");
         if(currentHealth <= 0.0f)
         {
+            respawn();
+        }
+    }
+
+    public void takeFinalDamage(float damage)
+    {
+        float damageTaken = damage - damageReduction;
+        currentHealth -= damageTaken;
+        FindObjectOfType<AudioManager>().play("Hurt");
+        hb.setHealth(currentHealth);
+        Debug.Log("player taking damage");
+        if (currentHealth <= 0.0f)
+        {
             Die();
         }
     }
@@ -68,6 +93,13 @@ public class playerHealth : MonoBehaviour
         Debug.Log("player has healed");
     }
 
+    private void respawn()
+    {
+        transform.position = respawnPosition;
+        currentHealth = 20;
+        hb.setHealth(currentHealth);
+    }
+
     //Armor Upgrade Funtions
 
     public void silverArmor()
@@ -83,6 +115,7 @@ public class playerHealth : MonoBehaviour
         playerCombat.increaseAttackDamage = 15f;
         Debug.Log("Player has equipped gold armor");
     }
+
 
 
 }

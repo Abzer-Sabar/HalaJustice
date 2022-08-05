@@ -9,8 +9,16 @@ public class playerAttributes : MonoBehaviour
     public string[] artifactMessages;
     public TextMeshProUGUI artifactTextBox;
     public GameObject artifactDialogueBox;
-    
- 
+   
+
+    private GameManager manager;
+
+    private void Start()
+    {
+        manager = GameObject.FindGameObjectWithTag("Game Manager").GetComponent<GameManager>();
+        artifactDialogueBox.SetActive(false);
+       
+    }
 
 
 
@@ -52,10 +60,26 @@ public class playerAttributes : MonoBehaviour
             setArtifactText(artifactMessages[5]);
             Destroy(collision.gameObject);
         }
+        if (collision.gameObject.CompareTag("Fragment1"))
+        {
+            manager.openFinalDialogue();
+            Destroy(collision.gameObject);
+        }
+
+
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("portal1"))
+        {
+            manager.openLevelFinishUI();
+        }
     }
 
     private void openDialogue()
     {
+        artifactDialogueBox.SetActive(true);
         LeanTween.scale(artifactDialogueBox, new Vector3(1f, 1f, 1f), 0.3f).setEase(LeanTweenType.easeInElastic);
     }
 
@@ -68,6 +92,8 @@ public class playerAttributes : MonoBehaviour
     public void closeDialogue()
     {
         LeanTween.scale(artifactDialogueBox, new Vector3(0f, 0f, 0f), 0.3f).setEase(LeanTweenType.easeOutElastic);
+        artifactDialogueBox.SetActive(false);
     }
 
+    
 }

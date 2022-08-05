@@ -13,11 +13,13 @@ public class GameManager : MonoBehaviour
     public GameObject gameplayUI;
     public GameObject startSceneUI;
     public GameObject messages, introDialogueBox;
-    public GameObject portal;
+    public GameObject portal, portal2;
     public GameObject tutorialsUI;
+    public GameObject levelFinishUI, levelFinishMainMenuButton, levelFinishTextObject;
+    public GameObject finalDialogueBox;
 
     [SerializeField]
-    private Transform respawnPlayerPoint;
+    private Transform respawnPlayerPoint, portalSpawnPosition;
 
     [SerializeField]
     private GameObject player, pauseMenu;
@@ -43,6 +45,7 @@ public class GameManager : MonoBehaviour
         goldAmount = 19;
         setGold(goldAmount);
         currentTime = 0;
+        finalDialogueBox.SetActive(false);
         // HideEverything();
     }
     public void respawn()
@@ -191,6 +194,32 @@ public class GameManager : MonoBehaviour
         LeanTween.scale(player, new Vector3(1f, 1f, 1f), 0f);
         stopStopWatch();
         startTimer();
+    }
+
+
+    //Level complete
+    public void openLevelFinishUI()
+    {
+        LeanTween.alpha(levelFinishUI.GetComponent<RectTransform>(), 1f, 0.3f).setDelay(0f).setEase(LeanTweenType.easeInBack).setOnComplete(openLevelFinishElements);
+    }
+
+    private void openLevelFinishElements()
+    {
+        LeanTween.scale(levelFinishMainMenuButton, new Vector3(1f, 1f, 1f), 0.5f).setDelay(0.5f);
+        levelFinishTextObject.SetActive(true);
+    }
+
+
+    public void openFinalDialogue()
+    {
+        finalDialogueBox.SetActive(true);
+        LeanTween.scale(finalDialogueBox, new Vector3(1f, 1f, 1f), 0.3f).setEase(LeanTweenType.easeOutElastic);
+    }
+    public void closeFinalDialogue()
+    {
+        LeanTween.scale(finalDialogueBox, new Vector3(0f, 0f, 0f), 0.3f).setEase(LeanTweenType.easeOutElastic);
+        Instantiate(portal2, portalSpawnPosition.position, Quaternion.identity);
+        finalDialogueBox.SetActive(false);
     }
 
 

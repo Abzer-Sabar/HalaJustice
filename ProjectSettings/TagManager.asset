@@ -20,6 +20,12 @@ TagManager:
   - Pearl
   - Knife
   - Ground
+  - Fragment1
+  - Game Manager
+  - portal1
+  - checkpoint1
+  - checkpoint2
+  - checkpoint3
   layers:
   - Default
   - TransparentFX

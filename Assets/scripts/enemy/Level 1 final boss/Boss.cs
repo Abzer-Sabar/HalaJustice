@@ -8,7 +8,7 @@ public class Boss : MonoBehaviour
     public bool playerInSight, playerInRange;
     public Transform[] spawnPoints;
     public float StartTimeBtwShots, maxHealth = 100, damageReduction = 0;
-    public GameObject plasmaBall, hotzone;
+    public GameObject plasmaBall, hotzone, deathEffect, memoryFragment, fragmentSpawnPosition;
     public enemyHealthBar healthBar;
     public Transform firePoint;
 
@@ -100,6 +100,9 @@ public class Boss : MonoBehaviour
     private void die()
     {
         Debug.Log("Final boss is Dead!");
+        Instantiate(deathEffect, this.transform.position, deathEffect.transform.rotation);
+        Instantiate(memoryFragment, fragmentSpawnPosition.transform.position, Quaternion.identity);
+        Destroy(gameObject);
         hotzone.SetActive(false);
       
     }
