@@ -8,6 +8,7 @@ using System;
 
 public class GameManager : MonoBehaviour
 {
+    public GameObject bronzeTrophyPrefab, silverTrophyPrefab, goldTropyPrefab;
     public Dialogues dialogue;
     public playerAttributes playerAtt;
     public GameObject gameplayUI;
@@ -15,9 +16,11 @@ public class GameManager : MonoBehaviour
     public GameObject messages, introDialogueBox;
     public GameObject portal, portal2;
     public GameObject tutorialsUI;
-    public GameObject levelFinishUI, levelFinishMainMenuButton, levelFinishTextObject;
+    public GameObject levelFinishUI, levelFinishMainMenuButton, levelFinishReplayButton, timeBox, trophy, artifactsBox, deathsBox;
+    public GameObject timeTextUI, deathTextUI, artifactsTextUI;
     public GameObject finalDialogueBox;
 
+    public TextMeshProUGUI timeValueText, artifactsValueText, deathsValueText;
     [SerializeField]
     private Transform respawnPlayerPoint, portalSpawnPosition;
 
@@ -30,8 +33,9 @@ public class GameManager : MonoBehaviour
 
     [HideInInspector]
     public int goldAmount;
+    
     [HideInInspector]
-    public int goldMultiplier = 1;
+    public int goldMultiplier = 1, artifactsCollected = 0, numberOfDeaths = 0, FinishTime = 0, MemoryFragments;
 
     private CinemachineVirtualCamera camera;
     private float currentTime;
@@ -46,13 +50,19 @@ public class GameManager : MonoBehaviour
         setGold(goldAmount);
         currentTime = 0;
         finalDialogueBox.SetActive(false);
-        // HideEverything();
+        levelFinishUI.SetActive(false);
+        timeTextUI.SetActive(false);
+        deathTextUI.SetActive(false);
+        artifactsTextUI.SetActive(false);
+        timeBox.SetActive(false);
+        deathsBox.SetActive(false);
+        artifactsBox.SetActive(false);
+        goldTropyPrefab.SetActive(false);
+        silverTrophyPrefab.SetActive(false);
+        bronzeTrophyPrefab.SetActive(false);
+        HideEverything();
     }
-    public void respawn()
-    {
-        var playerTemp = Instantiate(player, respawnPlayerPoint);
-        camera.m_Follow = playerTemp.transform;
-    }
+   
 
     private void Update()
     {
@@ -68,7 +78,7 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        /* if (!StartGame)
+         if (!StartGame)
          {
              if (Input.GetKeyDown(KeyCode.Space))
              {
@@ -77,7 +87,7 @@ public class GameManager : MonoBehaviour
                  TriggerDialogue();
                  StartGame = true;
              }
-         }*/
+         }
 
         if (stopWatchActive == true)
         {
@@ -169,7 +179,7 @@ public class GameManager : MonoBehaviour
         startSceneUI.SetActive(false);
         messages.SetActive(true);
         //portal.SetActive(true);
-        
+       
     }
 
     private void startIntro()
@@ -185,35 +195,34 @@ public class GameManager : MonoBehaviour
     void openPortal()
     {
         portal.SetActive(true);
-        LeanTween.scale(portal, new Vector3(5.47f, 5.47f, 5.47f), 3f).setDelay(0.5f).setOnComplete(spawnPlayer);
-    }
-
-    void spawnPlayer()
-    {
-        player.SetActive(true);
-        LeanTween.scale(player, new Vector3(1f, 1f, 1f), 0f);
+        LeanTween.scale(portal, new Vector3(5.47f, 5.47f, 5.47f), 3f).setDelay(0.5f);
         stopStopWatch();
         startTimer();
     }
+
+  
 
 
     //Level complete
     public void openLevelFinishUI()
     {
+        TimerStart = false;
+        levelFinishUI.SetActive(true);
         LeanTween.alpha(levelFinishUI.GetComponent<RectTransform>(), 1f, 0.3f).setDelay(0f).setEase(LeanTweenType.easeInBack).setOnComplete(openLevelFinishElements);
+        displayStats();
     }
 
     private void openLevelFinishElements()
     {
-        LeanTween.scale(levelFinishMainMenuButton, new Vector3(1f, 1f, 1f), 0.5f).setDelay(0.5f);
-        levelFinishTextObject.SetActive(true);
+        LeanTween.scale(levelFinishMainMenuButton, new Vector3(1f, 1f, 1f), 0.2f).setOnComplete(openTimeBoxUI);
+        LeanTween.scale(levelFinishReplayButton, new Vector3(1f, 1f, 1f), 0.2f);
     }
 
 
     public void openFinalDialogue()
     {
         finalDialogueBox.SetActive(true);
-        LeanTween.scale(finalDialogueBox, new Vector3(1f, 1f, 1f), 0.3f).setEase(LeanTweenType.easeOutElastic);
+        LeanTween.scale(finalDialogueBox, new Vector3(0.5f, 0.5f, 0.5f), 0.3f).setEase(LeanTweenType.easeOutElastic);
     }
     public void closeFinalDialogue()
     {
@@ -223,5 +232,79 @@ public class GameManager : MonoBehaviour
     }
 
 
+    private void openTimeBoxUI()
+    {
+        timeBox.SetActive(true);
+        LeanTween.alpha(timeBox.GetComponent<RectTransform>(), 1f, 1.5f).setDelay(0f).setEase(LeanTweenType.easeInBack).setOnComplete(displayTimeText);
+        
+    }
 
+    private void displayTimeText()
+    {
+        timeTextUI.SetActive(true);
+        openDeathBoxUI();
+    }
+
+    private void openDeathBoxUI()
+    {
+        deathsBox.SetActive(true);
+        LeanTween.alpha(deathsBox.GetComponent<RectTransform>(), 1f, 1.5f).setDelay(0f).setEase(LeanTweenType.easeInBack).setOnComplete(displayDeathText);
+    }
+
+    private void displayDeathText()
+    {
+        deathTextUI.SetActive(true);
+        openArtifactsBoxUI();
+    }
+
+    private void openArtifactsBoxUI()
+    {
+        artifactsBox.SetActive(true);
+        LeanTween.alpha(artifactsBox.GetComponent<RectTransform>(), 1f, 1.5f).setDelay(0f).setEase(LeanTweenType.easeInBack).setOnComplete(displayArtifactText);
+    }
+
+    private void displayArtifactText()
+    {
+        artifactsTextUI.SetActive(true);
+        calculateScore();
+    }
+
+    private void displayTrophy(GameObject trophy) 
+    {
+        trophy.SetActive(true);
+        LeanTween.alpha(trophy.GetComponent<RectTransform>(), 1f, 1.5f).setDelay(0f).setEase(LeanTweenType.easeInBack);
+    }
+
+
+    //Final scores calculation
+    private void calculateScore()
+    {
+        FinishTime = (int)currentTime / 60;
+        Debug.Log("Time spent" + FinishTime);
+
+        if (artifactsCollected == 5 &  numberOfDeaths <= 3 & FinishTime <= 5)
+        {
+            Debug.Log("Gold trophy");
+            displayTrophy(goldTropyPrefab);
+        }
+       else if (artifactsCollected == 3 & numberOfDeaths <= 6 & FinishTime <=7)
+        {
+            Debug.Log("Silver trophy");
+            displayTrophy(silverTrophyPrefab);
+        }
+        else
+        {
+            Debug.Log("Bronze trophy");
+            displayTrophy(bronzeTrophyPrefab);
+        }
+
+    }
+
+    private void displayStats()
+    {
+        TimeSpan time = TimeSpan.FromSeconds(currentTime);
+        timeValueText.text = time.ToString(@"mm\:ss");
+        artifactsValueText.text = artifactsCollected.ToString() + "/5";
+        deathsValueText.text = "" + numberOfDeaths.ToString();
+    }
 }

@@ -37,7 +37,7 @@ public class plasmaBall : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             ph = collision.gameObject.GetComponent<playerHealth>();
-            ph.takeFinalDamage(playerDamage);
+            ph.takeDamage(playerDamage);
             DestroyPlasmaBall();
         }
         if (collision.gameObject.CompareTag("Ground"))

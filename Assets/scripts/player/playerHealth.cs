@@ -13,6 +13,7 @@ public class playerHealth : MonoBehaviour
     private float currentHealth;
     private float damageReduction = 0f;
     private Vector2 respawnPosition;
+    private GameManager manager;
 
     private combat playerCombat;
     private void Start()
@@ -22,13 +23,14 @@ public class playerHealth : MonoBehaviour
         hb.setMaxHealth(maxHealth);
         hb.setHealth(currentHealth);
         respawnPosition = new Vector2(spawnPosition1.position.x, spawnPosition1.position.y);
+        manager = GameObject.FindGameObjectWithTag("Game Manager").GetComponent<GameManager>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "deadzone")
         {
-            respawn();
+            Die();
         }
      
         if (collision.gameObject.tag == "checkpoint2")
@@ -60,29 +62,19 @@ public class playerHealth : MonoBehaviour
         Debug.Log("player taking damage");
         if(currentHealth <= 0.0f)
         {
-            respawn();
-        }
-    }
-
-    public void takeFinalDamage(float damage)
-    {
-        float damageTaken = damage - damageReduction;
-        currentHealth -= damageTaken;
-        FindObjectOfType<AudioManager>().play("Hurt");
-        hb.setHealth(currentHealth);
-        Debug.Log("player taking damage");
-        if (currentHealth <= 0.0f)
-        {
             Die();
         }
     }
 
+    
+    
+
     private void Die()
     {
+        manager.numberOfDeaths += 1;
         FindObjectOfType<AudioManager>().play("Die");
         Instantiate(deathEffectParticle, this.transform.position, deathEffectParticle.transform.rotation);
-        Destroy(gameObject);
-        Destroy(gameObject);
+        respawn();
         Debug.Log("You are dead");
     }
 

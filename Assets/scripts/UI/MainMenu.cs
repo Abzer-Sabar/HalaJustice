@@ -5,11 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public GameObject selectLevelMenu;
+    public GameObject levelSelectMenu, level1Menu, level2Menu;
     public float transitionTime;
     public GameObject flames, flamesParticles;
     public Animator animator;
 
+    private Vector3 finalPos, startPos;
     private void Start()
     {
         flames.SetActive(false);
@@ -17,6 +18,12 @@ public class MainMenu : MonoBehaviour
         FindObjectOfType<AudioManager>().play("Desert Ambient");
         FindObjectOfType<AudioManager>().play("Main");
         StartCoroutine(startFlames());
+
+        finalPos = new Vector3(Screen.width * 0.5f, Screen.height * 0.5f, 0);
+        startPos = new Vector3(Screen.width * 0.5f, 6f, 0);
+
+        levelSelectMenu.SetActive(false);
+       
     }
     public void Exit()
     {
@@ -24,9 +31,22 @@ public class MainMenu : MonoBehaviour
         Debug.Log("Exit");
     }
 
+  
+    IEnumerator startFlames()
+    {
+        yield return new WaitForSeconds(2f);
+        FindObjectOfType<AudioManager>().play("FireStart");
+        flames.SetActive(true);
+        flamesParticles.SetActive(true);
+        yield return new WaitForSeconds(5f);
+        FindObjectOfType<AudioManager>().play("FireBurning");
+    }
+
     public void playButton()
     {
-        selectLevelMenu.SetActive(true);
+        levelSelectMenu.SetActive(true);
+        LeanTween.alpha(levelSelectMenu.GetComponent<RectTransform>(), 1f, 0.3f).setDelay(0f).setEase(LeanTweenType.easeInBack);
+        LeanTween.move(levelSelectMenu, finalPos, 0.3f).setEase(LeanTweenType.easeOutQuad);
     }
 
     public void playSaharaHunting()
@@ -37,15 +57,36 @@ public class MainMenu : MonoBehaviour
     }
     public void backToMainMenu()
     {
-        selectLevelMenu.SetActive(false);
+        LeanTween.move(levelSelectMenu, startPos, 0.3f).setEase(LeanTweenType.easeOutQuad);
+        LeanTween.alpha(levelSelectMenu.GetComponent<RectTransform>(), 0f, 0.3f).setDelay(0f).setEase(LeanTweenType.easeInBack).setOnComplete(disableLevelSelectMenu);
+        
     }
-    IEnumerator startFlames()
+
+    //Level select buttons
+    public void level1Button()
     {
-        yield return new WaitForSeconds(2f);
-        FindObjectOfType<AudioManager>().play("FireStart");
-        flames.SetActive(true);
-        flamesParticles.SetActive(true);
-        yield return new WaitForSeconds(5f);
-        FindObjectOfType<AudioManager>().play("FireBurning");
+        
+        LeanTween.scale(level1Menu, new Vector3(1f, 1f, 1f), 0.2f);
+    }
+
+    public void level1CloseUI()
+    {
+        LeanTween.scale(level1Menu, new Vector3(0f, 0f, 0f), 0.2f);
+    }
+
+    public void level2Button()
+    {
+ 
+        LeanTween.scale(level2Menu, new Vector3(1f, 1f, 1f), 0.2f);
+    }
+
+    public void level2CloseUI()
+    {
+        LeanTween.scale(level2Menu, new Vector3(0f, 0f, 0f), 0.2f);
+    }
+
+    private void disableLevelSelectMenu()
+    {
+        levelSelectMenu.SetActive(false);
     }
 }

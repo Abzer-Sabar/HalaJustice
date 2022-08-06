@@ -17,7 +17,6 @@ public class playerAttributes : MonoBehaviour
     {
         manager = GameObject.FindGameObjectWithTag("Game Manager").GetComponent<GameManager>();
         artifactDialogueBox.SetActive(false);
-       
     }
 
 
@@ -26,36 +25,42 @@ public class playerAttributes : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Dagger"))
         {
+            manager.artifactsCollected += 1;
             openDialogue();
             setArtifactText(artifactMessages[0]);
             Destroy(collision.gameObject);
         }
         if (collision.gameObject.CompareTag("Bow"))
         {
+            manager.artifactsCollected += 1;
             openDialogue();
             setArtifactText(artifactMessages[1]);
             Destroy(collision.gameObject);
         }
         if (collision.gameObject.CompareTag("Arrow"))
         {
+            manager.artifactsCollected += 1;
             openDialogue();
             setArtifactText(artifactMessages[2]);
             Destroy(collision.gameObject);
         }
         if (collision.gameObject.CompareTag("Flag"))
         {
+            manager.artifactsCollected += 1;
             openDialogue();
             setArtifactText(artifactMessages[3]);
             Destroy(collision.gameObject);
         }
         if (collision.gameObject.CompareTag("Pearl"))
         {
+            manager.artifactsCollected += 1;
             openDialogue();
             setArtifactText(artifactMessages[4]);
             Destroy(collision.gameObject);
         }
         if (collision.gameObject.CompareTag("Knife"))
         {
+            manager.artifactsCollected += 1;
             openDialogue();
             setArtifactText(artifactMessages[5]);
             Destroy(collision.gameObject);
@@ -74,13 +79,15 @@ public class playerAttributes : MonoBehaviour
         if (collision.gameObject.CompareTag("portal1"))
         {
             manager.openLevelFinishUI();
+            var prefab = this.gameObject;
+            Destroy(prefab);
         }
     }
 
     private void openDialogue()
     {
         artifactDialogueBox.SetActive(true);
-        LeanTween.scale(artifactDialogueBox, new Vector3(1f, 1f, 1f), 0.3f).setEase(LeanTweenType.easeInElastic);
+        LeanTween.scale(artifactDialogueBox, new Vector3(0.5f, 0.5f, 0.5f), 0.3f).setEase(LeanTweenType.easeInElastic);
     }
 
     private void setArtifactText(string text)
@@ -91,8 +98,14 @@ public class playerAttributes : MonoBehaviour
 
     public void closeDialogue()
     {
-        LeanTween.scale(artifactDialogueBox, new Vector3(0f, 0f, 0f), 0.3f).setEase(LeanTweenType.easeOutElastic);
+        Debug.Log("you are clicking me");
+        LeanTween.scale(artifactDialogueBox, new Vector3(0f, 0f, 0f), 0.3f).setEase(LeanTweenType.easeOutElastic).setOnComplete(disableDialogue);
+    }
+
+    private void disableDialogue()
+    {
         artifactDialogueBox.SetActive(false);
+
     }
 
     
