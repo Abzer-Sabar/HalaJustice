@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9534f8251a5886b44a02031506c913b3
+guid: 8316502b1f61f204d85791376e09b6e5
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -104,85 +104,64 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: alltogether_0
+      name: tilesetforairspritesheet_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 58
-        width: 31
-        height: 28
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6a85dc193b16a214fb5806f3c7e54150
-      internalID: -270318030
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: alltogether_1
-      rect:
-        serializedVersion: 2
-        x: 34
-        y: 58
+        x: 3
+        y: 52
         width: 32
-        height: 28
+        height: 9
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e8e5ca2b64eacfc46bf29a8e5cc169ae
-      internalID: 1045703563
+      spriteID: 6bcf5fe47942cf9499a2fedde0584368
+      internalID: -1765499374
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: alltogether_2
+      name: tilesetforairspritesheet_1
       rect:
         serializedVersion: 2
-        x: 69
-        y: 58
-        width: 31
-        height: 28
+        x: 37
+        y: 52
+        width: 33
+        height: 9
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4030727266ae7774d904b0a64419737a
-      internalID: 289127567
+      spriteID: 227e71af845de354f88e89b032e55e89
+      internalID: -1140072286
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: alltogether_3
+      name: tilesetforairspritesheet_2
       rect:
         serializedVersion: 2
-        x: 34
-        y: 28
+        x: 72
+        y: 52
         width: 32
-        height: 28
+        height: 9
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a79df95f5f9237e4498e2e4e564e5277
-      internalID: -1601240538
+      spriteID: 5daf5666102deac4a8bb9dde6b235666
+      internalID: -276565660
       vertices: []
       indices: 
       edges: []
@@ -198,10 +177,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      alltogether_3: -1601240538
-      alltogether_2: 289127567
-      alltogether_0: -270318030
-      alltogether_1: 1045703563
+      tilesetforairspritesheet_1: -1140072286
+      tilesetforairspritesheet_0: -1765499374
+      tilesetforairspritesheet_2: -276565660
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
