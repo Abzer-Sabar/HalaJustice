@@ -16,6 +16,7 @@ public class playerController : MonoBehaviour
     public float dashCoolDown = 2.5f;
     public float knockBackDuration = 0.1f;
     public float jumpTimerSet = 0.15f;
+    public float dashDamage = 10f;
     public int amountOfJumps = 1;
 
     public Vector2 knockbackSpeed;
@@ -49,16 +50,25 @@ public class playerController : MonoBehaviour
     private bool isAttemptingToJump;
     private bool checkJumpMultuplier;
 
+    //dashing variables
+    private bool CanDash = true, canAttackWhileDashing = true;
+    private float dashPower = 24f, dashingTime = 0.2f, dashingCoolDown = 1f;
+    [SerializeField]
+    private TrailRenderer dashTrail;
+    private combat Combat;
+
     private void Start()
     {
         rb = this.GetComponent<Rigidbody2D>();
         animator = this.GetComponent<Animator>();
         amountOfJumpsLeft = amountOfJumps;
+        Combat = GetComponent<combat>();
         trail.SetActive(false);
     }
 
     private void Update()
     {
+        
         checkInput();
         checkMoveDirection();
         updateAnimations();
@@ -66,10 +76,16 @@ public class playerController : MonoBehaviour
         checkDash();
         checkKnockBack();
         checkJump();
+
+        if (isDashing)
+        {
+            StartCoroutine(dashAttack());
+        }
     }
 
     private void FixedUpdate()
     {
+       
         applyMovement();
         checkSurroudings();
     }
@@ -100,41 +116,64 @@ public class playerController : MonoBehaviour
             checkJumpMultuplier = false;
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * jumPHeightMultiplier);
         }
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKeyDown(KeyCode.LeftShift) )
         {
-            if (Time.time >= (lastDash + dashCoolDown))
-                tryToDash();
+             if (Time.time >= (lastDash + dashCoolDown))
+                 tryToDash(); 
+           // Debug.Log("player is trying to dash");
+            //StartCoroutine(Dash());
         }
+    }
+
+   
+    //dashing logic
+    private IEnumerator Dash()
+    {
+        CanDash = false;
+        isDashing = true;
+        float originalGriavity = rb.gravityScale;
+        rb.gravityScale = 0f;
+        //rb.velocity = new Vector2(transform.localScale.x * dashPower, 0f);
+        rb.velocity = new Vector2(dashSpeedGround * facingDirection, 0.0f);
+        dashTrail.emitting = true;
+        yield return new WaitForSeconds(dashingTime);
+        dashTrail.emitting = false;
+        rb.gravityScale = originalGriavity;
+        isDashing = false;
+        yield return new WaitForSeconds(dashingCoolDown);
+        CanDash = true;
     }
 
     private void tryToDash()
     {
         isDashing = true;
+        canAttackWhileDashing = true;
         dashTimeLeft = dashTime;
         lastDash = Time.time;
 
-        afterImagePool.Instance.GetFromPool();
-        lastImageXPos = transform.position.x;
+        //afterImagePool.Instance.GetFromPool();
+       // lastImageXPos = transform.position.x;
     }
 
     private void checkDash()
     {
         if (isDashing)
         {
-           
+
             if (dashTimeLeft > 0 && isGrounded == true)
             {
                 canMove = false;
                 canFlip = false;
                 rb.velocity = new Vector2(dashSpeedGround * facingDirection, 0.0f);
-                
+            
                 dashTimeLeft -= Time.deltaTime;
-
-                if (Mathf.Abs(transform.position.x - lastImageXPos) > distanceBtwImages)
+                dashTrail.emitting = true;
+                
+                /*if (Mathf.Abs(transform.position.x - lastImageXPos) > distanceBtwImages)
                 {
                     afterImagePool.Instance.GetFromPool();
                     lastImageXPos = transform.position.x;
-                }
+                }*/
             }
             else
             {
@@ -142,15 +181,16 @@ public class playerController : MonoBehaviour
                 {
                     canMove = false;
                     canFlip = false;
+                                    
                     rb.velocity = new Vector2(dashSpeedAir * facingDirection, 0.0f);
-                   
+                    dashTrail.emitting = true;
                     dashTimeLeft -= Time.deltaTime;
 
-                    if (Mathf.Abs(transform.position.x - lastImageXPos) > distanceBtwImages)
+                    /*if (Mathf.Abs(transform.position.x - lastImageXPos) > distanceBtwImages)
                     {
                         afterImagePool.Instance.GetFromPool();
                         lastImageXPos = transform.position.x;
-                    }
+                    }*/
                 }
             }
 
@@ -159,97 +199,25 @@ public class playerController : MonoBehaviour
                 isDashing = false;
                 canMove = true;
                 canFlip = true;
+                dashTrail.emitting = false;
             }
-
-            /*if (Input.GetKey(KeyCode.D))
-            {
-                dashRight();
-            }else if (Input.GetKey(KeyCode.A))
-            {
-                dashLeft();
-            }
-
-            if (dashTimeLeft <= 0)
-            {
-                isDashing = false;
-                canMove = true;
-                canFlip = true;
-            }*/
 
         }
 
 
     }
 
-    private void dashRight()
+    private IEnumerator dashAttack()
     {
-        if (dashTimeLeft > 0 && isGrounded == true)
+        if (canAttackWhileDashing)
         {
-            canMove = false;
-            canFlip = false;
-            rb.velocity = new Vector2(dashSpeedGround * 1, 0.0f);
-            dashTimeLeft -= Time.deltaTime;
-
-            if (Mathf.Abs(transform.position.x - lastImageXPos) > distanceBtwImages)
-            {
-                afterImagePool.Instance.GetFromPool();
-                lastImageXPos = transform.position.x;
-            }
+            Debug.Log("Dash attack active");
+            Combat.Attack();
+            yield return new WaitForSeconds(0f);
+            canAttackWhileDashing = false;
         }
-        else
-        {
-            if (dashTimeLeft > 0 && isGrounded == false)
-            {
-                canMove = false;
-                canFlip = false;
-                rb.velocity = new Vector2(dashSpeedAir * 1, 0.0f);
-                dashTimeLeft -= Time.deltaTime;
-
-                if (Mathf.Abs(transform.position.x - lastImageXPos) > distanceBtwImages)
-                {
-                    afterImagePool.Instance.GetFromPool();
-                    lastImageXPos = transform.position.x;
-                }
-            }
-        }
+       
     }
-
-    private void dashLeft()
-    {
-        if (dashTimeLeft > 0 && isGrounded == true)
-        {
-            canMove = false;
-            canFlip = false;
-            rb.velocity = new Vector2(dashSpeedGround * -1, 0.0f);
-            dashTimeLeft -= Time.deltaTime;
-
-            if (Mathf.Abs(transform.position.x - lastImageXPos) > distanceBtwImages)
-            {
-                afterImagePool.Instance.GetFromPool();
-                lastImageXPos = transform.position.x;
-            }
-        }
-        else
-        {
-            if (dashTimeLeft > 0 && isGrounded == false)
-            {
-                canMove = false;
-                canFlip = false;
-                rb.velocity = new Vector2(dashSpeedAir * -1, 0.0f);
-                dashTimeLeft -= Time.deltaTime;
-
-                if (Mathf.Abs(transform.position.x - lastImageXPos) > distanceBtwImages)
-                {
-                    afterImagePool.Instance.GetFromPool();
-                    lastImageXPos = transform.position.x;
-                }
-            }
-        }
-    }
-
-
-
-
     private void applyMovement()
     {
         if (!isGrounded && moveInputDirection == 0 && !knockBack)

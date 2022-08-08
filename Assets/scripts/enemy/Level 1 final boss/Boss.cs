@@ -13,8 +13,10 @@ public class Boss : MonoBehaviour
     public Transform firePoint;
 
     private float timeBtwShots, currentHealth;
+    private GameObject player;
     private Animator anim;
     private State states;
+    private bool flip;
     private enum State
     {
         Sleep,
@@ -27,6 +29,7 @@ public class Boss : MonoBehaviour
     {
         timeBtwShots = StartTimeBtwShots;
         currentHealth = maxHealth;
+        player = GameObject.FindGameObjectWithTag("Player");
         anim = GetComponent<Animator>();
     }
 
@@ -39,10 +42,12 @@ public class Boss : MonoBehaviour
 
             case State.Idle:
                 anim.SetBool("Awake", true);
+                lookAtPlayer();
                 checkForPlayer();
                 break;
 
             case State.FireballAttack:
+                lookAtPlayer();
                 fireballAttack();
                 break;
 
@@ -112,6 +117,20 @@ public class Boss : MonoBehaviour
         Transform position = spawnPoints[Random.Range(0, spawnPoints.Length)];
         Vector2 nextPosition = new Vector2(position.position.x, position.position.y);
         transform.position = nextPosition;
+    }
+
+    private void lookAtPlayer()
+    {
+        Vector3 scale = transform.localScale;
+        if (player.transform.position.x > transform.position.x)
+        {
+            scale.x = Mathf.Abs(scale.x) * -1 * (flip ? -1 : 1);
+        }
+        else
+        {
+            scale.x = Mathf.Abs(scale.x) * (flip ? -1 : 1);
+        }
+        transform.localScale = scale;
     }
 
     public void Damage(float[] attackDetails)

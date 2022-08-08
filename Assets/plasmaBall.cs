@@ -11,11 +11,11 @@ public class plasmaBall : MonoBehaviour
     private playerHealth ph;
     private float timer;
 
+
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         targetPosition = new Vector2(player.position.x, player.position.y);
-       
     }
 
     private void Update()
