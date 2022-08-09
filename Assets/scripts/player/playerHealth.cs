@@ -55,7 +55,7 @@ public class playerHealth : MonoBehaviour
 
     public void takeDamage(float damage)
     {
-        float damageTaken = damage - damageReduction;
+        float damageTaken = damage / damageReduction;
         currentHealth -= damageTaken;
         FindObjectOfType<AudioManager>().play("Hurt");
         hb.setHealth(currentHealth);
@@ -96,14 +96,14 @@ public class playerHealth : MonoBehaviour
 
     public void silverArmor()
     {
-        damageReduction = 5f;
+        damageReduction = 1.7f;
         playerCombat.increaseAttackDamage = 10;
         Debug.Log("Player has equipped silver armor");
     }
 
     public void GoldArmor()
     {
-        damageReduction = 10f;
+        damageReduction = 2f;
         playerCombat.increaseAttackDamage = 15f;
         Debug.Log("Player has equipped gold armor");
     }
