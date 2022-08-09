@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class falcon : MonoBehaviour
 {
-    public float moveSpeed, offset;
+    public float moveSpeed, offset, startTimebtwShots;
+    public GameObject plasmaBallPrefab;
     [HideInInspector]
     public bool enemyInSight;
     private Transform player;
+    private FalconPlasma falconPlasma;
     private Vector2 target;
+    private float timeBtwShots;
+
+ 
+    private GameObject enemy; 
 
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        timeBtwShots = startTimebtwShots;
     }
 
     private void Update()
@@ -30,7 +37,16 @@ public class falcon : MonoBehaviour
 
     private void shoot()
     {
-
+        if(timeBtwShots <= 0)
+        {
+            GameObject plasma = Instantiate(plasmaBallPrefab, transform.position, Quaternion.identity);
+            plasma.GetComponent<FalconPlasma>().enemy = enemy;
+            timeBtwShots = startTimebtwShots;        
+        }
+        else
+        {
+            timeBtwShots -= Time.deltaTime;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -38,6 +54,7 @@ public class falcon : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
         {
             enemyInSight = true;
+            enemy = collision.gameObject;
         }
     }
 
@@ -46,6 +63,11 @@ public class falcon : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
         {
             enemyInSight = false;
+            enemy = null;
+        }
+        else
+        {
+            Destroy(gameObject);
         }
     }
 }

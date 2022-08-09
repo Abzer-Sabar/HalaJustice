@@ -7,11 +7,11 @@ using TMPro;
 
 public class ItemShop : MonoBehaviour
 {
-    public Color canBuy, cannotBuy;
+    public GameObject armorSection, powerupsSection;
     public LeanTweenType inType;
     public LeanTweenType outType;
     public Image dateButtonUI, coffeeButtonUI, teaButtonUI, labanButtonUI;
-    public GameObject itemShopUI, failedPurchaseUI, dateButton, labanButton, coffeeButton, teaButton, dateInfo, labanInfo, coffeeInfo, teaInfo;
+    public GameObject itemShopUI, failedPurchaseUI, dateButton, labanButton, coffeeButton, teaButton;
     public TextMeshProUGUI failedPurchaseText;
     public int datePrice = 10, labanPrice = 19, coffeePrice = 15, teaPrice = 17, silverArmorPrice = 30, goldArmorPrice = 40;
     public string notEnoughGold, inventoryFull;
@@ -28,7 +28,10 @@ public class ItemShop : MonoBehaviour
         finalPos = new Vector3(Screen.width * 0.5f, Screen.height * 0.5f, 0);
         startPos = new Vector3(Screen.width * 0.5f, 6f, 0);
         inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<playerInventory>();
-        assignbuttonColor();
+        powerupsSection.SetActive(true);
+        armorSection.SetActive(false);
+        itemShopUI.SetActive(false);
+
     }
 
    
@@ -70,10 +73,7 @@ public class ItemShop : MonoBehaviour
         LeanTween.scale(teaIcon, new Vector3(1f, 1f, 1f), 0.3f).setEase(inType);
         LeanTween.scale(coffeeIcon, new Vector3(1f, 1f, 1f), 0.3f).setEase(inType);
         LeanTween.scale(labanIcon, new Vector3(1f, 1f, 1f), 0.3f).setEase(inType);
-        LeanTween.scale(dateInfo, new Vector3(1f, 1f, 1f), 0.3f).setEase(inType);
-        LeanTween.scale(coffeeInfo, new Vector3(1f, 1f, 1f), 0.3f).setEase(inType);
-        LeanTween.scale(teaInfo, new Vector3(1f, 1f, 1f), 0.3f).setEase(inType);
-        LeanTween.scale(labanInfo, new Vector3(1f, 1f, 1f), 0.3f).setEase(inType);
+        
     }
 
     private void closeShopElements()
@@ -82,10 +82,7 @@ public class ItemShop : MonoBehaviour
         LeanTween.scale(teaIcon, new Vector3(0f, 0f, 0f), 0.3f).setEase(outType);
         LeanTween.scale(coffeeIcon, new Vector3(0f, 0f, 0f), 0.3f).setEase(outType);
         LeanTween.scale(labanIcon, new Vector3(0f, 0f, 0f), 0.3f).setEase(outType);
-        LeanTween.scale(dateInfo, new Vector3(0f, 0f, 0f), 0.3f).setEase(outType);
-        LeanTween.scale(coffeeInfo, new Vector3(0f, 0f, 0f), 0.3f).setEase(outType);
-        LeanTween.scale(teaInfo, new Vector3(0f, 0f, 0f), 0.3f).setEase(outType);
-        LeanTween.scale(labanInfo, new Vector3(0f, 0f, 0f), 0.3f).setEase(outType);
+       
     }
 
     private void failedPurchaseUIOpen(string text)
@@ -106,50 +103,7 @@ public class ItemShop : MonoBehaviour
         yield return new WaitForSeconds(2f);
     }
 
-   private void assignbuttonColor()
-    {
-        int gold = manager.goldAmount;
-        if(gold >= datePrice)
-        {
-            dateButtonUI.color = canBuy;
-        }
-        else 
-        {
-            dateButtonUI.color = cannotBuy;
-        }
-
-
-        if (gold >= coffeePrice)
-        {
-            coffeeButtonUI.color = canBuy;
-        }
-        else
-        {
-            coffeeButtonUI.color = cannotBuy;
-        }
-
-
-        if (gold >= labanPrice)
-        {
-            labanButtonUI.color = canBuy;
-        }
-        else
-        {
-            labanButtonUI.color = cannotBuy;
-        }
-
-
-        if (gold >= teaPrice)
-        {
-            teaButtonUI.color = canBuy;
-        }
-        else
-        {
-            teaButtonUI.color = cannotBuy;
-        }
-
-
-    }
+  
 
     //item shop buttons
     public void buyDates()
@@ -277,7 +231,56 @@ public class ItemShop : MonoBehaviour
             failedPurchaseUIOpen(notEnoughGold);
         }
 
-        assignbuttonColor();
+        
+    }
+
+    public void goldArmorUpgrade()
+    {
+        int gold = manager.goldAmount;
+
+        if (gold >= silverArmorPrice)
+        {
+            //upgrade the armor
+
+        }
+        else
+        {
+
+            failedPurchaseUIOpen(notEnoughGold);
+        }
+
+
+    }
+
+    public void falconAbility()
+    {
+        int gold = manager.goldAmount;
+
+        if (gold >= silverArmorPrice)
+        {
+            //upgrade the armor
+
+        }
+        else
+        {
+
+            failedPurchaseUIOpen(notEnoughGold);
+        }
+
+
+    }
+
+    public void powerupsButton()
+    {
+        powerupsSection.SetActive(true);
+        armorSection.SetActive(false);
+    }
+
+    public void armorButton()
+    {
+
+        powerupsSection.SetActive(false);
+        armorSection.SetActive(true);
     }
 
 

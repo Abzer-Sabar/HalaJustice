@@ -231,6 +231,8 @@ public class SmallEnemy : MonoBehaviour
         }
     }
 
+   
+
     private void die()
     {
         anim.SetTrigger("die");
