@@ -12,14 +12,16 @@ public class falcon : MonoBehaviour
     private FalconPlasma falconPlasma;
     private Vector2 target;
     private float timeBtwShots;
+    float someScale;
+    int direction;
 
- 
-    private GameObject enemy; 
-
+    private GameObject enemy;
+   
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         timeBtwShots = startTimebtwShots;
+       
     }
 
     private void Update()
@@ -32,7 +34,13 @@ public class falcon : MonoBehaviour
             Debug.Log("Enemy is in sight");
             shoot();
         }
+
+
+        
     }
+            
+        
+        
 
 
     private void shoot()
@@ -67,7 +75,7 @@ public class falcon : MonoBehaviour
         }
         else
         {
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
     }
 }

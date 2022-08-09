@@ -55,7 +55,7 @@ public class playerHealth : MonoBehaviour
 
     public void takeDamage(float damage)
     {
-        float damageTaken = damage / damageReduction;
+        float damageTaken = damage - damageReduction;
         currentHealth -= damageTaken;
         FindObjectOfType<AudioManager>().play("Hurt");
         hb.setHealth(currentHealth);

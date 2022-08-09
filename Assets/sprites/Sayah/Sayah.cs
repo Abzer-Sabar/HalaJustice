@@ -51,7 +51,7 @@ public class Sayah : MonoBehaviour
                 break;
 
             case States.specialDroneAttack:
-                Debug.Log("Special Drone attack");
+                Debug.Log("Special Drone attack enabled");
                 break;
 
             case States.death:
