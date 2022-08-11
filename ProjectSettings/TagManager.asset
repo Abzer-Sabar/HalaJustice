@@ -26,6 +26,9 @@ TagManager:
   - checkpoint1
   - checkpoint2
   - checkpoint3
+  - Aim
+  - Falcon
+  - Dash
   layers:
   - Default
   - TransparentFX

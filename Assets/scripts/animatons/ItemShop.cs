@@ -10,13 +10,14 @@ public class ItemShop : MonoBehaviour
     public GameObject armorSection, powerupsSection;
     public LeanTweenType inType;
     public LeanTweenType outType;
-    public Image dateButtonUI, coffeeButtonUI, teaButtonUI, labanButtonUI;
-    public GameObject itemShopUI, failedPurchaseUI, dateButton, labanButton, coffeeButton, teaButton;
+    public GameObject silverArmorButton, goldArmorButton, goldActiveButton, silverActiveButton;
+    public GameObject itemShopUI, failedPurchaseUI, dateButton, labanButton, coffeeButton, teaButton, falconButton;
     public TextMeshProUGUI failedPurchaseText;
-    public int datePrice = 10, labanPrice = 19, coffeePrice = 15, teaPrice = 17, silverArmorPrice = 30, goldArmorPrice = 40;
+    public int datePrice = 10, labanPrice = 19, coffeePrice = 15, teaPrice = 17, silverArmorPrice = 50, goldArmorPrice = 100, falconPrice = 30;
     public string notEnoughGold, inventoryFull;
 
     private playerInventory inventory;
+    private playerHealth health;
     [SerializeField]
     private GameManager manager;
     private Vector3 finalPos, startPos;
@@ -28,6 +29,7 @@ public class ItemShop : MonoBehaviour
         finalPos = new Vector3(Screen.width * 0.5f, Screen.height * 0.5f, 0);
         startPos = new Vector3(Screen.width * 0.5f, 6f, 0);
         inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<playerInventory>();
+        health = GameObject.FindGameObjectWithTag("Player").GetComponent<playerHealth>();
         powerupsSection.SetActive(true);
         armorSection.SetActive(false);
         itemShopUI.SetActive(false);
@@ -223,7 +225,9 @@ public class ItemShop : MonoBehaviour
         if (gold >= silverArmorPrice)
         {
             //upgrade the armor
-
+            health.silverArmor();
+            silverArmorButton.SetActive(false);
+            silverActiveButton.SetActive(true);
         }
         else
         {
@@ -238,10 +242,12 @@ public class ItemShop : MonoBehaviour
     {
         int gold = manager.goldAmount;
 
-        if (gold >= silverArmorPrice)
+        if (gold >= goldArmorPrice)
         {
             //upgrade the armor
-
+            health.GoldArmor();
+            goldArmorButton.SetActive(false);
+            goldActiveButton.SetActive(true);
         }
         else
         {
@@ -256,18 +262,29 @@ public class ItemShop : MonoBehaviour
     {
         int gold = manager.goldAmount;
 
-        if (gold >= silverArmorPrice)
+        if (gold >= falconPrice)
         {
-            //upgrade the armor
+            for (int i = 0; i < inventory.slots.Length; i++)
+            {
+                if (inventory.isFull[i] == false)
+                {
+                    //add item to inventory
+                    FindObjectOfType<AudioManager>().play("Pickup");
+                    inventory.isFull[i] = true;
+                    Instantiate(falconButton, inventory.slots[i].transform, false);
+                    Debug.Log("added tea");
+                    manager.deductGold(falconPrice);
 
+                    break;
+                }
+
+            }
         }
         else
         {
 
             failedPurchaseUIOpen(notEnoughGold);
         }
-
-
     }
 
     public void powerupsButton()

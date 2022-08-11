@@ -1,17 +1,21 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class playerHealth : MonoBehaviour
 {
     public healthBar hb;
     public GameObject deathEffectParticle;
+    public Image armorBar;
     public Transform spawnPosition1, spawnPosition2, spawnPosition3;
     public float trapDamage = 10f;
+    [ColorUsageAttribute(true, true, 0f, 8f, 0.125f, 3f)]
+    public Color silverArmorColor, goldArmorColor;
 
     [SerializeField]
     private float maxHealth;
 
     private float currentHealth;
-    private float damageReduction = 0f;
+    private float damageReduction = 1f;
     private Vector2 respawnPosition;
     private GameManager manager;
 
@@ -24,6 +28,7 @@ public class playerHealth : MonoBehaviour
         hb.setHealth(currentHealth);
         respawnPosition = new Vector2(spawnPosition1.position.x, spawnPosition1.position.y);
         manager = GameObject.FindGameObjectWithTag("Game Manager").GetComponent<GameManager>();
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -55,7 +60,7 @@ public class playerHealth : MonoBehaviour
 
     public void takeDamage(float damage)
     {
-        float damageTaken = damage - damageReduction;
+        float damageTaken = damage / damageReduction;
         currentHealth -= damageTaken;
         FindObjectOfType<AudioManager>().play("Hurt");
         hb.setHealth(currentHealth);
@@ -98,6 +103,10 @@ public class playerHealth : MonoBehaviour
     {
         damageReduction = 1.7f;
         playerCombat.increaseAttackDamage = 10;
+        var renderer = GetComponent<Renderer>();
+        //renderer.material.SetColor("_Color", Color.white * 1000);
+        renderer.material.color = silverArmorColor;
+        armorBar.color = Color.white;
         Debug.Log("Player has equipped silver armor");
     }
 
@@ -105,6 +114,10 @@ public class playerHealth : MonoBehaviour
     {
         damageReduction = 2f;
         playerCombat.increaseAttackDamage = 15f;
+        var renderer = GetComponent<Renderer>();
+        //renderer.material.SetColor("_Color", Color.yellow * 1000);
+        renderer.material.color = goldArmorColor;
+        armorBar.color = Color.yellow;
         Debug.Log("Player has equipped gold armor");
     }
 

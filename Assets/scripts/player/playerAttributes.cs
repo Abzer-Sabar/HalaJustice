@@ -82,6 +82,12 @@ public class playerAttributes : MonoBehaviour
             var prefab = this.gameObject;
             Destroy(prefab);
         }
+
+        if (collision.gameObject.CompareTag("Dash"))
+        {
+            manager.openDashDialogue();
+            
+        }
     }
 
     private void openDialogue()

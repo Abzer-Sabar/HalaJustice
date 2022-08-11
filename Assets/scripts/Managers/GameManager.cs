@@ -18,9 +18,9 @@ public class GameManager : MonoBehaviour
     public GameObject tutorialsUI;
     public GameObject levelFinishUI, levelFinishMainMenuButton, levelFinishReplayButton, timeBox, trophy, artifactsBox, deathsBox;
     public GameObject timeTextUI, deathTextUI, artifactsTextUI;
-    public GameObject finalDialogueBox;
+    public GameObject finalDialogueBox, trophyTextObject, dashDialogue;
 
-    public TextMeshProUGUI timeValueText, artifactsValueText, deathsValueText;
+    public TextMeshProUGUI timeValueText, artifactsValueText, deathsValueText, trophyText;
     [SerializeField]
     private Transform respawnPlayerPoint, portalSpawnPosition;
 
@@ -46,7 +46,9 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         camera = GameObject.Find("player Camera").GetComponent<CinemachineVirtualCamera>();
-        goldAmount = 19;
+        goldAmount = 200;
+        artifactsCollected = 0;
+        numberOfDeaths = 0;
         setGold(goldAmount);
         currentTime = 0;
         finalDialogueBox.SetActive(false);
@@ -60,6 +62,8 @@ public class GameManager : MonoBehaviour
         goldTropyPrefab.SetActive(false);
         silverTrophyPrefab.SetActive(false);
         bronzeTrophyPrefab.SetActive(false);
+        trophyTextObject.SetActive(false);
+        dashDialogue.SetActive(false);
         HideEverything();
     }
    
@@ -200,7 +204,22 @@ public class GameManager : MonoBehaviour
         startTimer();
     }
 
-  
+    public void openDashDialogue()
+    {
+        dashDialogue.SetActive(true);
+        LeanTween.scale(dashDialogue, new Vector3(0.5f, 0.5f, 0.5f), 0.3f).setEase(LeanTweenType.easeOutElastic).setOnComplete(pauseTime);
+    }
+
+    private void pauseTime()
+    {
+        Time.timeScale = 0f;
+    }
+    public void closeDashDialogue()
+    {
+        LeanTween.scale(finalDialogueBox, new Vector3(0f, 0f, 0f), 0.3f).setEase(LeanTweenType.easeOutElastic);
+        dashDialogue.SetActive(false);
+        Time.timeScale = 1f;
+    }
 
 
     //Level complete
@@ -230,7 +249,6 @@ public class GameManager : MonoBehaviour
         Instantiate(portal2, portalSpawnPosition.position, Quaternion.identity);
         finalDialogueBox.SetActive(false);
     }
-
 
     private void openTimeBoxUI()
     {
@@ -272,9 +290,13 @@ public class GameManager : MonoBehaviour
     private void displayTrophy(GameObject trophy) 
     {
         trophy.SetActive(true);
-        LeanTween.alpha(trophy.GetComponent<RectTransform>(), 1f, 1.5f).setDelay(0f).setEase(LeanTweenType.easeInBack);
+        LeanTween.alpha(trophy.GetComponent<RectTransform>(), 1f, 1.5f).setDelay(0f).setEase(LeanTweenType.easeInBack).setOnComplete(displayTrophyText);
     }
+    private void displayTrophyText()
+    {
 
+        trophyTextObject.SetActive(true);
+    }
 
     //Final scores calculation
     private void calculateScore()
@@ -282,19 +304,22 @@ public class GameManager : MonoBehaviour
         FinishTime = (int)currentTime / 60;
         Debug.Log("Time spent" + FinishTime);
 
-        if (artifactsCollected == 5 &  numberOfDeaths <= 3 & FinishTime <= 5)
+        if (artifactsCollected == 5 & numberOfDeaths <= 3 & FinishTime <= 5)
         {
             Debug.Log("Gold trophy");
+            trophyText.text = "" + "Gold";
             displayTrophy(goldTropyPrefab);
         }
        else if (artifactsCollected == 3 & numberOfDeaths <= 6 & FinishTime <=7)
         {
             Debug.Log("Silver trophy");
+            trophyText.text = "" + "Silver";
             displayTrophy(silverTrophyPrefab);
         }
         else
         {
             Debug.Log("Bronze trophy");
+            trophyText.text = "" + "Bronze";
             displayTrophy(bronzeTrophyPrefab);
         }
 

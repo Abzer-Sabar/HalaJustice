@@ -9,6 +9,8 @@ public class ItemSlot : MonoBehaviour
     public combat combat;
     public GameManager manager;
     public playerHealth health;
+    public GameObject falconPrefab;
+    public Transform falconSpawn;
     public KeyCode keycode = KeyCode.E;
     public int i;
 
@@ -56,6 +58,12 @@ public class ItemSlot : MonoBehaviour
                     StartCoroutine(consumeTea());
                     Destroy(child.gameObject);
                 }
+                if (child.CompareTag("Falcon"))
+                {
+                    StartCoroutine(falconAbility());
+                    Destroy(child.gameObject);
+
+                }
 
             }
         }
@@ -89,6 +97,13 @@ public class ItemSlot : MonoBehaviour
         manager.goldMultiplier = 2;
         yield return new WaitForSeconds(10f);
         revertGoldMultiplier();
+    }
+
+    IEnumerator falconAbility()
+    {
+       GameObject falcon = Instantiate(falconPrefab, falconSpawn.position, Quaternion.identity);
+        yield return new WaitForSeconds(10f);
+        Destroy(falcon);
     }
 
     private void revertGoldMultiplier()

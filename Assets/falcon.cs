@@ -28,7 +28,7 @@ public class falcon : MonoBehaviour
     {
         target = new Vector2(player.position.x, player.position.y + offset);
         transform.position = Vector2.MoveTowards(transform.position, target, moveSpeed * Time.deltaTime);
-
+        transform.rotation = player.rotation;
         if (enemyInSight)
         {
             Debug.Log("Enemy is in sight");
