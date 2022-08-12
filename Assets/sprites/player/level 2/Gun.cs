@@ -10,6 +10,7 @@ public class Gun : MonoBehaviour
     public Transform firePoint;
     public GameObject bulletPrefab;
     public Image bulletIcon;
+    public float bulletForce = 20f;
 
     [SerializeField]
     private int bullets;
