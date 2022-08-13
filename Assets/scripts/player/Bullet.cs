@@ -34,9 +34,10 @@ public class Bullet : MonoBehaviour
             collision.transform.SendMessage("Damage", bulletDamage);
             Destroy(gameObject);
         }
-        else
+        else if (collision.gameObject.CompareTag("Sayah"))
         {
-
+            collision.transform.SendMessage("BulletDamage", bulletDamage);
+            Destroy(gameObject);
         }
     }
 

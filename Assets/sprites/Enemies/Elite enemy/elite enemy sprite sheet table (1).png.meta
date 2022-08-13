@@ -1,0 +1,518 @@
+fileFormatVersion: 2
+guid: 2b5db8da039a4cc42b692c14857e1cab
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: elite enemy sprite sheet table (1)_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 398
+        width: 77
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3b076d4f2fec204295bc99a5732e831
+      internalID: -1751784685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elite enemy sprite sheet table (1)_1
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 397
+        width: 76
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad972fc0b250c2e42b30ea1d27b6fc59
+      internalID: -2104848103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elite enemy sprite sheet table (1)_2
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 396
+        width: 72
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 074ab13519837aa4e8dcf6c32469c818
+      internalID: 1096964997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elite enemy sprite sheet table (1)_3
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 397
+        width: 69
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a58e95577063d564ea85886feb955ac5
+      internalID: 1109516685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elite enemy sprite sheet table (1)_4
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 397
+        width: 73
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73378ebd2b992ea4b96ea82505719fac
+      internalID: 1768481014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elite enemy sprite sheet table (1)_5
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 255
+        width: 77
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 342330627369e484598d1c12605e3758
+      internalID: -737964601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elite enemy sprite sheet table (1)_6
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 255
+        width: 83
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d17ec9b460d462041a650ad51d271bd1
+      internalID: -706349445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elite enemy sprite sheet table (1)_7
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 252
+        width: 87
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0ac3f92306fccc458a1a23ee8c0d61f
+      internalID: -1098949786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elite enemy sprite sheet table (1)_8
+      rect:
+        serializedVersion: 2
+        x: 277
+        y: 253
+        width: 82
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2df3857941c058044aa28a90353b7b51
+      internalID: -1936617399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elite enemy sprite sheet table (1)_9
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 121
+        width: 77
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0caccb3bc0e62d479b95825ae14f551
+      internalID: -177995421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elite enemy sprite sheet table (1)_10
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 121
+        width: 61
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 977ced1085dd44a43903cc289dc57620
+      internalID: 1293609115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elite enemy sprite sheet table (1)_11
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 123
+        width: 69
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37cfc1b682d8a5c42b7918379b7b7b56
+      internalID: 1105311604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elite enemy sprite sheet table (1)_12
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 122
+        width: 68
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 945f11761bcb97043a4e4ca6fd9445bd
+      internalID: -1530730380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elite enemy sprite sheet table (1)_13
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 118
+        width: 64
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06927ecb5deee64448be0bf73e6d1b11
+      internalID: 1154134098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elite enemy sprite sheet table (1)_14
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 20
+        width: 65
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d569910c363f1a4089c50d61436c710
+      internalID: 1932249287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elite enemy sprite sheet table (1)_15
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 24
+        width: 68
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b025f51a207ce1e459ced7a6a29a61a3
+      internalID: 28317350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elite enemy sprite sheet table (1)_16
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 24
+        width: 62
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f731891b224ab7f41adb7996cb58de51
+      internalID: 788332592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elite enemy sprite sheet table (1)_17
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 24
+        width: 59
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6988135223f0bc841a6e13a193f4b414
+      internalID: 730391744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      elite enemy sprite sheet table (1)_5: -737964601
+      elite enemy sprite sheet table (1)_16: 788332592
+      elite enemy sprite sheet table (1)_12: -1530730380
+      elite enemy sprite sheet table (1)_11: 1105311604
+      elite enemy sprite sheet table (1)_8: -1936617399
+      elite enemy sprite sheet table (1)_6: -706349445
+      elite enemy sprite sheet table (1)_3: 1109516685
+      elite enemy sprite sheet table (1)_10: 1293609115
+      elite enemy sprite sheet table (1)_4: 1768481014
+      elite enemy sprite sheet table (1)_1: -2104848103
+      elite enemy sprite sheet table (1)_13: 1154134098
+      elite enemy sprite sheet table (1)_14: 1932249287
+      elite enemy sprite sheet table (1)_9: -177995421
+      elite enemy sprite sheet table (1)_2: 1096964997
+      elite enemy sprite sheet table (1)_7: -1098949786
+      elite enemy sprite sheet table (1)_15: 28317350
+      elite enemy sprite sheet table (1)_0: -1751784685
+      elite enemy sprite sheet table (1)_17: 730391744
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

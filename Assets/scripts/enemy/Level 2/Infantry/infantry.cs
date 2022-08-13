@@ -9,8 +9,10 @@ public class infantry : MonoBehaviour
     public float chaseSpeed, stoppingDistance, retreatDistance, starttimeBtwShots, maxHealth;
     public enemyHealthBar health;
 
+
     private Patrol patrol;
     private Transform player;
+    private Animator anim;
     private float timeBtwShots, currentHealth;
 
     private enum States
@@ -27,6 +29,7 @@ public class infantry : MonoBehaviour
         currenState = States.patrol;
         patrol = GetComponent<Patrol>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        anim = GetComponent<Animator>();
         timeBtwShots = starttimeBtwShots;
         currentHealth = maxHealth;
     }
@@ -55,6 +58,7 @@ public class infantry : MonoBehaviour
         else
         {
             currenState = States.patrol;
+            
         }
     }
 
@@ -74,6 +78,7 @@ public class infantry : MonoBehaviour
             else if (Vector2.Distance(transform.position, player.position) < stoppingDistance && Vector2.Distance(transform.position, player.position) > retreatDistance)
             {
                 transform.position = this.transform.position;
+                anim.SetBool("shooting", true);
                 shoot();
             }
             else if (Vector2.Distance(transform.position, player.position) < retreatDistance)
@@ -84,6 +89,7 @@ public class infantry : MonoBehaviour
         else
         {
             currenState = States.patrol;
+            anim.SetBool("shooting", false);
         }
         
     }

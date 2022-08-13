@@ -5,6 +5,8 @@ using UnityEngine;
 public class Sayah : MonoBehaviour
 {
     public GameObject[] drones;
+    public GameObject specialDrone, shield;
+    public enemyHealthBar health;
 
     public float maxHealth = 100;
 
@@ -31,6 +33,7 @@ public class Sayah : MonoBehaviour
     {
         currentState = States.awake;
         currentHealth = maxHealth;
+        specialDrone.SetActive(false);
        
     }
 
@@ -42,6 +45,7 @@ public class Sayah : MonoBehaviour
             case States.awake:
                 scanForPlayer();
                 disableDrones();
+                disableSpecialDrone();
                 break;
 
             case States.droneAttack:
@@ -52,6 +56,8 @@ public class Sayah : MonoBehaviour
 
             case States.specialDroneAttack:
                 Debug.Log("Special Drone attack enabled");
+                enableSpecialDrone();
+                checkForPlayer();
                 break;
 
             case States.death:
@@ -71,7 +77,17 @@ public class Sayah : MonoBehaviour
         }
     }
 
-   
+    private void checkForPlayer()
+    {
+        if (playerInRange)
+        {
+            currentState = States.specialDroneAttack;
+        }
+        else
+        {
+            currentState = States.awake;
+        }
+    }
     private void enableDrones()
     {
 
@@ -95,12 +111,56 @@ public class Sayah : MonoBehaviour
         }
     }
 
+    private void enableSpecialDrone()
+    {
+        specialDrone.GetComponent<Drones>().canShoot = true;
+    }
+
+    private void disableSpecialDrone()
+    {
+        specialDrone.GetComponent<Drones>().canShoot = false;
+    }
+
     private void checkDrones()
     {
         if(dronesDestroyed == 4)
         {
             currentState = States.specialDroneAttack;
-
+            shieldOn = false;
+            shield.SetActive(false);
+            specialDrone.SetActive(true);
         }
+    }
+
+    public void BulletDamage(float damage)
+    {
+        if (shieldOn)
+        {
+            return;
+        }
+        Debug.Log("You have damaged me!");
+        float damageTaken = damage;
+        currentHealth -= damageTaken;
+        health.setHealth(currentHealth, maxHealth);
+        if (currentHealth <= 0.0f)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+    }
+
+    public void Damage(float damage)
+    {
+        Debug.Log("You have damaged me!");
+        float damageTaken = damage;
+        currentHealth -= damageTaken;
+        health.setHealth(currentHealth, maxHealth);
+        if (currentHealth <= 0.0f)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
     }
 }

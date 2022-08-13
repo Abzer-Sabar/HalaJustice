@@ -47,7 +47,7 @@ public class plasmaBall : MonoBehaviour
 
     }
     
-
+   
     private void DestroyPlasmaBall()
     {
         Destroy(this.gameObject);

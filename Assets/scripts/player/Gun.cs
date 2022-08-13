@@ -31,7 +31,7 @@ public class Gun : MonoBehaviour
     {
         if(bullets > 0)
         {
-            Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+            Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
             bullets--;
             bulletText.text = "" + bullets;
         }

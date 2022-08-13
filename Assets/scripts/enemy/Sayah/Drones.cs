@@ -5,21 +5,24 @@ using UnityEngine;
 public class Drones : MonoBehaviour
 {
     public float maxHealth, bounceHeight, floatTime;
-    public float fireRate = 1f;
+    public float fireRate = 1f, shieldActiveTime = 5f, startTimeBtwShields = 5f;
     public Transform firePoint;
     public Sayah sayah;
     public enemyHealthBar health;
-    public GameObject plasmaBall;
-  
+    public GameObject plasmaBall, shield;
+    public bool shieldOn;
+
     [HideInInspector]
     public bool canShoot = false;
 
-    private float  currentHealth, fireCountDown = 0f;
+    private float  currentHealth, fireCountDown = 0f, timeBtwShields;
 
 
     private void Start()
     {
         currentHealth = maxHealth;
+        timeBtwShields = startTimeBtwShields;
+        InvokeRepeating("enableShield", 5f, 0.3f);
     }
     private void Update()
     {
@@ -42,6 +45,10 @@ public class Drones : MonoBehaviour
 
     public void Damage(float damage)
     {
+        if (shieldOn)
+        {
+            return;
+        }
         Debug.Log("You have damaged me!");
         float damageTaken = damage;
         currentHealth -= damageTaken;
@@ -53,5 +60,12 @@ public class Drones : MonoBehaviour
             return;
         }
         
+    }
+
+    IEnumerator enableShield()
+    {
+        shieldOn = true;
+        shield.SetActive(true);
+        yield return new WaitForSeconds(shieldActiveTime);
     }
 }
