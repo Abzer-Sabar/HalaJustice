@@ -33,6 +33,7 @@ public class rocks : MonoBehaviour
         {
             health.takeDamage(damage);
             Instantiate(RockParticles, transform.position, Quaternion.identity);
+            FindObjectOfType<AudioManager>().play("Rocks");
             Destroy(gameObject);
         } else if (collision.gameObject.CompareTag("Rocks"))
         {
@@ -41,6 +42,7 @@ public class rocks : MonoBehaviour
         else
         {
             Instantiate(RockParticles, transform.position, Quaternion.identity);
+            //FindObjectOfType<AudioManager>().play("Rocks");
             Destroy(gameObject);
         }
         

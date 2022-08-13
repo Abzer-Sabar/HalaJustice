@@ -1,0 +1,83 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4148682379612157139
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4148682379612157149}
+  - component: {fileID: 4148682379612157148}
+  m_Layer: 0
+  m_Name: Audio  Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4148682379612157149
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4148682379612157139}
+  m_LocalRotation: {x: -0, y: -0, z: -0.36585727, w: 0.930671}
+  m_LocalPosition: {x: 79.2182, y: -2.5075386, z: 0}
+  m_LocalScale: {x: 0.0350272, y: 0.0350272, z: 0.035027195}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4148682379612157148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4148682379612157139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39bed03dd65ddf641adfae6ea5148c78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Desert Ambient
+    clip: {fileID: 8300000, guid: cedd3b98580484548ba5dbc76d00c926, type: 3}
+    volume: 0.288
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Pause
+    clip: {fileID: 8300000, guid: cfe8348ae3224a446b74afabb908fa1c, type: 3}
+    volume: 0.551
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Die
+    clip: {fileID: 8300000, guid: 6e82bb64af1b1d2428ad257e30d68a83, type: 3}
+    volume: 0.826
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Hurt
+    clip: {fileID: 8300000, guid: c2532c38c07a7ab4ea754611e74340cb, type: 3}
+    volume: 0.792
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Hurt2
+    clip: {fileID: 8300000, guid: 24e5e37457a41e44f814c51ffe8f34e1, type: 3}
+    volume: 0.83
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Pickup
+    clip: {fileID: 8300000, guid: 7a31f20242fea3d4bb103da6b2804c72, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}

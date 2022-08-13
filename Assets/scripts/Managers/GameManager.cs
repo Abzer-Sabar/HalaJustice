@@ -42,11 +42,12 @@ public class GameManager : MonoBehaviour
     private static bool gameIsPaused = false;
     private bool StartGame = false;
     private bool stopWatchActive = false, TimerStart = false;
-
+    
     private void Start()
     {
         camera = GameObject.Find("player Camera").GetComponent<CinemachineVirtualCamera>();
-        goldAmount = 200;
+        goldMultiplier = 1;
+        goldAmount = 0;
         artifactsCollected = 0;
         numberOfDeaths = 0;
         setGold(goldAmount);
@@ -65,6 +66,7 @@ public class GameManager : MonoBehaviour
         trophyTextObject.SetActive(false);
         dashDialogue.SetActive(false);
         HideEverything();
+
     }
    
 
@@ -199,10 +201,18 @@ public class GameManager : MonoBehaviour
     void openPortal()
     {
         portal.SetActive(true);
-        LeanTween.scale(portal, new Vector3(5.47f, 5.47f, 5.47f), 3f).setDelay(0.5f);
+        LeanTween.scale(portal, new Vector3(5.47f, 5.47f, 5.47f), 3f).setDelay(0.5f).setOnComplete(spawnPlayer);
         stopStopWatch();
         startTimer();
     }
+
+    void spawnPlayer()
+    {
+        player.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+        player.GetComponent<playerController>().enabled = true;
+        player.GetComponent<combat>().enabled = true;
+    }
+   
 
     public void openDashDialogue()
     {

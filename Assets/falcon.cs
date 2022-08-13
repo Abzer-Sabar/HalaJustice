@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class falcon : MonoBehaviour
 {
-    public float moveSpeed, offset, startTimebtwShots;
+    public float moveSpeed, offset, fireRate =1f;
     public GameObject plasmaBallPrefab;
     [HideInInspector]
     public bool enemyInSight;
     private Transform player;
     private FalconPlasma falconPlasma;
     private Vector2 target;
-    private float timeBtwShots;
+    private float fireCountDown = 0f;
     float someScale;
     int direction;
 
@@ -20,8 +20,7 @@ public class falcon : MonoBehaviour
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-        timeBtwShots = startTimebtwShots;
-       
+        
     }
 
     private void Update()
@@ -30,31 +29,24 @@ public class falcon : MonoBehaviour
         transform.position = Vector2.MoveTowards(transform.position, target, moveSpeed * Time.deltaTime);
         transform.rotation = player.rotation;
         if (enemyInSight)
-        {
-            Debug.Log("Enemy is in sight");
-            shoot();
+        { 
+            if (fireCountDown <= 0)
+            {
+                shoot();
+                fireCountDown = 1f / fireRate;
+            }
+            fireCountDown -= Time.deltaTime;
         }
 
 
         
     }
-            
-        
-        
-
-
+           
     private void shoot()
     {
-        if(timeBtwShots <= 0)
-        {
+       
             GameObject plasma = Instantiate(plasmaBallPrefab, transform.position, Quaternion.identity);
             plasma.GetComponent<FalconPlasma>().enemy = enemy;
-            timeBtwShots = startTimebtwShots;        
-        }
-        else
-        {
-            timeBtwShots -= Time.deltaTime;
-        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -64,11 +56,21 @@ public class falcon : MonoBehaviour
             enemyInSight = true;
             enemy = collision.gameObject;
         }
+        if (collision.gameObject.CompareTag("Boss"))
+        {
+            enemyInSight = true;
+            enemy = collision.gameObject;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
+        {
+            enemyInSight = false;
+            enemy = null;
+        }
+        if (collision.gameObject.CompareTag("Boss"))
         {
             enemyInSight = false;
             enemy = null;

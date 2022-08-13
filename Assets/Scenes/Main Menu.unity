@@ -528,8 +528,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 69.38606, y: 0.00018787}
-  m_SizeDelta: {x: 112.7721, y: 18.162}
+  m_AnchoredPosition: {x: 85.22728, y: 0.00018787}
+  m_SizeDelta: {x: 144.4545, y: 18.162}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &94231580
 MonoBehaviour:
@@ -553,7 +553,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Complete the level under 5 mins
 
-    Collect all artifacts'
+    Collect all artifacts, Deaths:  Less
+    Than 4'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4eaa1f8c18ba06c44af030338ff28e3f, type: 2}
   m_sharedMaterial: {fileID: 7950868256987436850, guid: 4eaa1f8c18ba06c44af030338ff28e3f, type: 2}
@@ -8417,9 +8418,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Complete the level under 9 mins
-
-    Collect atleast 4 artifacts'
+  m_text: "Complete the level \nCollect atleast 1 artifacts"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4eaa1f8c18ba06c44af030338ff28e3f, type: 2}
   m_sharedMaterial: {fileID: 7950868256987436850, guid: 4eaa1f8c18ba06c44af030338ff28e3f, type: 2}
@@ -10347,8 +10346,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 69.38606, y: 0.00018787}
-  m_SizeDelta: {x: 112.7721, y: 18.162}
+  m_AnchoredPosition: {x: 82.18091, y: 0.00018787}
+  m_SizeDelta: {x: 138.3618, y: 18.162}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1010533904
 MonoBehaviour:
@@ -10372,7 +10371,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Complete the level under 7 mins
 
-    Collect atleast 6 artifacts'
+    Collect 3 artifacts, Deaths: Less
+    than 6'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4eaa1f8c18ba06c44af030338ff28e3f, type: 2}
   m_sharedMaterial: {fileID: 7950868256987436850, guid: 4eaa1f8c18ba06c44af030338ff28e3f, type: 2}
@@ -17198,7 +17198,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Artifacts: 7'
+  m_text: 'Artifacts: 5'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4eaa1f8c18ba06c44af030338ff28e3f, type: 2}
   m_sharedMaterial: {fileID: 7950868256987436850, guid: 4eaa1f8c18ba06c44af030338ff28e3f, type: 2}
