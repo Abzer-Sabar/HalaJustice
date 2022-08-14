@@ -21,6 +21,7 @@ public class Drones : MonoBehaviour
     private void Start()
     {
         currentHealth = maxHealth;
+        health.setHealth(currentHealth, maxHealth);
         timeBtwShields = startTimeBtwShields;
         InvokeRepeating("enableShield", 5f, 0.3f);
     }

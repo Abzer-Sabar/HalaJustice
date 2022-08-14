@@ -6,15 +6,18 @@ public class infantry : MonoBehaviour
 {
     [HideInInspector]
     public bool playerInRange, playerInSight;
-    public float chaseSpeed, stoppingDistance, retreatDistance, starttimeBtwShots, maxHealth;
+    public float chaseSpeed, stoppingDistance, retreatDistance, starttimeBtwShots, maxHealth, chasingDistance, fireRate = 1f;
     public enemyHealthBar health;
+    public GameObject bullet, canon, shield, deathEffect;
+    public Transform firePoint, canonSpawnPos;
 
 
     private Patrol patrol;
     private Transform player;
     private Animator anim;
-    private float timeBtwShots, currentHealth;
-
+    private float currentHealth, fireCountDown = 0f;
+    private bool canShoot, shieldOn, canonActive, deployCanon = true;
+    private GameObject Canon;
     private enum States
     {
         patrol,
@@ -30,8 +33,10 @@ public class infantry : MonoBehaviour
         patrol = GetComponent<Patrol>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         anim = GetComponent<Animator>();
-        timeBtwShots = starttimeBtwShots;
         currentHealth = maxHealth;
+        health.setHealth(currentHealth, maxHealth);
+        shieldOn = false;
+        shield.SetActive(false);
     }
     private void Update()
     {
@@ -39,87 +44,144 @@ public class infantry : MonoBehaviour
         {
             case States.patrol:
                 patrol.canPatrol = true;
+                canShoot = false;
+                anim.SetBool("shooting", false);
                 scanForPlayer();
                 break;
 
             case States.chase:
+                patrol.canPatrol = false;
+                anim.SetBool("shooting", true);
                 chasePlayer();
+                lookAtPlayer();
+                scanForPlayer();
                 break;
+        }
+
+        if (canShoot)
+        {
+            if (fireCountDown <= 0)
+            {
+                Debug.Log("Enemy is shooting");
+                Instantiate(bullet, firePoint.position, Quaternion.identity);
+                fireCountDown = 1f / fireRate;
+            }
+            fireCountDown -= Time.deltaTime;
+        }
+
+        if (canonActive)
+        {
+            if(Canon == null)
+            {
+                shieldOn = false;
+                shield.SetActive(false);
+            }
         }
     }
 
     private void scanForPlayer()
     {
-        if (playerInSight)
+        if(Vector2.Distance(transform.position, player.position) < chasingDistance)
         {
+            Debug.Log("player is in Range");
             currenState = States.chase;
-            patrol.canPatrol = false;
         }
         else
         {
+            Debug.Log("player is out of Range");
             currenState = States.patrol;
-            
         }
     }
 
-    private void lookAtPlayer()
-    {
-
-    }
+    
+        private void lookAtPlayer()
+        {
+            Vector3 scale = transform.localScale;
+            if (player.transform.position.x < transform.position.x)
+            {
+            // scale.x = Mathf.Abs(scale.x) * -1 * (flip ? -1 : 1);
+            transform.eulerAngles = new Vector3(0, -180, 0);
+        }
+            else
+            {
+            // scale.x = Mathf.Abs(scale.x) * (flip ? -1 : 1);
+            transform.eulerAngles = new Vector3(0, 0, 0);
+            }
+            transform.localScale = scale;
+        }
+    
 
     private void chasePlayer()
     {
-        if (playerInSight)
-        {
             if (Vector2.Distance(transform.position, player.position) > stoppingDistance)
             {
-                transform.position = Vector2.MoveTowards(transform.position, player.position, chaseSpeed * Time.deltaTime);
+                  anim.SetBool("shooting", false);
+                  transform.position = Vector2.MoveTowards(transform.position, player.position, chaseSpeed * Time.deltaTime);
             }
             else if (Vector2.Distance(transform.position, player.position) < stoppingDistance && Vector2.Distance(transform.position, player.position) > retreatDistance)
             {
                 transform.position = this.transform.position;
                 anim.SetBool("shooting", true);
-                shoot();
+               
+            
             }
             else if (Vector2.Distance(transform.position, player.position) < retreatDistance)
             {
                 transform.position = Vector2.MoveTowards(transform.position, player.position, -chaseSpeed * Time.deltaTime);
             }
-        }
-        else
+        
+        
+    }
+
+    public void shoot()
+    {
+        canShoot = true;
+        Debug.Log("trying to shoot");
+    }
+    
+    
+
+    private void die()
+    {
+        Debug.Log("enemy dead");
+        Instantiate(deathEffect, transform.position, transform.rotation);
+        Destroy(gameObject);
+    }
+
+    public void Damage(float damage)
+    {
+        if (shieldOn)
         {
-            currenState = States.patrol;
-            anim.SetBool("shooting", false);
+            return;
+        }
+        currentHealth -= damage;
+        health.setHealth(currentHealth, maxHealth);
+        Debug.Log("You have damaged me!");
+        if (currentHealth <= 75f)
+        {
+            anim.SetTrigger("cast");
+            cast();
+
+        }
+         if (currentHealth <= 0f)
+        {
+
+            die();
         }
         
     }
 
-    private void shoot()
+    private void cast()
     {
-        if(timeBtwShots <= 0)
+        if (deployCanon)
         {
-            timeBtwShots = starttimeBtwShots;
-        }
-        else
-        {
-            timeBtwShots -= Time.deltaTime;
-        }
-    }
-
-    private void die()
-    {
-
-    }
-
-    public void Damage(float[] attackDetails)
-    {
-        currentHealth -= attackDetails[0];
-        health.setHealth(currentHealth, maxHealth);
-        Debug.Log("You have damaged me!");
-        if (currentHealth <= 0.0f)
-        {
-            die();
+            Canon = Instantiate(canon, canonSpawnPos.position, Quaternion.identity);
+            canonActive = true;
+            shieldOn = true;
+            shield.SetActive(true);
+            deployCanon = false;
         }
     }
 
+    
 }

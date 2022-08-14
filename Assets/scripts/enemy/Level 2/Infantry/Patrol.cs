@@ -35,17 +35,19 @@ public class Patrol : MonoBehaviour
     private void flip()
     {
         RaycastHit2D groundInfo = Physics2D.Raycast(groundDetection.position, Vector2.down, 2.0f, LayerMask.GetMask("Ground"));
+        
+        
         if (groundInfo.collider == false)
         {
             if (movingRight == true)
             {
-                transform.eulerAngles = new Vector3(0, -180, 0);
-                movingRight = false;
+                 transform.eulerAngles = new Vector3(0, -180, 0);
+                
             }
             else
             {
                 transform.eulerAngles = new Vector3(0, 0, 0);
-                movingRight = true;
+                
             }
         }
     }
