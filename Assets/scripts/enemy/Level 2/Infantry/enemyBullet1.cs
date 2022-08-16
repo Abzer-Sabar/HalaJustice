@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class enemyBullet1 : MonoBehaviour
 {
+    public GameObject explodeEffect;
     public float speed = 5f, bulletDamage, bulletLifeTime = 5f;
     private Transform player;
 
@@ -25,7 +26,7 @@ public class enemyBullet1 : MonoBehaviour
         transform.Translate(dir.normalized * speed * Time.deltaTime);
         if(startTime > bulletLifeTime)
         {
-            Destroy(gameObject);
+            explode();
         }
     }
 
@@ -34,12 +35,19 @@ public class enemyBullet1 : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             collision.transform.SendMessage("takeDamage", bulletDamage);
-            Destroy(gameObject);
+            explode();
         }
         else if (collision.gameObject.CompareTag("Ground"))
         {
             Destroy(gameObject);
+            explode();
         }
+    }
+
+    private void explode()
+    {
+        Instantiate(explodeEffect, transform.position, Quaternion.identity);
+        Destroy(gameObject);
     }
 
 }

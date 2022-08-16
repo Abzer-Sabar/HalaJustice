@@ -10,7 +10,8 @@ public class Gun : MonoBehaviour
     public Transform firePoint;
     public GameObject bulletPrefab;
     public Image bulletIcon;
-    public float bulletForce = 20f;
+    public float bulletForce = 20f; 
+    public int bulletValueOnPickup = 10;
 
     [SerializeField]
     private int bullets;
@@ -39,6 +40,15 @@ public class Gun : MonoBehaviour
         {
             StartCoroutine(outOfBulleteffect());
             Debug.Log("out of bullets");
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Bullet"))
+        {
+            addBullets(bulletValueOnPickup);
+            Destroy(collision.gameObject);
         }
     }
 

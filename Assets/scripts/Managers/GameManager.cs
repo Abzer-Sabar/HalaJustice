@@ -47,7 +47,7 @@ public class GameManager : MonoBehaviour
     {
         camera = GameObject.Find("player Camera").GetComponent<CinemachineVirtualCamera>();
         goldMultiplier = 1;
-        goldAmount = 0;
+        goldAmount = 100;
         artifactsCollected = 0;
         numberOfDeaths = 0;
         setGold(goldAmount);

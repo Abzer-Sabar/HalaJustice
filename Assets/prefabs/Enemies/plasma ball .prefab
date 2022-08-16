@@ -135,6 +135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab83cfe46c1b1364bbb343b6c35e2bec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explodeEffect: {fileID: 7859883176895078501, guid: 46f0d2b1d211bae40b3464478fb7a72e, type: 3}
   moveSpeed: 5
   playerDamage: 7
   lifeTime: 5

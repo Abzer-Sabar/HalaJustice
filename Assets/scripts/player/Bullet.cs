@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-   
 
+    public GameObject bulletBurstEffect;
     public float speed = 5f, bulletDamage;
     private Transform aim;
     
@@ -29,17 +29,27 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if(collision.gameObject.CompareTag("Player"))
+        {
+            return;
+        }
         if (collision.gameObject.CompareTag("Enemy"))
         {
             collision.transform.SendMessage("Damage", bulletDamage);
-            Destroy(gameObject);
+            burstBullet();
         }
-        else if (collision.gameObject.CompareTag("Sayah"))
+         if (collision.gameObject.CompareTag("Sayah"))
         {
             collision.transform.SendMessage("BulletDamage", bulletDamage);
-            Destroy(gameObject);
+            burstBullet();
         }
+
+            burstBullet();
     }
 
-
+    private void burstBullet()
+    {
+        Instantiate(bulletBurstEffect, transform.position, Quaternion.identity);
+        Destroy(gameObject);
+    }
 }

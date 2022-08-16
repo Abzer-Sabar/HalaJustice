@@ -92,7 +92,7 @@ public class playerHealth : MonoBehaviour
     private void respawn()
     {
         transform.position = respawnPosition;
-        currentHealth = 20;
+        currentHealth = 50;
         hb.setHealth(currentHealth);
     }
 

@@ -9,7 +9,7 @@ public class Drones : MonoBehaviour
     public Transform firePoint;
     public Sayah sayah;
     public enemyHealthBar health;
-    public GameObject plasmaBall, shield;
+    public GameObject plasmaBall, shield, canon, dieEffect, explodeEffect;
     public bool shieldOn;
 
     [HideInInspector]
@@ -57,6 +57,9 @@ public class Drones : MonoBehaviour
         if (currentHealth <= 0.0f)
         {
             sayah.dronesDestroyed += 1;
+            StartCoroutine(explode());
+            Instantiate(canon, new Vector2(transform.position.x + 1, transform.position.y), Quaternion.identity);
+            Instantiate(dieEffect, transform.position, Quaternion.identity);
             Destroy(gameObject);
             return;
         }
@@ -68,5 +71,12 @@ public class Drones : MonoBehaviour
         shieldOn = true;
         shield.SetActive(true);
         yield return new WaitForSeconds(shieldActiveTime);
+    }
+
+    IEnumerator explode()
+    {
+        GameObject explosion = Instantiate(explodeEffect, transform.position, Quaternion.identity);
+        yield return new WaitForSeconds(1f);
+        Destroy(explosion);
     }
 }

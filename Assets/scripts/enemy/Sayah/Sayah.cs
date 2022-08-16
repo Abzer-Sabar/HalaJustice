@@ -33,6 +33,7 @@ public class Sayah : MonoBehaviour
     {
         currentState = States.awake;
         currentHealth = maxHealth;
+        health.setHealth(currentHealth, maxHealth);
         specialDrone.SetActive(false);
        
     }

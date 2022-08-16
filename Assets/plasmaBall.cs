@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class plasmaBall : MonoBehaviour
 {
+    public GameObject explodeEffect;
     public float moveSpeed, playerDamage, lifeTime = 5f;
 
     private Transform player;
@@ -50,6 +51,7 @@ public class plasmaBall : MonoBehaviour
    
     private void DestroyPlasmaBall()
     {
+        Instantiate(explodeEffect, transform.position, Quaternion.identity);
         Destroy(this.gameObject);
     }
 }
