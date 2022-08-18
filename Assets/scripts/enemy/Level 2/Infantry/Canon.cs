@@ -8,6 +8,7 @@ public class Canon : MonoBehaviour
     public enemyHealthBar health;
     public GameObject plasmaBall;
     public Transform firePoint;
+    public int goldAmount = 10;
 
     private float fireCountDown, currentHealth;
     private Transform player;
@@ -76,6 +77,7 @@ public class Canon : MonoBehaviour
         health.setHealth(currentHealth, maxHealth);
         if (currentHealth <= 0.0f)
         {
+            FindObjectOfType<Manager2>().setGold(goldAmount);
             Destroy(gameObject);
             return;
         }

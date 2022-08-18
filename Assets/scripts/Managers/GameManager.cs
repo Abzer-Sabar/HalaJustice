@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     public playerAttributes playerAtt;
     public GameObject gameplayUI;
     public GameObject startSceneUI;
-    public GameObject messages, introDialogueBox;
+    public GameObject messages, introDialogueBox, optionsMenuUI;
     public GameObject portal, portal2;
     public GameObject tutorialsUI;
     public GameObject levelFinishUI, levelFinishMainMenuButton, levelFinishReplayButton, timeBox, trophy, artifactsBox, deathsBox;
@@ -42,10 +42,13 @@ public class GameManager : MonoBehaviour
     private static bool gameIsPaused = false;
     private bool StartGame = false;
     private bool stopWatchActive = false, TimerStart = false;
+    private Vector2 startPos, finalPos;
     
     private void Start()
     {
         camera = GameObject.Find("player Camera").GetComponent<CinemachineVirtualCamera>();
+        finalPos = new Vector3(Screen.width * 0.5f, Screen.height * 0.5f, 0);
+        startPos = new Vector3(Screen.width * 0.5f, 6f, 0);
         goldMultiplier = 1;
         goldAmount = 100;
         artifactsCollected = 0;
@@ -121,6 +124,33 @@ public class GameManager : MonoBehaviour
     {
         TimerStart = true;
     }
+    public void stopTimer()
+    {
+        TimerStart = false;
+    }
+
+    public void openOptionsUI()
+    {
+        optionsMenuUI.SetActive(true);
+        //LeanTween.move(optionsMenuUI, finalPos, 0.3f).setEase(LeanTweenType.easeOutQuad);
+       // LeanTween.alpha(optionsMenuUI.GetComponent<RectTransform>(), 1f, 0.3f).setDelay(0f).setEase(LeanTweenType.easeInBack).setOnComplete(openOptionMenuElements);
+    }
+
+   
+    public void closeOptionsUI()
+    {
+        optionsMenuUI.SetActive(false);
+       // LeanTween.scale(optionsGraphicsBox, new Vector3(0f, 0f, 0f), 0.3f).setEase(LeanTweenType.easeInCirc);
+        //LeanTween.scale(optionsResBox, new Vector3(0f, 0f, 0f), 0.3f).setEase(LeanTweenType.easeInCirc);
+        //LeanTween.scale(optionsVolumeBox, new Vector3(0f, 0f, 0f), 0.3f).setEase(LeanTweenType.easeInCirc);
+        //LeanTween.alpha(optionsMenuUI.GetComponent<RectTransform>(), 0f, 0.3f).setDelay(0f).setEase(LeanTweenType.easeInBack);
+        //LeanTween.move(optionsMenuUI, startPos, 0.3f).setEase(LeanTweenType.easeOutQuad).setOnComplete(disableOptions);
+
+    }
+
+    private void disableOptions()
+    {
+    }
 
     //gold function
     public void setGold(int gold)
@@ -141,15 +171,36 @@ public class GameManager : MonoBehaviour
         pauseMenu.SetActive(true);
         FindObjectOfType<AudioManager>().play("Pause");
         Time.timeScale = 0f;
+        //pauseElements();
         gameIsPaused = true;
+    }
+
+    private void pauseElements()
+    {
+        player.GetComponent<playerController>().enabled = false;
+        // player.GetComponent<playerCombat>().enabled = false;
+       // player.GetComponent<Gun>().enabled = false;
+        startStopWatch();
+        stopTimer();
+    }
+
+    private void resumeElements()
+    {
+
+        player.GetComponent<playerController>().enabled = true;
+        //  player.GetComponent<playerCombat>().enabled = true;
+       // player.GetComponent<Gun>().enabled = true;
+        stopStopWatch();
+        startTimer();
     }
     public void resumeGame() //button function
     {
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
         gameIsPaused = false;
+       // resumeElements();
+        closeOptionsUI();
     }
-
     public void reloadScene() //button function
     {
         Time.timeScale = 1f;

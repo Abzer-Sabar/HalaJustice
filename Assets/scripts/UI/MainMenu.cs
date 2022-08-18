@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public GameObject levelSelectMenu, level1Menu, level2Menu;
+    public GameObject levelSelectMenu, level1Menu, level2Menu, optionsMenuUI, optionsGraphicsBox, optionsVolumeBox, optionsResBox;
     public float transitionTime;
     public GameObject flames, flamesParticles;
     public Animator animator;
@@ -88,5 +88,35 @@ public class MainMenu : MonoBehaviour
     private void disableLevelSelectMenu()
     {
         levelSelectMenu.SetActive(false);
+    }
+
+    public void openOptionsUI()
+    {
+        optionsMenuUI.SetActive(true);
+        LeanTween.move(optionsMenuUI, finalPos, 0.3f).setEase(LeanTweenType.easeOutQuad);
+        LeanTween.alpha(optionsMenuUI.GetComponent<RectTransform>(), 1f, 0.3f).setDelay(0f).setEase(LeanTweenType.easeInBack).setOnComplete(openOptionMenuElements);
+    }
+
+    private void openOptionMenuElements()
+    {
+        LeanTween.scale(optionsGraphicsBox, new Vector3(1f, 1f, 1f), 0.3f).setEase(LeanTweenType.easeInCirc);
+        LeanTween.scale(optionsResBox, new Vector3(1f, 1f, 1f), 0.3f).setEase(LeanTweenType.easeInCirc);
+        LeanTween.scale(optionsVolumeBox, new Vector3(1f, 1f, 1f), 0.3f).setEase(LeanTweenType.easeInCirc);
+    
+    }
+
+    public void closeOptionsUI()
+    {
+        LeanTween.scale(optionsGraphicsBox, new Vector3(0f, 0f, 0f), 0.3f).setEase(LeanTweenType.easeInCirc);
+        LeanTween.scale(optionsResBox, new Vector3(0f, 0f, 0f), 0.3f).setEase(LeanTweenType.easeInCirc);
+        LeanTween.scale(optionsVolumeBox, new Vector3(0f, 0f, 0f), 0.3f).setEase(LeanTweenType.easeInCirc);
+        LeanTween.alpha(optionsMenuUI.GetComponent<RectTransform>(), 0f, 0.3f).setDelay(0f).setEase(LeanTweenType.easeInBack);
+        LeanTween.move(optionsMenuUI, startPos, 0.3f).setEase(LeanTweenType.easeOutQuad).setOnComplete(disableOptions);
+
+    }
+
+    private void disableOptions()
+    {
+        optionsMenuUI.SetActive(false);
     }
 }

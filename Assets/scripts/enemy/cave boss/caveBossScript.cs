@@ -13,7 +13,7 @@ public class caveBossScript : MonoBehaviour
     public float moveSpeed = 2f, maxHealth = 100f;
     public float timer = 2f; //Timer for cooldown between attacks
     public int playerDamage = 10, goldAmount = 30;
-    public GameObject hotZone, triggerArea, blockade1, blockade2;
+    public GameObject hotZone, triggerArea;
     public GameManager manager;
     [HideInInspector] public bool inRange;
     [HideInInspector] public Transform target;
@@ -241,8 +241,7 @@ public class caveBossScript : MonoBehaviour
 
     private void die()
     {
-        blockade1.SetActive(false);
-        blockade2.SetActive(false);
+       
         anim.SetTrigger("die");
         this.enabled = false;
         manager.setGold(goldAmount);

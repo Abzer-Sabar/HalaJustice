@@ -10,6 +10,7 @@ public class infantry : MonoBehaviour
     public enemyHealthBar health;
     public GameObject bullet, canon, shield, deathEffect;
     public Transform firePoint, canonSpawnPos;
+    public int goldAmount;
 
 
     private Patrol patrol;
@@ -145,6 +146,7 @@ public class infantry : MonoBehaviour
     {
         Debug.Log("enemy dead");
         Instantiate(deathEffect, transform.position, transform.rotation);
+        FindObjectOfType<Manager2>().setGold(goldAmount);
         Destroy(gameObject);
     }
 
