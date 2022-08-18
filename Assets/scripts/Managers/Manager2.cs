@@ -7,12 +7,13 @@ using System;
 
 public class Manager2 : MonoBehaviour
 {
+   
     [SerializeField]
-    private GameObject player, pauseMenu;
+    private GameObject player, pauseMenu, dialogueBoxUI, portal;
     [SerializeField]
     private TextMeshProUGUI goldText;
     [SerializeField]
-    private TextMeshProUGUI stopWatchText;
+    private TextMeshProUGUI stopWatchText, artifactsText;
 
     [HideInInspector]
     public int goldAmount;
@@ -21,6 +22,7 @@ public class Manager2 : MonoBehaviour
     public int goldMultiplier = 1, artifactsCollected = 0, numberOfDeaths = 0, FinishTime = 0, MemoryFragments;
     private float currentTime;
     private static bool gameIsPaused = false;
+    private int remainingArtifacts = 0;
     private bool StartGame = false;
     private bool stopWatchActive = false, TimerStart = false;
 
@@ -30,7 +32,10 @@ public class Manager2 : MonoBehaviour
         artifactsCollected = 0;
         numberOfDeaths = 0;
         setGold(goldAmount);
+        artifactsText.text = "" + remainingArtifacts + "/4";
         currentTime = 0;
+        // hideEverything();
+        startIntro();
     }
 
     private void Update()
@@ -70,6 +75,34 @@ public class Manager2 : MonoBehaviour
         }
     }
 
+    private void hideEverything()
+    {
+
+    }
+
+    private void startIntro()
+    {
+        portal.SetActive(true);
+        LeanTween.scale(portal, new Vector3(5.47f, 5.47f, 5.47f), 3f).setDelay(0.5f).setOnComplete(spawnPlayer);
+
+    }
+
+    private void spawnPlayer()
+    {
+        player.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+        player.GetComponent<playerController>().enabled = true;
+        player.GetComponent<combat>().enabled = true;
+        player.GetComponent<Gun>().enabled = true;
+        stopStopWatch();
+        startTimer();
+        LeanTween.scale(dialogueBoxUI, new Vector3(1f, 1f, 1f), 1f).setDelay(0.5f).setEase(LeanTweenType.easeOutElastic);
+    }
+
+    public void closeIntro()
+    {
+        LeanTween.scale(dialogueBoxUI, new Vector3(0f, 0f, 0f), 1f).setDelay(0.5f).setEase(LeanTweenType.easeOutElastic);
+    }
+
     public void startStopWatch()
     {
         stopWatchActive = false;
@@ -84,6 +117,19 @@ public class Manager2 : MonoBehaviour
     {
         TimerStart = true;
     }
+
+    public void updateArtifacts()
+    {
+        remainingArtifacts++;
+        artifactsText.text = "" + remainingArtifacts + "/4";
+
+        if(remainingArtifacts == 4)
+        {
+            player.GetComponent<playerHealth>().teleportToSayah();
+        }
+    }
+
+
 
     //gold function
     public void setGold(int gold)

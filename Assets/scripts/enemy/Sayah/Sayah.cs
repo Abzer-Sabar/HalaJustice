@@ -40,7 +40,7 @@ public class Sayah : MonoBehaviour
 
     private void Update()
     {
-        
+
         switch (currentState)
         {
             case States.awake:
@@ -50,6 +50,14 @@ public class Sayah : MonoBehaviour
                 break;
 
             case States.droneAttack:
+                if (Random.value > 0.5)
+                {
+                    FindObjectOfType<AudioManager>().play("ImYourMaster");
+                }
+                else
+                {
+                    FindObjectOfType<AudioManager>().play("FeelDark");
+                }
                 enableDrones();
                 scanForPlayer();
                 checkDrones();
@@ -57,6 +65,7 @@ public class Sayah : MonoBehaviour
 
             case States.specialDroneAttack:
                 Debug.Log("Special Drone attack enabled");
+                FindObjectOfType<AudioManager>().play("YouBelong");
                 enableSpecialDrone();
                 checkForPlayer();
                 break;
@@ -64,7 +73,11 @@ public class Sayah : MonoBehaviour
             case States.death:
                 break;
         }
+
+  
     }
+
+    
 
     private void scanForPlayer()
     {
@@ -159,6 +172,7 @@ public class Sayah : MonoBehaviour
         health.setHealth(currentHealth, maxHealth);
         if (currentHealth <= 0.0f)
         {
+            FindObjectOfType<AudioManager>().play("SayahDeath");
             Destroy(gameObject);
             return;
         }

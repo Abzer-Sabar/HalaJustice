@@ -15,7 +15,7 @@ public class Gun : MonoBehaviour
 
     [SerializeField]
     private int bullets;
-
+    private float bulletDamage = 10;
     private void Start()
     {
         bulletText.text = "" + bullets;
@@ -32,7 +32,9 @@ public class Gun : MonoBehaviour
     {
         if(bullets > 0)
         {
-            Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
+            FindObjectOfType<AudioManager>().play("shoot");
+           GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
+            bullet.GetComponent<Bullet>().bulletDamage = this.bulletDamage;
             bullets--;
             bulletText.text = "" + bullets;
         }
@@ -63,5 +65,10 @@ public class Gun : MonoBehaviour
     {
         bullets += amount;
         bulletText.text = "" + bullets;
+    }
+
+    public void increaseBulletDamage(float damage)
+    {
+        this.bulletDamage += damage;
     }
 }

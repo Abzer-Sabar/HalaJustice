@@ -100,8 +100,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 4
-  offset: 6
-  startTimebtwShots: 2
+  offset: 5
+  fireRate: 1
   plasmaBallPrefab: {fileID: 1565246102723937771, guid: 446e5101f7316bf48b7f3a7b8ce56040, type: 3}
   enemyInSight: 0
 --- !u!58 &801273345840316778

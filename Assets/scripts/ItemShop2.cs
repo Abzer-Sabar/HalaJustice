@@ -13,11 +13,12 @@ public class ItemShop2 : MonoBehaviour
     public GameObject silverArmorButton, goldArmorButton, goldActiveButton, silverActiveButton;
     public GameObject itemShopUI, failedPurchaseUI, dateButton, labanButton, coffeeButton, teaButton, falconButton;
     public TextMeshProUGUI failedPurchaseText;
-    public int datePrice = 10, labanPrice = 19, coffeePrice = 15, teaPrice = 17, silverArmorPrice = 50, goldArmorPrice = 100, falconPrice = 30;
+    public int datePrice = 10, labanPrice = 19, coffeePrice = 15, teaPrice = 17, silverArmorPrice = 50, goldArmorPrice = 100, falconPrice = 30, bulletPrice = 15;
     public string notEnoughGold, inventoryFull;
 
     private playerInventory inventory;
     private playerHealth health;
+    private Gun gun;
     [SerializeField]
     private Manager2 manager;
     private Vector3 finalPos, startPos;
@@ -30,6 +31,7 @@ public class ItemShop2 : MonoBehaviour
         startPos = new Vector3(Screen.width * 0.5f, 6f, 0);
         inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<playerInventory>();
         health = GameObject.FindGameObjectWithTag("Player").GetComponent<playerHealth>();
+        gun = GameObject.FindGameObjectWithTag("Player").GetComponent<Gun>();
         powerupsSection.SetActive(true);
         armorSection.SetActive(false);
         itemShopUI.SetActive(false);
@@ -226,6 +228,7 @@ public class ItemShop2 : MonoBehaviour
         {
             //upgrade the armor
             health.silverArmor();
+            health.silverWeapon();
             silverArmorButton.SetActive(false);
             silverActiveButton.SetActive(true);
         }
@@ -245,6 +248,7 @@ public class ItemShop2 : MonoBehaviour
         if (gold >= goldArmorPrice)
         {
             //upgrade the armor
+            health.GoldWeapon();
             health.GoldArmor();
             goldArmorButton.SetActive(false);
             goldActiveButton.SetActive(true);
@@ -279,6 +283,21 @@ public class ItemShop2 : MonoBehaviour
                 }
 
             }
+        }
+        else
+        {
+
+            failedPurchaseUIOpen(notEnoughGold);
+        }
+    }
+
+    public void buyBullets()
+    {
+        int gold = manager.goldAmount;
+        if (gold >= bulletPrice)
+        {
+            gun.addBullets(10);
+            manager.deductGold(bulletPrice);
         }
         else
         {

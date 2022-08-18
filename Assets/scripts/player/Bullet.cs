@@ -6,17 +6,17 @@ public class Bullet : MonoBehaviour
 {
 
     public GameObject bulletBurstEffect;
-    public float speed = 5f, bulletDamage;
+    public float speed = 5f, bulletDamage, lifeTime = 4f;
     private Transform aim;
     
     private Vector2 target, currentPosition;
     private Vector3 dir;
+    private float timer = 0f;
 
     void Start()
     {
         aim = GameObject.FindGameObjectWithTag("Aim").GetComponent<Transform>();
         target = new Vector2(aim.position.x, aim.position.y);
-       
         dir = target - new Vector2(transform.position.x, transform.position.y);
     }
 
@@ -25,6 +25,11 @@ public class Bullet : MonoBehaviour
         //transform.position = Vector2.MoveTowards(transform.position, target, speed * Time.deltaTime);
 
         transform.Translate(dir.normalized * speed * Time.deltaTime);
+        timer += Time.deltaTime;
+        if(timer >= lifeTime)
+        {
+            burstBullet();
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

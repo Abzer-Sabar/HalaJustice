@@ -86,7 +86,23 @@ public class playerAttributes : MonoBehaviour
         if (collision.gameObject.CompareTag("Dash"))
         {
             manager.openDashDialogue();
-            
+
+        }
+
+        if (collision.gameObject.CompareTag("Expo"))
+        {
+            FindObjectOfType<Manager2>().updateArtifacts();
+            Destroy(collision.gameObject);
+        }
+        if (collision.gameObject.CompareTag("coin"))
+        {
+            FindObjectOfType<Manager2>().updateArtifacts();
+            Destroy(collision.gameObject);
+        }
+        if (collision.gameObject.CompareTag("Trophy"))
+        {
+            FindObjectOfType<Manager2>().updateArtifacts();
+            Destroy(collision.gameObject);
         }
     }
 

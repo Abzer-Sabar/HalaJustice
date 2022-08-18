@@ -32,6 +32,12 @@ TagManager:
   - Boss
   - Sayah
   - Bullet
+  - Expo
+  - Trophy
+  - coin
+  - Arnold
+  - Infantry
+  - Canon
   layers:
   - Default
   - TransparentFX

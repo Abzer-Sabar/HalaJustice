@@ -6,7 +6,7 @@ public class playerHealth : MonoBehaviour
     public healthBar hb;
     public GameObject deathEffectParticle;
     public Image armorBar;
-    public Transform spawnPosition1, spawnPosition2, spawnPosition3;
+    public Transform spawnPosition1, spawnPosition2, spawnPosition3, finalArenaPos;
     public float trapDamage = 10f;
     [ColorUsageAttribute(true, true, 0f, 8f, 0.125f, 3f)]
     public Color silverArmorColor, goldArmorColor;
@@ -75,7 +75,15 @@ public class playerHealth : MonoBehaviour
 
     private void Die()
     {
-        manager.numberOfDeaths += 1;
+        if(manager != null)
+        {
+            manager.numberOfDeaths += 1;
+
+        }
+        else
+        {
+            FindObjectOfType<Manager2>().numberOfDeaths += 1;
+        }
         FindObjectOfType<AudioManager>().play("Die");
         Instantiate(deathEffectParticle, this.transform.position, deathEffectParticle.transform.rotation);
         respawn();
@@ -96,6 +104,12 @@ public class playerHealth : MonoBehaviour
         hb.setHealth(currentHealth);
     }
 
+    public void teleportToSayah()
+    {
+        transform.position = finalArenaPos.position;
+        currentHealth = 100;
+        hb.setHealth(currentHealth);
+    }
     //Armor Upgrade Funtions
 
     public void silverArmor()
@@ -113,6 +127,28 @@ public class playerHealth : MonoBehaviour
     {
         damageReduction = 2f;
         playerCombat.increaseAttackDamage = 15f;
+        var renderer = GetComponent<Renderer>();
+        //renderer.material.SetColor("_Color", Color.yellow * 1000);
+        renderer.material.color = goldArmorColor;
+        armorBar.color = Color.yellow;
+        Debug.Log("Player has equipped gold armor");
+    }
+
+    public void silverWeapon()
+    {
+        damageReduction = 1.7f;
+        GetComponent<Gun>().increaseBulletDamage(5);
+        var renderer = GetComponent<Renderer>();
+        //renderer.material.SetColor("_Color", Color.white * 1000);
+        renderer.material.color = silverArmorColor;
+        armorBar.color = Color.white;
+        Debug.Log("Player has equipped silver armor");
+    }
+
+    public void GoldWeapon()
+    {
+        damageReduction = 2f;
+        GetComponent<Gun>().increaseBulletDamage(10);
         var renderer = GetComponent<Renderer>();
         //renderer.material.SetColor("_Color", Color.yellow * 1000);
         renderer.material.color = goldArmorColor;

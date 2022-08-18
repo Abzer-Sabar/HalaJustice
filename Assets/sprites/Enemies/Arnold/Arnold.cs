@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class Arnold : MonoBehaviour
 {
-    public GameObject bullet, grenade;
+    public GameObject bullet, grenade, deathEffect;
     public Transform firePoint;
     public enemyHealthBar health;
+    public int goldAmount;
     public float shootingDistance, fireRate, grenadeThrowForce, grenadeThrowChance, maxHealth;
 
     private bool canShoot, flip;
@@ -61,6 +62,7 @@ public class Arnold : MonoBehaviour
 
     private void shoot()
     {
+        FindObjectOfType<AudioManager>().play("shoot");
         Instantiate(bullet, firePoint.position, Quaternion.identity);
     }
 
@@ -94,6 +96,8 @@ public class Arnold : MonoBehaviour
         health.setHealth(currentHealth, maxHealth);
         if (currentHealth <= 0.0f)
         {
+            Instantiate(deathEffect, transform.position, Quaternion.identity);
+            FindObjectOfType<Manager2>().setGold(goldAmount);
             Destroy(gameObject);
             return;
         }
