@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Sayah : MonoBehaviour
 {
+    public Transform memoryPos;
+    public GameObject memoryFragment;
     public GameObject[] drones;
     public GameObject specialDrone, shield;
     public enemyHealthBar health;
@@ -16,6 +18,7 @@ public class Sayah : MonoBehaviour
     public bool playerInRange = false;
 
     private float currentHealth, timeBtwShots;
+    [SerializeField]
     private bool shieldOn = true;
 
     
@@ -158,7 +161,7 @@ public class Sayah : MonoBehaviour
         health.setHealth(currentHealth, maxHealth);
         if (currentHealth <= 0.0f)
         {
-            Destroy(gameObject);
+            Die();
             return;
         }
 
@@ -172,10 +175,16 @@ public class Sayah : MonoBehaviour
         health.setHealth(currentHealth, maxHealth);
         if (currentHealth <= 0.0f)
         {
-            FindObjectOfType<AudioManager>().play("SayahDeath");
-            Destroy(gameObject);
+            Die();
             return;
         }
 
+    }
+
+    private void Die()
+    {
+        FindObjectOfType<AudioManager>().play("SayahDeath");
+        Instantiate(memoryFragment, new Vector2(transform.position.x, transform.position.y + 3), Quaternion.identity);
+        Destroy(gameObject);
     }
 }

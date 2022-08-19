@@ -175,24 +175,6 @@ public class GameManager : MonoBehaviour
         gameIsPaused = true;
     }
 
-    private void pauseElements()
-    {
-        player.GetComponent<playerController>().enabled = false;
-        // player.GetComponent<playerCombat>().enabled = false;
-       // player.GetComponent<Gun>().enabled = false;
-        startStopWatch();
-        stopTimer();
-    }
-
-    private void resumeElements()
-    {
-
-        player.GetComponent<playerController>().enabled = true;
-        //  player.GetComponent<playerCombat>().enabled = true;
-       // player.GetComponent<Gun>().enabled = true;
-        stopStopWatch();
-        startTimer();
-    }
     public void resumeGame() //button function
     {
         pauseMenu.SetActive(false);
@@ -267,6 +249,7 @@ public class GameManager : MonoBehaviour
 
     public void openDashDialogue()
     {
+        FindObjectOfType<AudioManager>().play("popUp");
         dashDialogue.SetActive(true);
         LeanTween.scale(dashDialogue, new Vector3(0.5f, 0.5f, 0.5f), 0.3f).setEase(LeanTweenType.easeOutElastic).setOnComplete(pauseTime);
     }
@@ -301,6 +284,7 @@ public class GameManager : MonoBehaviour
 
     public void openFinalDialogue()
     {
+        FindObjectOfType<AudioManager>().play("popUp");
         finalDialogueBox.SetActive(true);
         LeanTween.scale(finalDialogueBox, new Vector3(0.5f, 0.5f, 0.5f), 0.3f).setEase(LeanTweenType.easeOutElastic);
     }

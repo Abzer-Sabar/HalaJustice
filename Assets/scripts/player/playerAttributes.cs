@@ -70,6 +70,11 @@ public class playerAttributes : MonoBehaviour
             manager.openFinalDialogue();
             Destroy(collision.gameObject);
         }
+        if (collision.gameObject.CompareTag("Fragment 2"))
+        {
+            FindObjectOfType<Manager2>().openFinalDialogue();
+            Destroy(collision.gameObject);
+        }
 
 
     }
@@ -91,16 +96,19 @@ public class playerAttributes : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Expo"))
         {
+            FindObjectOfType<AudioManager>().play("popUp");
             FindObjectOfType<Manager2>().updateArtifacts();
             Destroy(collision.gameObject);
         }
         if (collision.gameObject.CompareTag("coin"))
         {
+            FindObjectOfType<AudioManager>().play("popUp");
             FindObjectOfType<Manager2>().updateArtifacts();
             Destroy(collision.gameObject);
         }
         if (collision.gameObject.CompareTag("Trophy"))
         {
+            FindObjectOfType<AudioManager>().play("popUp");
             FindObjectOfType<Manager2>().updateArtifacts();
             Destroy(collision.gameObject);
         }
@@ -108,6 +116,7 @@ public class playerAttributes : MonoBehaviour
 
     private void openDialogue()
     {
+        FindObjectOfType<AudioManager>().play("popUp");
         artifactDialogueBox.SetActive(true);
         LeanTween.scale(artifactDialogueBox, new Vector3(0.5f, 0.5f, 0.5f), 0.3f).setEase(LeanTweenType.easeInElastic);
     }

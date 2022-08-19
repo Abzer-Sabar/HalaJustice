@@ -27096,6 +27096,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 8333912674502768576, guid: 2fb2328c1cfec924aa4dc54245a76a8a, type: 3}
+      propertyPath: mixer
+      value: 
+      objectReference: {fileID: 24300002, guid: 101543f3ec0552d408fb98348f220dd6, type: 2}
+    - target: {fileID: 8333912674502768576, guid: 2fb2328c1cfec924aa4dc54245a76a8a, type: 3}
       propertyPath: sounds.Array.size
       value: 5
       objectReference: {fileID: 0}
@@ -27161,7 +27165,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8333912674502768576, guid: 2fb2328c1cfec924aa4dc54245a76a8a, type: 3}
       propertyPath: sounds.Array.data[2].volume
-      value: 0.698
+      value: 0.485
       objectReference: {fileID: 0}
     - target: {fileID: 8333912674502768576, guid: 2fb2328c1cfec924aa4dc54245a76a8a, type: 3}
       propertyPath: sounds.Array.data[3].volume

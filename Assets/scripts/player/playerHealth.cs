@@ -46,6 +46,10 @@ public class playerHealth : MonoBehaviour
         {
             respawnPosition = new Vector2(spawnPosition3.position.x, spawnPosition3.position.y);
         }
+        if (collision.gameObject.tag == "finalArena")
+        {
+            respawnPosition = new Vector2(finalArenaPos.position.x, finalArenaPos.position.y);
+        }
 
     }
 
