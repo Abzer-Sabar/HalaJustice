@@ -49,6 +49,7 @@ public class Gun : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Bullet"))
         {
+            FindObjectOfType<AudioManager>().play("Pickup");
             addBullets(bulletValueOnPickup);
             Destroy(collision.gameObject);
         }

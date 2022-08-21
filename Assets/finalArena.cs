@@ -5,7 +5,7 @@ using UnityEngine.Rendering.Universal;
 
 public class finalArena : MonoBehaviour
 {
-    public GameObject finalArenaBg;
+    public GameObject dayTimeBg, nightTimeBg, finalArenaBg, rainParticles;
     public float nightLightIntensity;
     public Light2D globalLight;
 
@@ -13,8 +13,11 @@ public class finalArena : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            dayTimeBg.SetActive(false);
+            nightTimeBg.SetActive(false);
             finalArenaBg.SetActive(true);
             FindObjectOfType<AudioManager>().play("Rain");
+            rainParticles.SetActive(true);
             globalLight.intensity = nightLightIntensity;
             Debug.Log("player is in the final region");
         }

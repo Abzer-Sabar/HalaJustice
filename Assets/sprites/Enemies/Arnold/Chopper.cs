@@ -4,74 +4,37 @@ using UnityEngine;
 
 public class Chopper : MonoBehaviour
 {
-    public Transform rightLimit, leftLimit;
-    public GameObject deathEffect;
-    public enemyHealthBar health;
-    public float moveSpeed, maxHealth;
-    private int _currentWaypointIndex = 0;
-    private float currentHealth;
-    private bool movingRight;
-    private Transform target;
+    public float moveSpeed;
 
+    Vector3 nextpos;
+    public Vector3 position1, position2, startPosition;
+   
     private void Start()
     {
-        currentHealth = maxHealth;
-        health.setHealth(currentHealth, maxHealth);
-      
+        nextpos = startPosition;
     }
 
     private void Update()
     {
-        Vector3 rotate = transform.eulerAngles;
-        transform.position = Vector2.MoveTowards(transform.position, rightLimit.position, moveSpeed * Time.deltaTime);
-        if (transform.position == rightLimit.position)
+       
+        if (transform.position == position1)
         {
-            Debug.Log("Position Reached");
-            transform.position = Vector2.MoveTowards(transform.position, leftLimit.position, moveSpeed * Time.deltaTime);
-            rotate.y = 0f;
+           
+            nextpos = position2;
         }
-        if (transform.position == leftLimit.position)
+        if (transform.position == position2)
         {
+            
+            nextpos = position1;
+        }
 
-            transform.position = Vector2.MoveTowards(transform.position, rightLimit.position, moveSpeed * Time.deltaTime);
-            rotate.y = 180f;
-        }
+        transform.position = Vector3.MoveTowards(transform.position, nextpos, moveSpeed * Time.deltaTime);
+       
     }
 
-
-
-
-
-
-    public void Damage(float damage)
+    private void OnDrawGizmos()
     {
-        Debug.Log("You have damaged me!");
-        float damageTaken = damage;
-        currentHealth -= damageTaken;
-        health.setHealth(currentHealth, maxHealth);
-        if (currentHealth <= 0.0f)
-        {
-            Instantiate(deathEffect, transform.position, Quaternion.identity);
-            Destroy(gameObject);
-            return;
-        }
-
-    }
-
-    public void flip()
-    {
-        Vector3 rotate = transform.eulerAngles;
-
-        if (transform.position.x < target.position.x)
-        {
-            rotate.y = 0f;
-
-        }
-        else
-        {
-            rotate.y = 180f;
-        }
-        transform.eulerAngles = rotate;
+        Gizmos.DrawLine(position1, position2);
     }
 
 }

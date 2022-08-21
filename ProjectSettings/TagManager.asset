@@ -40,6 +40,7 @@ TagManager:
   - Canon
   - Fragment 2
   - finalArena
+  - hook
   layers:
   - Default
   - TransparentFX

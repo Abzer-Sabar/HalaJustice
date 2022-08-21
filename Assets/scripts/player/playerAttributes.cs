@@ -96,19 +96,25 @@ public class playerAttributes : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Expo"))
         {
-            FindObjectOfType<AudioManager>().play("popUp");
+            FindObjectOfType<AudioManager>().play("ItemCollect");
             FindObjectOfType<Manager2>().updateArtifacts();
             Destroy(collision.gameObject);
         }
         if (collision.gameObject.CompareTag("coin"))
         {
-            FindObjectOfType<AudioManager>().play("popUp");
+            FindObjectOfType<AudioManager>().play("ItemCollect");
             FindObjectOfType<Manager2>().updateArtifacts();
             Destroy(collision.gameObject);
         }
         if (collision.gameObject.CompareTag("Trophy"))
         {
-            FindObjectOfType<AudioManager>().play("popUp");
+            FindObjectOfType<AudioManager>().play("ItemCollect");
+            FindObjectOfType<Manager2>().updateArtifacts();
+            Destroy(collision.gameObject);
+        }
+        if (collision.gameObject.CompareTag("hook"))
+        {
+            FindObjectOfType<AudioManager>().play("ItemCollect");
             FindObjectOfType<Manager2>().updateArtifacts();
             Destroy(collision.gameObject);
         }

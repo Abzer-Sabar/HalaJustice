@@ -4,20 +4,23 @@ using UnityEngine;
 
 public class Canon : MonoBehaviour
 {
-    public float fireRate = 1f, plasmaBallSpeed, plasmaBallDamage, shootingDistance, maxHealth;
+    public float fireRate = 2f, plasmaBallSpeed, plasmaBallDamage, shootingDistance = 5, maxHealth;
     public enemyHealthBar health;
-    public GameObject plasmaBall;
+    public GameObject plasmaBall, ammo, chunks;
     public Transform firePoint;
     public int goldAmount = 10;
 
     private float fireCountDown, currentHealth;
     private Transform player;
+    private Animator anim;
     private bool canShoot = false, flip;
 
 
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        shootingDistance = 7f;
+        anim = GetComponent<Animator>();
         currentHealth = maxHealth;
         health.setHealth(currentHealth, maxHealth);
     }
@@ -77,10 +80,20 @@ public class Canon : MonoBehaviour
         health.setHealth(currentHealth, maxHealth);
         if (currentHealth <= 0.0f)
         {
+            anim.SetTrigger("destroy");
+            FindObjectOfType<AudioManager>().play("Grenade Explode");
+            Instantiate(chunks, transform.position, Quaternion.identity);
+            Instantiate(ammo, transform.position, Quaternion.identity);
             FindObjectOfType<Manager2>().setGold(goldAmount);
-            Destroy(gameObject);
+            StartCoroutine(destory());
             return;
         }
 
+    }
+
+    IEnumerator destory()
+    {
+        yield return new WaitForSeconds(1f);
+        Destroy(gameObject);
     }
 }

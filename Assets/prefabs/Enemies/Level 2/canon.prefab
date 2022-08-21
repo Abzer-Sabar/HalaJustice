@@ -212,7 +212,10 @@ MonoBehaviour:
   maxHealth: 150
   health: {fileID: 3592723364645069284}
   plasmaBall: {fileID: 2902687521027133605, guid: dbaa86d58b516f04bb4728a2cd1b1354, type: 3}
+  ammo: {fileID: 676449507251012960, guid: 1a01b3daa1021e249a056bc427a5b71d, type: 3}
+  chunks: {fileID: 6355859231178464129, guid: d922c176fa6d06d4693131b295010813, type: 3}
   firePoint: {fileID: 3592723363358903747}
+  goldAmount: 10
 --- !u!95 &3592723363250353096
 Animator:
   serializedVersion: 4
