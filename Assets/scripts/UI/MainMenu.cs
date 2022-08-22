@@ -2,12 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
+
 
 public class MainMenu : MonoBehaviour
 {
     public GameObject levelSelectMenu, level1Menu, level2Menu, optionsMenuUI, optionsGraphicsBox, optionsVolumeBox, optionsResBox;
+    public GameObject creditsPanel, creditsBg, creditBackButton, creditTitle;
+    public Animator creditsAnim;
     public float transitionTime;
     public GameObject flames, flamesParticles;
+    public TextMeshProUGUI fragmentsCollected;
     public Animator animator;
 
     private Vector3 finalPos, startPos;
@@ -18,11 +23,12 @@ public class MainMenu : MonoBehaviour
         FindObjectOfType<AudioManager>().play("Desert Ambient");
         FindObjectOfType<AudioManager>().play("Main");
         StartCoroutine(startFlames());
-
+        fragmentsCollected.text = "  " + (PlayerPrefs.GetInt("Fragment1") + PlayerPrefs.GetInt("Fragment2")).ToString() + "/2";
         finalPos = new Vector3(Screen.width * 0.5f, Screen.height * 0.5f, 0);
         startPos = new Vector3(Screen.width * 0.5f, 6f, 0);
 
         levelSelectMenu.SetActive(false);
+        creditsPanel.SetActive(false);
        
     }
     public void Exit()
@@ -119,4 +125,35 @@ public class MainMenu : MonoBehaviour
     {
         optionsMenuUI.SetActive(false);
     }
+
+    //credits
+    public void enableCredits()
+    {
+        creditsPanel.SetActive(true);
+        LeanTween.alpha(creditsBg.GetComponent<RectTransform>(), 1f, 0.3f).setDelay(0f).setEase(LeanTweenType.easeInBack).setOnComplete(showTitle);
+        LeanTween.alpha(creditBackButton.GetComponent<RectTransform>(), 1f, 0.3f).setDelay(0f).setEase(LeanTweenType.easeInBack);
+    }
+
+    private void showTitle()
+    {
+        LeanTween.alpha(creditTitle.GetComponent<RectTransform>(), 1f, 2f).setDelay(0f).setEase(LeanTweenType.easeInBack).setOnComplete(startCredits);
+    }
+
+    private void startCredits()
+    {
+        creditsAnim.SetTrigger("start");
+    }
+
+    public void endCredits()
+    {
+        LeanTween.alpha(creditsBg.GetComponent<RectTransform>(), 0f, 0.3f).setDelay(0f).setEase(LeanTweenType.easeInBack).setOnComplete(showTitle);
+        LeanTween.alpha(creditBackButton.GetComponent<RectTransform>(), 0f, 0.3f).setDelay(0f).setEase(LeanTweenType.easeInBack);
+        LeanTween.alpha(creditTitle.GetComponent<RectTransform>(), 0f, 0.3f).setDelay(0f).setEase(LeanTweenType.easeInBack).setOnComplete(disableCredits);
+    }
+
+    private void disableCredits()
+    {
+        creditsPanel.SetActive(false);
+    }
+     
 }

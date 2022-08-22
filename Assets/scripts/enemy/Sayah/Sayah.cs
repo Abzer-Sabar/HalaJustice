@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Sayah : MonoBehaviour
 {
-    public Transform memoryPos;
+    public Transform[] spawnPoints;
     public GameObject memoryFragment;
     public GameObject[] drones;
-    public GameObject specialDrone, shield;
+    public GameObject specialDrone, shield, teleportParticles;
     public enemyHealthBar health;
 
     public float maxHealth = 100;
@@ -15,7 +15,8 @@ public class Sayah : MonoBehaviour
     [HideInInspector]
     public int dronesDestroyed;
     [HideInInspector]
-    public bool playerInRange = false;
+    public bool playerInRange = false, flip;
+    private Transform player;
 
     private float currentHealth, timeBtwShots;
     [SerializeField]
@@ -37,6 +38,7 @@ public class Sayah : MonoBehaviour
         currentState = States.awake;
         currentHealth = maxHealth;
         health.setHealth(currentHealth, maxHealth);
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         specialDrone.SetActive(false);
        
     }
@@ -53,17 +55,10 @@ public class Sayah : MonoBehaviour
                 break;
 
             case States.droneAttack:
-                if (Random.value > 0.5)
-                {
-                    FindObjectOfType<AudioManager>().play("ImYourMaster");
-                }
-                else
-                {
-                    FindObjectOfType<AudioManager>().play("FeelDark");
-                }
                 enableDrones();
                 scanForPlayer();
                 checkDrones();
+                lookAtPlayer();
                 break;
 
             case States.specialDroneAttack:
@@ -71,6 +66,7 @@ public class Sayah : MonoBehaviour
                 FindObjectOfType<AudioManager>().play("YouBelong");
                 enableSpecialDrone();
                 checkForPlayer();
+                lookAtPlayer();
                 break;
 
             case States.death:
@@ -80,7 +76,19 @@ public class Sayah : MonoBehaviour
   
     }
 
-    
+    private void lookAtPlayer()
+    {
+        Vector3 scale = transform.localScale;
+        if (player.transform.position.x < transform.position.x)
+        {
+            scale.x = Mathf.Abs(scale.x) * -1 * (flip ? -1 : 1);
+        }
+        else
+        {
+            scale.x = Mathf.Abs(scale.x) * (flip ? -1 : 1);
+        }
+        transform.localScale = scale;
+    }
 
     private void scanForPlayer()
     {
@@ -136,6 +144,29 @@ public class Sayah : MonoBehaviour
     private void disableSpecialDrone()
     {
         specialDrone.GetComponent<Drones>().canShoot = false;
+    }
+
+    public void teleport()
+    {
+        Transform position = spawnPoints[Random.Range(0, spawnPoints.Length)];
+        Vector2 nextPosition = new Vector2(position.position.x, position.position.y);
+        Instantiate(teleportParticles, transform.position, Quaternion.identity);
+        transform.position = nextPosition;
+    }
+
+    public void droneIsDestroyed()
+    {
+        dronesDestroyed++;
+        if(Random.value > 0.5)
+        {
+            FindObjectOfType<AudioManager>().play("FeelDark");
+        }
+        else
+        {
+            FindObjectOfType<AudioManager>().play("ImYourMaster");
+        }
+        teleport();
+        checkDrones();
     }
 
     private void checkDrones()

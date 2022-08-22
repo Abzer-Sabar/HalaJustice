@@ -68,11 +68,13 @@ public class playerAttributes : MonoBehaviour
         if (collision.gameObject.CompareTag("Fragment1"))
         {
             manager.openFinalDialogue();
+            PlayerPrefs.SetInt("Fragment1", 1);
             Destroy(collision.gameObject);
         }
         if (collision.gameObject.CompareTag("Fragment 2"))
         {
             FindObjectOfType<Manager2>().openFinalDialogue();
+            PlayerPrefs.SetInt("Fragment2", 1);
             Destroy(collision.gameObject);
         }
 

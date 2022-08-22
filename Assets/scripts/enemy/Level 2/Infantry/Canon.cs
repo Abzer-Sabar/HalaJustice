@@ -13,7 +13,7 @@ public class Canon : MonoBehaviour
     private float fireCountDown, currentHealth;
     private Transform player;
     private Animator anim;
-    private bool canShoot = false, flip;
+    private bool canShoot = false, flip, isDead = false;
 
 
     private void Start()
@@ -80,13 +80,16 @@ public class Canon : MonoBehaviour
         health.setHealth(currentHealth, maxHealth);
         if (currentHealth <= 0.0f)
         {
-            anim.SetTrigger("destroy");
-            FindObjectOfType<AudioManager>().play("Grenade Explode");
-            Instantiate(chunks, transform.position, Quaternion.identity);
-            Instantiate(ammo, transform.position, Quaternion.identity);
-            FindObjectOfType<Manager2>().setGold(goldAmount);
-            StartCoroutine(destory());
-            return;
+            if (isDead == false)
+            {
+                anim.SetBool("destroy", true);
+                FindObjectOfType<AudioManager>().play("Grenade Explode");
+                Instantiate(chunks, transform.position, Quaternion.identity);
+                Instantiate(ammo, transform.position, Quaternion.identity);
+                FindObjectOfType<Manager2>().setGold(goldAmount);
+                StartCoroutine(destory());
+                isDead = true;
+            }
         }
 
     }

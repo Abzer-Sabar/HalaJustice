@@ -12,7 +12,7 @@ public class Drones : MonoBehaviour
     public GameObject plasmaBall, shield, canon, dieEffect, explodeEffect;
     public bool shieldOn;
 
-    [HideInInspector]
+   
     public bool canShoot = false;
 
     private float  currentHealth, fireCountDown = 0f, timeBtwShields;
@@ -56,7 +56,7 @@ public class Drones : MonoBehaviour
         health.setHealth(currentHealth, maxHealth);
         if (currentHealth <= 0.0f)
         {
-            sayah.dronesDestroyed += 1;
+            sayah.droneIsDestroyed();
             StartCoroutine(explode());
             Instantiate(canon, new Vector2(transform.position.x + 1, transform.position.y), Quaternion.identity);
             Instantiate(dieEffect, transform.position, Quaternion.identity);
@@ -64,13 +64,6 @@ public class Drones : MonoBehaviour
             return;
         }
         
-    }
-
-    IEnumerator enableShield()
-    {
-        shieldOn = true;
-        shield.SetActive(true);
-        yield return new WaitForSeconds(shieldActiveTime);
     }
 
     IEnumerator explode()
