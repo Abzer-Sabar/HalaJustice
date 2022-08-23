@@ -40,7 +40,7 @@ public class FalconPlasma : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Arnold"))
         {
-            collision.gameObject.GetComponentInParent<Arnold>().Damage(damage[0]);
+            collision.gameObject.GetComponentInParent<Arnold>().Damage(damage);
             Destroy(gameObject);
         }
         if (collision.gameObject.CompareTag("Infantry"))
@@ -55,7 +55,7 @@ public class FalconPlasma : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Canon"))
         {
-            collision.gameObject.GetComponentInParent<Canon>().Damage(damage[0]);
+            collision.gameObject.GetComponentInParent<Canon>().Damage(damage);
             Destroy(gameObject);
         }
         if (collision.gameObject.CompareTag("Ground"))

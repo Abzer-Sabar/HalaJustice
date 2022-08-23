@@ -34,6 +34,20 @@ public class grenade : MonoBehaviour
         }
     }
 
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Physics2D.IgnoreCollision(collision.gameObject.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+
+        }
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            Physics2D.IgnoreCollision(collision.gameObject.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+
+        }
+    }
     private void OnDrawGizmosSelected()
     {
         Gizmos.DrawWireSphere(transform.position, explodeRadius);

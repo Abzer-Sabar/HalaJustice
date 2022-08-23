@@ -72,31 +72,28 @@ public class Canon : MonoBehaviour
         transform.localScale = scale;
     }
 
-    public void Damage(float damage)
+    public void Damage(float[] damage)
     {
         Debug.Log("You have damaged me!");
-        float damageTaken = damage;
+        float damageTaken = damage[0];
         currentHealth -= damageTaken;
         health.setHealth(currentHealth, maxHealth);
         if (currentHealth <= 0.0f)
         {
-            if (isDead == false)
-            {
+           
                 anim.SetBool("destroy", true);
                 FindObjectOfType<AudioManager>().play("Grenade Explode");
                 Instantiate(chunks, transform.position, Quaternion.identity);
                 Instantiate(ammo, transform.position, Quaternion.identity);
                 FindObjectOfType<Manager2>().setGold(goldAmount);
-                StartCoroutine(destory());
-                isDead = true;
-            }
+              
+            
         }
 
     }
 
-    IEnumerator destory()
+   public void die()
     {
-        yield return new WaitForSeconds(1f);
         Destroy(gameObject);
     }
 }

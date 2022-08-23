@@ -44,14 +44,14 @@ public class Drones : MonoBehaviour
                 Instantiate(plasmaBall, firePoint.position, Quaternion.identity); 
         }
 
-    public void Damage(float damage)
+    public void Damage(float[] damage)
     {
         if (shieldOn)
         {
             return;
         }
         Debug.Log("You have damaged me!");
-        float damageTaken = damage;
+        float damageTaken = damage[0];
         currentHealth -= damageTaken;
         health.setHealth(currentHealth, maxHealth);
         if (currentHealth <= 0.0f)

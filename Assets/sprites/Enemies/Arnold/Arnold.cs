@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Arnold : MonoBehaviour
 {
-    public GameObject bullet, grenade, deathEffect;
-    public Transform firePoint;
+    public GameObject bullet, grenade, deathEffect, chopper;
+    public Transform firePoint, leftPos, rightPos;
     public enemyHealthBar health;
     public int goldAmount;
     public float shootingDistance, fireRate, grenadeThrowForce, grenadeThrowChance, maxHealth;
 
-    private bool canShoot, flip;
+    private bool canShoot, flip, canDeployChopper = true;
     private float fireCountDown = 0f, currentHealth;
     private Transform player;
     private Animator anim;
@@ -33,15 +33,15 @@ public class Arnold : MonoBehaviour
         {
             if(fireCountDown <= 0)
             {
-                if(Random.value > grenadeThrowChance)
-                {
-                    anim.SetTrigger("shoot");
-                }
-                else
-                {
+                 if(Random.value > grenadeThrowChance)
+                 {
+                     anim.SetTrigger("shoot");
+                 }
+                 else
+                 {
 
-                    anim.SetTrigger("throw");
-                }
+                     anim.SetTrigger("throw");
+                 }
                 fireCountDown = 1f / fireRate;
             }
             fireCountDown -= Time.deltaTime;
@@ -88,10 +88,24 @@ public class Arnold : MonoBehaviour
         rb.AddForce(dir.normalized * grenadeThrowForce, ForceMode2D.Impulse);
     }
 
-    public void Damage(float damage)
+    private void deployChopper()
+    {
+        if (canDeployChopper)
+        {
+           GameObject prefab = Instantiate(chopper, new Vector2(transform.position.x, transform.position.y + 4), Quaternion.identity);
+            prefab.GetComponent<Chopper>().leftPos = leftPos;
+            prefab.GetComponent<Chopper>().rightPos = rightPos;
+        }
+        else
+        {
+            return;
+        }
+    }
+
+    public void Damage(float[] damage)
     {
         Debug.Log("You have damaged me!");
-        float damageTaken = damage;
+        float damageTaken = damage[0];
         currentHealth -= damageTaken;
         health.setHealth(currentHealth, maxHealth);
         if (currentHealth <= 0.0f)
@@ -99,7 +113,11 @@ public class Arnold : MonoBehaviour
             Instantiate(deathEffect, transform.position, Quaternion.identity);
             FindObjectOfType<Manager2>().setGold(goldAmount);
             Destroy(gameObject);
-            return;
+           
+        }if(currentHealth <= 50)
+        {
+            deployChopper();
+            canDeployChopper = false;
         }
 
     }

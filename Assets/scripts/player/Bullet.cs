@@ -12,12 +12,14 @@ public class Bullet : MonoBehaviour
     private Vector2 target, currentPosition;
     private Vector3 dir;
     private float timer = 0f;
+    float[] attackDamage = new float[2];
 
     void Start()
     {
         aim = GameObject.FindGameObjectWithTag("Aim").GetComponent<Transform>();
         target = new Vector2(aim.position.x, aim.position.y);
         dir = target - new Vector2(transform.position.x, transform.position.y);
+        attackDamage[0] = bulletDamage;
     }
 
     private void Update()
@@ -40,7 +42,7 @@ public class Bullet : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            collision.transform.SendMessage("Damage", bulletDamage);
+            collision.transform.SendMessage("Damage", attackDamage);
             burstBullet();
         }
          if (collision.gameObject.CompareTag("Sayah"))
@@ -51,6 +53,8 @@ public class Bullet : MonoBehaviour
 
             burstBullet();
     }
+
+  
 
     private void burstBullet()
     {
