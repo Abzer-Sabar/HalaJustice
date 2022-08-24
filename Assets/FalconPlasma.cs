@@ -45,7 +45,7 @@ public class FalconPlasma : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Infantry"))
         {
-            collision.gameObject.GetComponentInParent<infantry>().Damage(damage[0]);
+            collision.gameObject.GetComponentInParent<infantry>().Damage(damage);
             Destroy(gameObject);
         }
         if (collision.gameObject.CompareTag("Sayah"))

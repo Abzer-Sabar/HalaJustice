@@ -114,7 +114,7 @@ public class Arnold : MonoBehaviour
             FindObjectOfType<Manager2>().setGold(goldAmount);
             Destroy(gameObject);
            
-        }if(currentHealth <= 50)
+        }if(currentHealth <= 200)
         {
             deployChopper();
             canDeployChopper = false;

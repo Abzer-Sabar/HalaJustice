@@ -377,4 +377,9 @@ public class GameManager : MonoBehaviour
         artifactsValueText.text = artifactsCollected.ToString() + "/5";
         deathsValueText.text = "" + numberOfDeaths.ToString();
     }
+
+    public void mouseClickSound()
+    {
+        FindObjectOfType<AudioManager>().play("Click");
+    }
 }

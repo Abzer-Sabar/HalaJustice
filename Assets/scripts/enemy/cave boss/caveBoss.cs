@@ -14,8 +14,7 @@ public class caveBoss : MonoBehaviour
     private void Start()
     {
         anim = GetComponent<Animator>();
-        blockade1.SetActive(false);
-        blockade2.SetActive(false);
+       
         enemy = this.GetComponent<caveBossScript>();
         enemy.enabled = false;
         healthBar.SetActive(false);
@@ -28,8 +27,7 @@ public class caveBoss : MonoBehaviour
            
             anim.SetTrigger("Awake");
             triggerPoint.SetActive(false);
-            blockade1.SetActive(true);
-            blockade2.SetActive(true);
+           
             StartCoroutine(enableEnemy());
         }
     }

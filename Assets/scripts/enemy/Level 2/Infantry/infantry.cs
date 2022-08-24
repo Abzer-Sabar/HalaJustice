@@ -17,7 +17,8 @@ public class infantry : MonoBehaviour
     private Transform player;
     private Animator anim;
     private float currentHealth, fireCountDown = 0f;
-    private bool canShoot, shieldOn, canonActive, deployCanon = true;
+    private bool canShoot, shieldOn, canonActive;
+    [SerializeField]private bool deployCanon = true;
     private GameObject Canon;
     private enum States
     {
@@ -150,13 +151,13 @@ public class infantry : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public void Damage(float damage)
+    public void Damage(float[] damage)
     {
         if (shieldOn)
         {
             return;
         }
-        currentHealth -= damage;
+        currentHealth -= damage[0];
         health.setHealth(currentHealth, maxHealth);
         Debug.Log("You have damaged me!");
         if (currentHealth <= 75f)

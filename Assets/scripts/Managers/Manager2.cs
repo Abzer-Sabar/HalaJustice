@@ -339,4 +339,10 @@ public class Manager2 : MonoBehaviour
         deathsValueText.text = "" + numberOfDeaths.ToString();
     }
 
+    //mouse button sounds
+     public void mouseClickSound()
+    {
+        FindObjectOfType<AudioManager>().play("Click");
+    }
+
 }

@@ -21,6 +21,7 @@ public class MainMenu : MonoBehaviour
         flames.SetActive(false);
         flamesParticles.SetActive(false);
         FindObjectOfType<AudioManager>().play("Desert Ambient");
+        FindObjectOfType<AudioManager>().play("Rain");
         FindObjectOfType<AudioManager>().play("Main");
         StartCoroutine(startFlames());
         fragmentsCollected.text = "  " + (PlayerPrefs.GetInt("Fragment1") + PlayerPrefs.GetInt("Fragment2")).ToString() + "/2";
@@ -60,6 +61,12 @@ public class MainMenu : MonoBehaviour
         FindObjectOfType<AudioManager>().stop("Desert Ambient");
         //FindObjectOfType<AudioManager>().stop("Main");
         SceneManager.LoadScene("Sahara hunting");
+    }
+
+    public void playLevel2()
+    {
+        FindObjectOfType<AudioManager>().stop("Desert Ambient");
+        SceneManager.LoadScene("Level 2");
     }
     public void backToMainMenu()
     {
@@ -154,6 +161,14 @@ public class MainMenu : MonoBehaviour
     private void disableCredits()
     {
         creditsPanel.SetActive(false);
+    }
+
+    //mouse button sounds
+
+    public void mouseClickSound()
+    {
+
+        FindObjectOfType<AudioManager>().play("Click");
     }
      
 }
