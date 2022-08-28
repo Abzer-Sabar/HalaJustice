@@ -33,7 +33,7 @@ public class Manager2 : MonoBehaviour
 
     private void Start()
     {
-        goldAmount = 200;
+        goldAmount = 0;
         artifactsCollected = 4;
         numberOfDeaths = 0;
         setGold(goldAmount);
@@ -60,16 +60,7 @@ public class Manager2 : MonoBehaviour
             }
         }
 
-       /* if (!StartGame)
-        {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                showEverything();
-                startIntro();
-                TriggerDialogue();
-                StartGame = true;
-            }
-        }*/
+     
 
         if (stopWatchActive == true)
         {
@@ -108,11 +99,23 @@ public class Manager2 : MonoBehaviour
         stopStopWatch();
         startTimer();
         FindObjectOfType<AudioManager>().play("popUp");
-        LeanTween.scale(dialogueBoxUI, new Vector3(1f, 1f, 1f), 1f).setDelay(0.5f).setEase(LeanTweenType.easeOutElastic);
+        LeanTween.scale(dialogueBoxUI, new Vector3(1f, 1f, 1f), 1f).setDelay(0.5f).setEase(LeanTweenType.easeOutElastic).setOnComplete(pauseTime);
     }
 
+
+    private void pauseTime()
+    {
+        Time.timeScale = 0f;
+        player.GetComponent<playerController>().enabled = false;
+        player.GetComponent<combat>().enabled = false;
+        player.GetComponent<Gun>().enabled = false;
+    }
     public void closeIntro()
     {
+        Time.timeScale = 1f;
+        player.GetComponent<playerController>().enabled = true;
+        player.GetComponent<combat>().enabled = true;
+        player.GetComponent<Gun>().enabled = true;
         LeanTween.scale(dialogueBoxUI, new Vector3(0f, 0f, 0f), 1f).setDelay(0.5f).setEase(LeanTweenType.easeOutElastic);
     }
 

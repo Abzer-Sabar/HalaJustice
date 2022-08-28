@@ -18,8 +18,19 @@ public class FalconPlasma : MonoBehaviour
     private void Update()
     {
         timer += Time.deltaTime;
-        targetPosition = new Vector2(enemy.gameObject.transform.position.x, enemy.gameObject.transform.position.y);
+        if (enemy != null)
+        {
+            targetPosition = new Vector2(enemy.gameObject.transform.position.x, enemy.gameObject.transform.position.y);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
         transform.position = Vector2.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
+        if(enemy == null)
+        {
+            Destroy(gameObject);
+        }
         if(timer>= lifeTime)
         {
             Destroy(gameObject);

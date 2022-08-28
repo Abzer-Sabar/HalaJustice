@@ -11,13 +11,14 @@ public class Gun : MonoBehaviour
     public GameObject bulletPrefab;
     public Image bulletIcon;
     public float bulletForce = 20f; 
-    public int bulletValueOnPickup = 10;
+    public int bulletValueOnPickup = 20;
 
     [SerializeField]
     private int bullets;
     private float bulletDamage = 10;
     private void Start()
     {
+        bullets = 250;
         bulletText.text = "" + bullets;
     }
     public void Update()

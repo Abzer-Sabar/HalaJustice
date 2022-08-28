@@ -5,7 +5,7 @@ using UnityEngine.Rendering.Universal;
 
 public class finalArena : MonoBehaviour
 {
-    public GameObject dayTimeBg, nightTimeBg, finalArenaBg, rainParticles;
+    public GameObject dayTimeBg, nightTimeBg, finalArenaBg, rainParticles, sayah;
     public float nightLightIntensity;
     public Light2D globalLight;
 
@@ -16,6 +16,7 @@ public class finalArena : MonoBehaviour
             dayTimeBg.SetActive(false);
             nightTimeBg.SetActive(false);
             finalArenaBg.SetActive(true);
+            sayah.SetActive(true);
             FindObjectOfType<AudioManager>().play("Rain");
             rainParticles.SetActive(true);
             globalLight.intensity = nightLightIntensity;

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class dayTime : MonoBehaviour
 {
+    public GameObject dayTimeEnemies, nightTimeEnemies;
     public GameObject dayTimeBg, nightTimeBg;
 
 
@@ -13,6 +14,8 @@ public class dayTime : MonoBehaviour
         {
             dayTimeBg.SetActive(true);
             nightTimeBg.SetActive(false);
+            dayTimeEnemies.SetActive(true);
+            nightTimeEnemies.SetActive(false);
         }
     }
 
@@ -22,6 +25,8 @@ public class dayTime : MonoBehaviour
         {
             dayTimeBg.SetActive(false);
             nightTimeBg.SetActive(true);
+            dayTimeEnemies.SetActive(false);
+            nightTimeEnemies.SetActive(true);
         }
     }
 }

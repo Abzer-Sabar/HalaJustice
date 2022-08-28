@@ -25,6 +25,7 @@ public class Sayah : MonoBehaviour
     
     private enum States
     {
+        sleep,
         awake,
         droneAttack,
         specialDroneAttack,
@@ -35,7 +36,7 @@ public class Sayah : MonoBehaviour
 
     private void Start()
     {
-        currentState = States.awake;
+        currentState = States.sleep;
         currentHealth = maxHealth;
         health.setHealth(currentHealth, maxHealth);
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
@@ -48,6 +49,13 @@ public class Sayah : MonoBehaviour
 
         switch (currentState)
         {
+            case States.sleep:
+                if(Vector2.Distance(transform.position, player.position) <= 5)
+                {
+                    currentState = States.awake;
+                }
+                break;
+
             case States.awake:
                 scanForPlayer();
                 disableDrones();

@@ -143,6 +143,7 @@ public class MainMenu : MonoBehaviour
 
     private void showTitle()
     {
+        creditTitle.SetActive(true);
         LeanTween.alpha(creditTitle.GetComponent<RectTransform>(), 1f, 2f).setDelay(0f).setEase(LeanTweenType.easeInBack).setOnComplete(startCredits);
     }
 
@@ -160,6 +161,7 @@ public class MainMenu : MonoBehaviour
 
     private void disableCredits()
     {
+        creditTitle.SetActive(false);
         creditsPanel.SetActive(false);
     }
 

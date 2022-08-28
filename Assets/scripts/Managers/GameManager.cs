@@ -223,6 +223,7 @@ public class GameManager : MonoBehaviour
 
     private void startIntro()
     {
+        FindObjectOfType<AudioManager>().play("popUp");
         LeanTween.scale(introDialogueBox, new Vector3(1f, 1f, 1f), 1f).setDelay(0.5f).setEase(LeanTweenType.easeOutElastic);
     }
 

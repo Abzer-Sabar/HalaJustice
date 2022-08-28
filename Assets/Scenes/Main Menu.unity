@@ -6240,8 +6240,8 @@ MonoBehaviour:
   m_text: "Graphics Design\n\n\n\nEnvironmental Assets\n\n\n\nLevel Design\n\n\n\nCharacter
     Animations\n\n\n\n Project Manager\n\n\n\nUI Design\n\n\n\nCharacter Design\n\n\n\nProgramming\n\n\n\nShader
     Graph / Special Effects\n\n\n\nStory \n\n\n\nPlayer Sound Effects\n\n\n\nMain
-    theme \n\n\n\nEnemy Sound Effects\n\n\n\nOther Sound Effects\n\n\n\nOrigin Story\n\n\n\nSpecial
-    Thanks"
+    theme\n\n\n \nIntro Music\n\n\n\n\nEnemy Sound Effects\n\n\n\nOther Sound Effects\n\n\n\nOrigin
+    Story\n\n\n\nSpecial Thanks"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0c7719f2d565b314b92434fe2bf6f449, type: 2}
   m_sharedMaterial: {fileID: -365260636827622689, guid: 0c7719f2d565b314b92434fe2bf6f449, type: 2}
@@ -7838,7 +7838,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &585771232
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7990,7 +7990,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Abzer Sabar\n\n\n\nBassam Ahmed\n\n\n\nFady Wael\n\n\n\nAbzer Sabar\n\n\n\nAjas
     Khan\n\n\n\nBassam Ahmed\n\n\n\nAbzer Sabar\n\n\n\nAjas Khan\n\n\n\nAjas Khan\n\n\n\nFady
-    Wael \n\n\n\nZapslat.com\n\n\n\nplayonloop.com \n\n\n\nplayonloop.com\n\n\n\nmixit.com\n\n\n\nMisbah
+    Wael \n\n\n\nZapslat.com\n\n\n\nplayonloop.com \n\n\n\nBig Horns Intro by Audionautix
+    is licensed under a Creative Commons Attribution license \n\n\n\nplayonloop.com\n\n\n\nmixit.com\n\n\n\nMisbah
     Shirin\n\n\n\nEndless Studio\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0c7719f2d565b314b92434fe2bf6f449, type: 2}
@@ -21806,8 +21807,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1671006562}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0138, y: 0.8291, z: 0}
-  m_LocalScale: {x: 0.9251566, y: 0.78705776, z: 0.7027929}
+  m_LocalPosition: {x: 0.0038, y: 0.8291, z: 0}
+  m_LocalScale: {x: 0.9261742, y: 0.78705776, z: 0.7027929}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}

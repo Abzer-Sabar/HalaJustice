@@ -5004,7 +5004,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5059,6 +5059,9 @@ MonoBehaviour:
   health: {fileID: 3067255175434249765}
   plasmaBall: {fileID: 2902687521027133605, guid: dbaa86d58b516f04bb4728a2cd1b1354, type: 3}
   shield: {fileID: 3067255175152717046}
+  canon: {fileID: 0}
+  dieEffect: {fileID: 0}
+  explodeEffect: {fileID: 0}
   shieldOn: 0
   canShoot: 0
 --- !u!61 &3067255175216732339

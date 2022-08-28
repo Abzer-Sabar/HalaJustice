@@ -296,6 +296,7 @@ public class ItemShop2 : MonoBehaviour
         int gold = manager.goldAmount;
         if (gold >= bulletPrice)
         {
+            FindObjectOfType<AudioManager>().play("Pickup");
             gun.addBullets(10);
             manager.deductGold(bulletPrice);
         }

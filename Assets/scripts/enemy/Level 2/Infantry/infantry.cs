@@ -135,13 +135,25 @@ public class infantry : MonoBehaviour
         
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("deadzone"))
+        {
+            normalDeath();
+        }
+    }
     public void shoot()
     {
         canShoot = true;
         Debug.Log("trying to shoot");
     }
-    
-    
+
+    private void normalDeath()
+    {
+        Debug.Log("enemy normal death");
+        Instantiate(deathEffect, transform.position, transform.rotation);
+        Destroy(gameObject);
+    }
 
     private void die()
     {

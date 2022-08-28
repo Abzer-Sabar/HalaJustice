@@ -12,7 +12,7 @@ public class falcon : MonoBehaviour
     private FalconPlasma falconPlasma;
     private Vector2 target;
     private float fireCountDown = 0f;
-    float someScale;
+    float someS;
     int direction;
 
     private GameObject enemy;
@@ -56,6 +56,26 @@ public class falcon : MonoBehaviour
             enemyInSight = true;
             enemy = collision.gameObject;
         }
+        if (collision.gameObject.CompareTag("Sayah"))
+        {
+            enemyInSight = true;
+            enemy = collision.gameObject;
+        }
+        if (collision.gameObject.CompareTag("Canon"))
+        {
+            enemyInSight = true;
+            enemy = collision.gameObject;
+        }
+        if (collision.gameObject.CompareTag("Infantry"))
+        {
+            enemyInSight = true;
+            enemy = collision.gameObject;
+        }
+        if (collision.gameObject.CompareTag("Arnold"))
+        {
+            enemyInSight = true;
+            enemy = collision.gameObject;
+        }
         if (collision.gameObject.CompareTag("Boss"))
         {
             enemyInSight = true;
@@ -66,6 +86,26 @@ public class falcon : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
+        {
+            enemyInSight = false;
+            enemy = null;
+        }
+        if (collision.gameObject.CompareTag("Sayah"))
+        {
+            enemyInSight = false;
+            enemy = null;
+        }
+        if (collision.gameObject.CompareTag("Infantry"))
+        {
+            enemyInSight = false;
+            enemy = null;
+        }
+        if (collision.gameObject.CompareTag("Arnold"))
+        {
+            enemyInSight = false;
+            enemy = null;
+        }
+        if (collision.gameObject.CompareTag("Canon"))
         {
             enemyInSight = false;
             enemy = null;
