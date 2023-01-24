@@ -7161,6 +7161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
   m_HorizontalAxis: Horizontal
   m_VerticalAxis: Vertical
   m_SubmitButton: Submit
@@ -7991,8 +7992,8 @@ MonoBehaviour:
   m_text: "Abzer Sabar\n\n\n\nBassam Ahmed\n\n\n\nFady Wael\n\n\n\nAbzer Sabar\n\n\n\nAjas
     Khan\n\n\n\nBassam Ahmed\n\n\n\nAbzer Sabar\n\n\n\nAjas Khan\n\n\n\nAjas Khan\n\n\n\nFady
     Wael \n\n\n\nZapslat.com\n\n\n\nplayonloop.com \n\n\n\nBig Horns Intro by Audionautix
-    is licensed under a Creative Commons Attribution license \n\n\n\nplayonloop.com\n\n\n\nmixit.com\n\n\n\nMisbah
-    Shirin\n\n\n\nEndless Studio\n"
+    is licensed under a Creative Commons Attribution license \n\n\n\nplayonloop.com\n\n\n\nmixit.com\n\n\n\nAjas
+    Khan\n\n\n\nEndless Studio\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0c7719f2d565b314b92434fe2bf6f449, type: 2}
   m_sharedMaterial: {fileID: -365260636827622689, guid: 0c7719f2d565b314b92434fe2bf6f449, type: 2}
@@ -11499,6 +11500,7 @@ MonoBehaviour:
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
+  m_AlphaBlendOnOverlap: 0
   m_OverlapOperation: 0
   m_NormalMapDistance: 3
   m_NormalMapQuality: 2
