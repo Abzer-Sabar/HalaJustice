@@ -23,7 +23,7 @@ public class Gun : MonoBehaviour
     }
     public void Update()
     {
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(0))
         {
             shoot();
         }
