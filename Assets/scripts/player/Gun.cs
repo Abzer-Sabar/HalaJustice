@@ -16,6 +16,8 @@ public class Gun : MonoBehaviour
     [SerializeField]
     private int bullets;
     private float bulletDamage = 10;
+
+    private bool paused;
     private void Start()
     {
         bullets = 250;
@@ -23,9 +25,12 @@ public class Gun : MonoBehaviour
     }
     public void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Time.timeScale == 1f)
         {
-            shoot();
+            if (Input.GetMouseButtonDown(0))
+            {
+                shoot();
+            }
         }
     }
 
