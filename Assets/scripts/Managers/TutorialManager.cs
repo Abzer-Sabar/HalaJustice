@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class TutorialManager : MonoBehaviour
 {
+    public GameObject swordPlayer, gunPlayer;
     public GameObject pauseMenu, optionsMenu;
 
     private bool gameIsPaused;
@@ -12,6 +13,9 @@ public class TutorialManager : MonoBehaviour
     private void Start()
     {
         pauseMenu.SetActive(false);
+
+        
+
     }
     private void Update()
     {
@@ -26,6 +30,22 @@ public class TutorialManager : MonoBehaviour
             {
                 pauseGame();
             }
+        }
+    }
+
+    private void spawnPlayer()
+    {
+        swordPlayer.SetActive(false);
+        gunPlayer.SetActive(false);
+        if (PlayerPrefs.GetInt("swordPlayer") == 1)
+        {
+            swordPlayer.SetActive(true);
+            gunPlayer.SetActive(false);
+        }
+        else
+        {
+            swordPlayer.SetActive(false);
+            gunPlayer.SetActive(true);
         }
     }
 
