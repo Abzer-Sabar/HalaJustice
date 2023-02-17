@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Cinemachine;
+using TMPro;
 
 public class TutorialManager : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class TutorialManager : MonoBehaviour
     public CinemachineVirtualCamera playerCamera;
     public GameObject pauseMenu, optionsMenu;
     public GameObject switchMenu;
-
+    public TextMeshProUGUI goldText;
     private bool gameIsPaused;
     private bool swictchMenuActive = false;
     private void Start()
@@ -19,8 +20,9 @@ public class TutorialManager : MonoBehaviour
         pauseMenu.SetActive(false);
         switchMenu.SetActive(false);
         AudioManager.instance.play("Rain");
-        spawnPlayer();
 
+        spawnPlayer();
+        
     }
     private void Update()
     {

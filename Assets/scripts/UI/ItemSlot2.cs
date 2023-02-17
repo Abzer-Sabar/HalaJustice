@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ItemSlot2 : MonoBehaviour
 {
-    public playerInventory inventory;
+    private playerInventory inventory;
     public playerController controller;
     public combat combat;
     public Manager2 manager;
@@ -20,8 +20,10 @@ public class ItemSlot2 : MonoBehaviour
 
     private void Start()
     {
+        controller = GameObject.FindGameObjectWithTag("Player").GetComponent<playerController>();
         inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<playerInventory>();
-
+        health = GameObject.FindGameObjectWithTag("Player").GetComponent<playerHealth>();
+        combat = GameObject.FindGameObjectWithTag("Player").GetComponent<combat>();
     }
 
     private void Update()

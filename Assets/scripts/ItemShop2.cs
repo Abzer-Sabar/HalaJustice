@@ -13,6 +13,8 @@ public class ItemShop2 : MonoBehaviour
     public GameObject silverArmorButton, goldArmorButton, goldActiveButton, silverActiveButton;
     public GameObject itemShopUI, failedPurchaseUI, dateButton, labanButton, coffeeButton, teaButton, falconButton;
     public TextMeshProUGUI failedPurchaseText;
+    public TextMeshProUGUI goldText;
+    public int goldAmount, goldMultiplier;
     public int datePrice = 10, labanPrice = 19, coffeePrice = 15, teaPrice = 17, silverArmorPrice = 50, goldArmorPrice = 100, falconPrice = 30, bulletPrice = 15;
     public string notEnoughGold, inventoryFull;
 
@@ -29,13 +31,13 @@ public class ItemShop2 : MonoBehaviour
     {
         finalPos = new Vector3(Screen.width * 0.5f, Screen.height * 0.5f, 0);
         startPos = new Vector3(Screen.width * 0.5f, 6f, 0);
+        goldText.text = "" + goldAmount;
         inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<playerInventory>();
         health = GameObject.FindGameObjectWithTag("Player").GetComponent<playerHealth>();
         gun = GameObject.FindGameObjectWithTag("Player").GetComponent<Gun>();
         powerupsSection.SetActive(true);
         armorSection.SetActive(false);
         itemShopUI.SetActive(false);
-
     }
 
 
@@ -112,9 +114,9 @@ public class ItemShop2 : MonoBehaviour
     //item shop buttons
     public void buyDates()
     {
-        int gold = manager.goldAmount;
+       
 
-        if (gold >= datePrice)
+        if (goldAmount >= datePrice)
         {
             for (int i = 0; i < inventory.slots.Length; i++)
             {
@@ -124,7 +126,7 @@ public class ItemShop2 : MonoBehaviour
                     FindObjectOfType<AudioManager>().play("Pickup");
                     inventory.isFull[i] = true;
                     Instantiate(dateButton, inventory.slots[i].transform, false);
-                    manager.deductGold(datePrice);
+                    deductGold(datePrice);
 
 
                     break;
@@ -139,8 +141,8 @@ public class ItemShop2 : MonoBehaviour
 
     public void buyLabanUp()
     {
-        int gold = manager.goldAmount;
-        if (gold >= labanPrice)
+ 
+        if (goldAmount >= labanPrice)
         {
             for (int i = 0; i < inventory.slots.Length; i++)
             {
@@ -150,7 +152,7 @@ public class ItemShop2 : MonoBehaviour
                     FindObjectOfType<AudioManager>().play("Pickup");
                     inventory.isFull[i] = true;
                     Instantiate(labanButton, inventory.slots[i].transform, false);
-                    manager.deductGold(labanPrice);
+                    deductGold(labanPrice);
 
                     break;
                 }
@@ -167,8 +169,8 @@ public class ItemShop2 : MonoBehaviour
 
     public void buyCoffee()
     {
-        int gold = manager.goldAmount;
-        if (gold >= coffeePrice)
+       
+        if (goldAmount >= coffeePrice)
         {
             for (int i = 0; i < inventory.slots.Length; i++)
             {
@@ -178,7 +180,7 @@ public class ItemShop2 : MonoBehaviour
                     FindObjectOfType<AudioManager>().play("Pickup");
                     inventory.isFull[i] = true;
                     Instantiate(coffeeButton, inventory.slots[i].transform, false);
-                    manager.deductGold(coffeePrice);
+                    deductGold(coffeePrice);
 
                     break;
                 }
@@ -194,8 +196,8 @@ public class ItemShop2 : MonoBehaviour
 
     public void buyTea()
     {
-        int gold = manager.goldAmount;
-        if (gold >= teaPrice)
+      
+        if (goldAmount >= teaPrice)
         {
             for (int i = 0; i < inventory.slots.Length; i++)
             {
@@ -206,7 +208,7 @@ public class ItemShop2 : MonoBehaviour
                     inventory.isFull[i] = true;
                     Instantiate(teaButton, inventory.slots[i].transform, false);
                     Debug.Log("added tea");
-                    manager.deductGold(teaPrice);
+                    deductGold(teaPrice);
 
                     break;
                 }
@@ -222,9 +224,9 @@ public class ItemShop2 : MonoBehaviour
 
     public void silverArmorUpgrade()
     {
-        int gold = manager.goldAmount;
+       
 
-        if (gold >= silverArmorPrice)
+        if (goldAmount >= silverArmorPrice)
         {
             //upgrade the armor
             health.silverArmor();
@@ -243,9 +245,8 @@ public class ItemShop2 : MonoBehaviour
 
     public void goldArmorUpgrade()
     {
-        int gold = manager.goldAmount;
 
-        if (gold >= goldArmorPrice)
+        if (goldAmount >= goldArmorPrice)
         {
             //upgrade the armor
             health.GoldWeapon();
@@ -264,9 +265,9 @@ public class ItemShop2 : MonoBehaviour
 
     public void falconAbility()
     {
-        int gold = manager.goldAmount;
+      
 
-        if (gold >= falconPrice)
+        if (goldAmount >= falconPrice)
         {
             for (int i = 0; i < inventory.slots.Length; i++)
             {
@@ -277,7 +278,7 @@ public class ItemShop2 : MonoBehaviour
                     inventory.isFull[i] = true;
                     Instantiate(falconButton, inventory.slots[i].transform, false);
                     Debug.Log("added tea");
-                    manager.deductGold(falconPrice);
+                    deductGold(falconPrice);
 
                     break;
                 }
@@ -293,12 +294,12 @@ public class ItemShop2 : MonoBehaviour
 
     public void buyBullets()
     {
-        int gold = manager.goldAmount;
-        if (gold >= bulletPrice)
+       
+        if (goldAmount >= bulletPrice)
         {
             FindObjectOfType<AudioManager>().play("Pickup");
             gun.addBullets(10);
-            manager.deductGold(bulletPrice);
+            deductGold(bulletPrice);
         }
         else
         {
@@ -319,5 +320,18 @@ public class ItemShop2 : MonoBehaviour
         powerupsSection.SetActive(false);
         armorSection.SetActive(true);
     }
+    public void setGold(int gold)
+    {
+        int currentGold = gold * goldMultiplier;
+        goldAmount += currentGold;
+        goldText.text = "" + goldAmount;
+    }
+
+    public void deductGold(int gold)
+    {
+        goldAmount -= gold;
+        goldText.text = "" + goldAmount;
+    }
+
 
 }

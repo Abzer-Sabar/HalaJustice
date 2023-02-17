@@ -19,7 +19,7 @@ public class Manager2 : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI stopWatchText, artifactsText;
 
-    [HideInInspector]
+ 
     public int goldAmount;
 
     [HideInInspector]
@@ -33,7 +33,7 @@ public class Manager2 : MonoBehaviour
 
     private void Start()
     {
-        goldAmount = 0;
+       
         artifactsCollected = 4;
         numberOfDeaths = 0;
         setGold(goldAmount);
