@@ -98,6 +98,11 @@ public class MainMenu : MonoBehaviour
         LeanTween.scale(level2Menu, new Vector3(0f, 0f, 0f), 0.2f);
     }
 
+    public void tawazunLevelButton()
+    {
+        SceneManager.LoadScene("Level 4");
+    }
+
     private void disableLevelSelectMenu()
     {
         levelSelectMenu.SetActive(false);

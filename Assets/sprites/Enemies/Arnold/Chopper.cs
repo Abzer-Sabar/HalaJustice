@@ -19,7 +19,7 @@ public class Chopper : MonoBehaviour
     {
         position1 = new Vector2(leftPos.position.x, leftPos.position.y);
         position2 = new Vector2(rightPos.position.x, rightPos.position.y);
-        startPosition = position1;
+        startPosition = position2;
         nextpos = startPosition;
         currentHealth = maxHealth;
         health.setHealth(currentHealth, maxHealth);
@@ -30,12 +30,12 @@ public class Chopper : MonoBehaviour
        
         if (transform.position == position1)
         {
-            transform.eulerAngles = new Vector3(0f, 180f, 0f);
+            transform.eulerAngles = new Vector3(0f, 0f, 0f);
             nextpos = position2;
         }
         if (transform.position == position2)
         {
-            transform.eulerAngles = new Vector3(0f, 0f, 0f);
+            transform.eulerAngles = new Vector3(0f, 180f, 0f);
             nextpos = position1;
         }
 

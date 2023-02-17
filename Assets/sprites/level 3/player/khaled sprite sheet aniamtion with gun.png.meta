@@ -134,7 +134,7 @@ TextureImporter:
         width: 695
         height: 909
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -155,7 +155,7 @@ TextureImporter:
         width: 780
         height: 933
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -176,7 +176,7 @@ TextureImporter:
         width: 809
         height: 921
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -197,7 +197,7 @@ TextureImporter:
         width: 746
         height: 972
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -218,7 +218,7 @@ TextureImporter:
         width: 700
         height: 960
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -226,6 +226,321 @@ TextureImporter:
       bones: []
       spriteID: 509793268c857d24a952250fc2287500
       internalID: 381317647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khaled sprite sheet aniamtion with gun_6
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 3851
+        width: 757
+        height: 1084
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c39dd6db632e25d48b5244df1a8b86b0
+      internalID: -328792477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khaled sprite sheet aniamtion with gun_7
+      rect:
+        serializedVersion: 2
+        x: 1083
+        y: 3851
+        width: 859
+        height: 1156
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9a51bed6e8720f4b892cd39d1487c39
+      internalID: -1535095576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khaled sprite sheet aniamtion with gun_8
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 2644
+        width: 808
+        height: 1013
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7729c5b5f410ef542a4b341d146aec43
+      internalID: 1840707871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khaled sprite sheet aniamtion with gun_9
+      rect:
+        serializedVersion: 2
+        x: 1042
+        y: 2624
+        width: 808
+        height: 1084
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 230b73c419982e64fbd9f92e2d057ba9
+      internalID: 273314866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khaled sprite sheet aniamtion with gun_10
+      rect:
+        serializedVersion: 2
+        x: 2065
+        y: 2644
+        width: 777
+        height: 1044
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddbd7645d3424a74da01668a4bff9305
+      internalID: 1311421553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khaled sprite sheet aniamtion with gun_11
+      rect:
+        serializedVersion: 2
+        x: 3098
+        y: 2644
+        width: 726
+        height: 1044
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f12530a212ec0464bb6c365a2c1a4808
+      internalID: 1113020223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khaled sprite sheet aniamtion with gun_12
+      rect:
+        serializedVersion: 2
+        x: 4029
+        y: 2675
+        width: 849
+        height: 1105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d636d777f29de7459f4a9ac38f08517
+      internalID: -497544573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khaled sprite sheet aniamtion with gun_13
+      rect:
+        serializedVersion: 2
+        x: 5062
+        y: 2716
+        width: 757
+        height: 1012
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95a32a79a094b2c4dbfed6851af4ebc4
+      internalID: 1584581447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khaled sprite sheet aniamtion with gun_14
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 1539
+        width: 726
+        height: 911
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bf367ed6bc862b438a6056439190b68
+      internalID: -2037815483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khaled sprite sheet aniamtion with gun_15
+      rect:
+        serializedVersion: 2
+        x: 1185
+        y: 1499
+        width: 747
+        height: 1012
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd28384d57ca350409059a5b14ca4b9d
+      internalID: 1028274205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khaled sprite sheet aniamtion with gun_16
+      rect:
+        serializedVersion: 2
+        x: 2249
+        y: 1519
+        width: 788
+        height: 972
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35a6ed606a30268498af5b7ce816a8ce
+      internalID: -768360374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khaled sprite sheet aniamtion with gun_17
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 179
+        width: 624
+        height: 1094
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43131c775fcc66d418b66555f8d0117a
+      internalID: 393680355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khaled sprite sheet aniamtion with gun_18
+      rect:
+        serializedVersion: 2
+        x: 1042
+        y: 240
+        width: 767
+        height: 1023
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9565d8a8647ec904a87a673264fab34c
+      internalID: -1731953329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khaled sprite sheet aniamtion with gun_19
+      rect:
+        serializedVersion: 2
+        x: 2126
+        y: 220
+        width: 655
+        height: 1033
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b92d91bf1b4c204ea6f5e13d072010f
+      internalID: 880739401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khaled sprite sheet aniamtion with gun_20
+      rect:
+        serializedVersion: 2
+        x: 3047
+        y: 251
+        width: 747
+        height: 982
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6c22225730896e4cb66e20f8cfd1945
+      internalID: 2034707999
       vertices: []
       indices: 
       edges: []
@@ -242,11 +557,26 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       khaled sprite sheet aniamtion with gun_0: 98791700
+      khaled sprite sheet aniamtion with gun_18: -1731953329
       khaled sprite sheet aniamtion with gun_3: -1231087890
+      khaled sprite sheet aniamtion with gun_13: 1584581447
+      khaled sprite sheet aniamtion with gun_11: 1113020223
+      khaled sprite sheet aniamtion with gun_17: 393680355
       khaled sprite sheet aniamtion with gun_2: -528892042
+      khaled sprite sheet aniamtion with gun_12: -497544573
       khaled sprite sheet aniamtion with gun_1: 1654568249
+      khaled sprite sheet aniamtion with gun_7: -1535095576
+      khaled sprite sheet aniamtion with gun_14: -2037815483
+      khaled sprite sheet aniamtion with gun_16: -768360374
       khaled sprite sheet aniamtion with gun_5: 381317647
+      khaled sprite sheet aniamtion with gun_9: 273314866
+      khaled sprite sheet aniamtion with gun_8: 1840707871
+      khaled sprite sheet aniamtion with gun_15: 1028274205
+      khaled sprite sheet aniamtion with gun_20: 2034707999
+      khaled sprite sheet aniamtion with gun_6: -328792477
+      khaled sprite sheet aniamtion with gun_10: 1311421553
       khaled sprite sheet aniamtion with gun_4: 480548542
+      khaled sprite sheet aniamtion with gun_19: 880739401
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -51,6 +51,7 @@ public class combat : MonoBehaviour
     public void Attack()
     {
 
+        AudioManager.instance.play("Sword");
             Collider2D[] hit = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
             attackDetails[0] = attackDamage + increaseAttackDamage;
             attackDetails[1] = transform.position.x;

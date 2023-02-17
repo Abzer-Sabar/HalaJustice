@@ -73,6 +73,16 @@ public class enemy : MonoBehaviour
         }
     }
 
+    public  void bulletDamage(float damage)
+    {
+        currentHealth -= damage;
+        Instantiate(hitParticle, body.transform.position, Quaternion.Euler(0f, 0f, Random.Range(0f, 360f)));
+
+        if (currentHealth <= 0.0f)
+        {
+            switchState(State.Dead);
+        }
+    }
     private void Damage(float[] attackDetails)
     {
         currentHealth -= attackDetails[0];

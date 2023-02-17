@@ -41,6 +41,7 @@ TagManager:
   - Fragment 2
   - finalArena
   - hook
+  - scorpio
   layers:
   - Default
   - TransparentFX

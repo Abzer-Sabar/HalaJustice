@@ -18,6 +18,7 @@ public class playerHealth : MonoBehaviour
     private float damageReduction = 1f;
     private Vector2 respawnPosition;
     private GameManager manager;
+    private playerController pc;
 
     private Manager2 manager2;
 
@@ -29,6 +30,7 @@ public class playerHealth : MonoBehaviour
         hb.setMaxHealth(maxHealth);
         hb.setHealth(currentHealth);
         respawnPosition = new Vector2(spawnPosition1.position.x, spawnPosition1.position.y);
+        pc = GetComponent<playerController>();
         manager = GameObject.FindGameObjectWithTag("Game Manager").GetComponent<GameManager>();
         manager2 = GameObject.FindGameObjectWithTag("Manager2").GetComponent<Manager2>();
     }
@@ -77,7 +79,27 @@ public class playerHealth : MonoBehaviour
         }
     }
 
-    
+    private void Damage(float[] attackDetails)
+    {
+        if (pc.getDashStatus() == false)
+        {
+            int direction;
+            takeDamage(attackDetails[0]);
+
+            if (attackDetails[1] < transform.position.x)
+            {
+                direction = 1;
+            }
+            else
+            {
+                direction = -1;
+            }
+            pc.applyKnockBack(direction);
+
+        }
+
+    }
+
 
     private void Die()
     {

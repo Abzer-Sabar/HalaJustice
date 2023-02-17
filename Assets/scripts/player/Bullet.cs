@@ -19,6 +19,7 @@ public class Bullet : MonoBehaviour
         aim = GameObject.FindGameObjectWithTag("Aim").GetComponent<Transform>();
         target = new Vector2(aim.position.x, aim.position.y);
         dir = target - new Vector2(transform.position.x, transform.position.y);
+        attackDamage[1] = transform.position.x;
         attackDamage[0] = bulletDamage;
     }
 
@@ -56,7 +57,13 @@ public class Bullet : MonoBehaviour
             burstBullet();
         }
 
+        if (collision.gameObject.CompareTag("scorpio"))
+        {
+            collision.transform.parent.SendMessage("bulletDamage", bulletDamage);
             burstBullet();
+        }
+
+        burstBullet();
     }
 
   

@@ -15,6 +15,7 @@ public class Arnold : MonoBehaviour
     private Transform player;
     private Animator anim;
     private Vector2 dir, target;
+    Manager2 manager;
 
     private void Start()
     {
@@ -22,6 +23,7 @@ public class Arnold : MonoBehaviour
         anim = GetComponent<Animator>();
         currentHealth = maxHealth;
         health.setHealth(currentHealth, maxHealth);
+        manager = GameObject.FindGameObjectWithTag("Manager2").GetComponent<Manager2>();
     }
 
     private void Update()
@@ -111,7 +113,11 @@ public class Arnold : MonoBehaviour
         if (currentHealth <= 0.0f)
         {
             Instantiate(deathEffect, transform.position, Quaternion.identity);
-            FindObjectOfType<Manager2>().setGold(goldAmount);
+            if (manager)
+            {
+             manager.setGold(goldAmount);
+
+            }
             Destroy(gameObject);
            
         }if(currentHealth <= 200)

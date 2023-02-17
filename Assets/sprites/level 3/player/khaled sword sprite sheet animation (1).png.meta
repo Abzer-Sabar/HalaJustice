@@ -1,0 +1,475 @@
+fileFormatVersion: 2
+guid: 831bc007d97879f42a27d2721f3f7930
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: khaled sword sprite sheet animation (1)_0
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 3528
+        width: 567
+        height: 877
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c26c0b59c15847744a7e286059dc6b77
+      internalID: -2071590751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khaled sword sprite sheet animation (1)_1
+      rect:
+        serializedVersion: 2
+        x: 1084
+        y: 3550
+        width: 741
+        height: 908
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a095b3247480104792636e098780b82
+      internalID: -705276738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khaled sword sprite sheet animation (1)_2
+      rect:
+        serializedVersion: 2
+        x: 2074
+        y: 3505
+        width: 787
+        height: 960
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd85863b6ad0c5d4cb28296178d11a15
+      internalID: 1807210862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khaled sword sprite sheet animation (1)_3
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 2409
+        width: 650
+        height: 899
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bdb0be1566d50ea4f9eb57724cf04488
+      internalID: 452829366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khaled sword sprite sheet animation (1)_4
+      rect:
+        serializedVersion: 2
+        x: 1121
+        y: 2409
+        width: 628
+        height: 899
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebc4ec170fc95a2449e7ee7a55984d44
+      internalID: -201284841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khaled sword sprite sheet animation (1)_5
+      rect:
+        serializedVersion: 2
+        x: 2089
+        y: 2439
+        width: 923
+        height: 922
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 324928622b1824a448519072780fd807
+      internalID: 1001564406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khaled sword sprite sheet animation (1)_6
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 1312
+        width: 650
+        height: 908
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e69d774219d9a44a92b7e239b2ed354
+      internalID: -61795159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khaled sword sprite sheet animation (1)_7
+      rect:
+        serializedVersion: 2
+        x: 1182
+        y: 1312
+        width: 628
+        height: 930
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed8b91f48fa989f4dbb7e09810a31adc
+      internalID: 557021918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khaled sword sprite sheet animation (1)_8
+      rect:
+        serializedVersion: 2
+        x: 2059
+        y: 1304
+        width: 802
+        height: 938
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecc3602d9a7930a499f6c5570db503c9
+      internalID: 951848722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khaled sword sprite sheet animation (1)_9
+      rect:
+        serializedVersion: 2
+        x: 3125
+        y: 1289
+        width: 711
+        height: 923
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddc51de5044ee99418590d74456bfd43
+      internalID: -1986631424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khaled sword sprite sheet animation (1)_10
+      rect:
+        serializedVersion: 2
+        x: 4063
+        y: 1282
+        width: 779
+        height: 975
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35a4baca67e36a644b09ceeea5657aa6
+      internalID: -443815041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khaled sword sprite sheet animation (1)_11
+      rect:
+        serializedVersion: 2
+        x: 5099
+        y: 1259
+        width: 772
+        height: 991
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85fd0aa7a20a817408f572cfa46a9c7d
+      internalID: 152851176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khaled sword sprite sheet animation (1)_12
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 170
+        width: 583
+        height: 998
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a7da38d1d3bb174baaefbf13c5f092f
+      internalID: 437655841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khaled sword sprite sheet animation (1)_13
+      rect:
+        serializedVersion: 2
+        x: 1190
+        y: 231
+        width: 718
+        height: 877
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30c848ddb5261af4e87fa03927aaac2c
+      internalID: -1426867416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khaled sword sprite sheet animation (1)_14
+      rect:
+        serializedVersion: 2
+        x: 2294
+        y: 216
+        width: 688
+        height: 930
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f309d0a90985e394593f09b9308eb7d7
+      internalID: 1912452521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: khaled sword sprite sheet animation (1)_15
+      rect:
+        serializedVersion: 2
+        x: 3367
+        y: 231
+        width: 734
+        height: 922
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc0cbf23d18c0ab45a705eed6039d795
+      internalID: -1939638450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      khaled sword sprite sheet animation (1)_14: 1912452521
+      khaled sword sprite sheet animation (1)_5: 1001564406
+      khaled sword sprite sheet animation (1)_7: 557021918
+      khaled sword sprite sheet animation (1)_1: -705276738
+      khaled sword sprite sheet animation (1)_8: 951848722
+      khaled sword sprite sheet animation (1)_3: 452829366
+      khaled sword sprite sheet animation (1)_2: 1807210862
+      khaled sword sprite sheet animation (1)_10: -443815041
+      khaled sword sprite sheet animation (1)_11: 152851176
+      khaled sword sprite sheet animation (1)_15: -1939638450
+      khaled sword sprite sheet animation (1)_4: -201284841
+      khaled sword sprite sheet animation (1)_0: -2071590751
+      khaled sword sprite sheet animation (1)_9: -1986631424
+      khaled sword sprite sheet animation (1)_12: 437655841
+      khaled sword sprite sheet animation (1)_13: -1426867416
+      khaled sword sprite sheet animation (1)_6: -61795159
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
