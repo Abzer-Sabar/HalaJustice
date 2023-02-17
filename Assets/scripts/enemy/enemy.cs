@@ -229,7 +229,10 @@ public class enemy : MonoBehaviour
 
     private void EnterDead()
     {
-        manager.setGold(goldAmount);
+        if (manager)
+        {
+            manager.setGold(goldAmount); 
+        }
         Instantiate(deathEffectParticle, body.transform.position, deathEffectParticle.transform.rotation);
         Destroy(gameObject);
     }

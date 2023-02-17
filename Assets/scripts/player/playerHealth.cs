@@ -19,6 +19,8 @@ public class playerHealth : MonoBehaviour
     private Vector2 respawnPosition;
     private GameManager manager;
 
+    private Manager2 manager2;
+
     private combat playerCombat;
     private void Start()
     {
@@ -28,7 +30,7 @@ public class playerHealth : MonoBehaviour
         hb.setHealth(currentHealth);
         respawnPosition = new Vector2(spawnPosition1.position.x, spawnPosition1.position.y);
         manager = GameObject.FindGameObjectWithTag("Game Manager").GetComponent<GameManager>();
-        
+        manager2 = GameObject.FindGameObjectWithTag("Manager2").GetComponent<Manager2>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -79,26 +81,27 @@ public class playerHealth : MonoBehaviour
 
     private void Die()
     {
-        if(manager != null)
+        if(manager)
         {
             manager.numberOfDeaths += 1;
 
         }
-        else
+        else if(manager2)
         {
             FindObjectOfType<Manager2>().numberOfDeaths += 1;
         }
+
         FindObjectOfType<AudioManager>().play("Die");
         Instantiate(deathEffectParticle, this.transform.position, deathEffectParticle.transform.rotation);
         respawn();
-        Debug.Log("You are dead");
+        
     }
 
     public void healPlayer(float heal)
     {
         currentHealth += heal;
         hb.setHealth(currentHealth);
-        Debug.Log("player has healed");
+       
     }
 
     private void respawn()
