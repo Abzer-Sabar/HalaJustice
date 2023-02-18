@@ -17,9 +17,10 @@ public class infantry : MonoBehaviour
     private Transform player;
     private Animator anim;
     private float currentHealth, fireCountDown = 0f;
-    private bool canShoot, shieldOn, canonActive;
+    private bool canShoot, shieldOn, canonActive, facingRight;
     [SerializeField]private bool deployCanon = true;
     private GameObject Canon;
+    private Manager2 manager2;
     private enum States
     {
         patrol,
@@ -39,6 +40,7 @@ public class infantry : MonoBehaviour
         health.setHealth(currentHealth, maxHealth);
         shieldOn = false;
         shield.SetActive(false);
+        manager2 = GameObject.Find("Manager2").GetComponent<Manager2>();
     }
     private void Update()
     {
@@ -55,7 +57,8 @@ public class infantry : MonoBehaviour
                 patrol.canPatrol = false;
                 anim.SetBool("shooting", true);
                 chasePlayer();
-                lookAtPlayer();
+                //lookAtPlayer();
+                facePlayer();
                 scanForPlayer();
                 break;
         }
@@ -95,11 +98,29 @@ public class infantry : MonoBehaviour
         }
     }
 
-    
-        private void lookAtPlayer()
+    void facePlayer()
+    {
+        if (player.transform.position.x < gameObject.transform.position.x && facingRight)
+            Flip();
+        if (player.transform.position.x > gameObject.transform.position.x && !facingRight)
+            Flip();
+    }
+
+    void Flip()
+    {
+        //here your flip funktion, as example
+        facingRight = !facingRight;
+        Vector3 tmpScale = gameObject.transform.localScale;
+        tmpScale.x *= -1;
+        gameObject.transform.localScale = tmpScale;
+    }
+
+    private void lookAtPlayer()
         {
             Vector3 scale = transform.localScale;
-            if (player.transform.position.x < transform.position.x)
+        transform.LookAt(player);
+        /*
+            if (player.transform.position.x > transform.position.x)
             {
             // scale.x = Mathf.Abs(scale.x) * -1 * (flip ? -1 : 1);
             transform.eulerAngles = new Vector3(0, -180, 0);
@@ -109,8 +130,8 @@ public class infantry : MonoBehaviour
             // scale.x = Mathf.Abs(scale.x) * (flip ? -1 : 1);
             transform.eulerAngles = new Vector3(0, 0, 0);
             }
-            transform.localScale = scale;
-        }
+            transform.localScale = scale;*/
+    }
     
 
     private void chasePlayer()
@@ -159,7 +180,10 @@ public class infantry : MonoBehaviour
     {
         Debug.Log("enemy dead");
         Instantiate(deathEffect, transform.position, transform.rotation);
-        FindObjectOfType<Manager2>().setGold(goldAmount);
+        if (manager2)
+        {
+            manager2.setGold(goldAmount);
+        }
         Destroy(gameObject);
     }
 

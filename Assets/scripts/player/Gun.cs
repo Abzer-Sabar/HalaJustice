@@ -13,6 +13,7 @@ public class Gun : MonoBehaviour
     public float bulletForce = 20f; 
     public int bulletValueOnPickup = 20;
 
+
     [SerializeField]
     private int bullets;
     private float bulletDamage = 10;
