@@ -60,7 +60,7 @@ public class Bullet : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Canon"))
         {
-            collision.transform.SendMessage("Damage", attackDamage);
+            collision.transform.SendMessage("Damage", attackDamage[0]);
             burstBullet();
         }
         if (collision.gameObject.CompareTag("Enemy"))

@@ -40,7 +40,7 @@ public class infantry : MonoBehaviour
         health.setHealth(currentHealth, maxHealth);
         shieldOn = false;
         shield.SetActive(false);
-        manager2 = GameObject.Find("Manager2").GetComponent<Manager2>();
+        
     }
     private void Update()
     {
@@ -50,6 +50,7 @@ public class infantry : MonoBehaviour
                 patrol.canPatrol = true;
                 canShoot = false;
                 anim.SetBool("shooting", false);
+               
                 scanForPlayer();
                 break;
 
@@ -88,12 +89,12 @@ public class infantry : MonoBehaviour
     {
         if(Vector2.Distance(transform.position, player.position) < chasingDistance)
         {
-            Debug.Log("player is in Range");
+          
             currenState = States.chase;
         }
         else
         {
-            Debug.Log("player is out of Range");
+           
             currenState = States.patrol;
         }
     }

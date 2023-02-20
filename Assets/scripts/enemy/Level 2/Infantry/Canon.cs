@@ -13,7 +13,8 @@ public class Canon : MonoBehaviour
     private float fireCountDown, currentHealth;
     private Transform player;
     private Animator anim;
-    private bool canShoot = false, flip, isDead = false;
+
+    private bool canShoot = true, flip, isDead = false;
 
 
     private void Start()
@@ -72,10 +73,10 @@ public class Canon : MonoBehaviour
         transform.localScale = scale;
     }
 
-    public void Damage(float[] damage)
+    public void Damage(float damage)
     {
         Debug.Log("You have damaged me!");
-        float damageTaken = damage[0];
+        float damageTaken = damage;
         currentHealth -= damageTaken;
         health.setHealth(currentHealth, maxHealth);
         if (currentHealth <= 0.0f)

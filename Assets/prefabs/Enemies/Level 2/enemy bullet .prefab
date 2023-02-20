@@ -138,5 +138,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explodeEffect: {fileID: 973775243706707412, guid: e5dbaf8e85706e54ba212b1f98aa18ac, type: 3}
   speed: 10
-  bulletDamage: 10
+  bulletDamage: 2
   bulletLifeTime: 5
