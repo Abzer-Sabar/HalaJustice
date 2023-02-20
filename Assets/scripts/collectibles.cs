@@ -2,16 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using ArabicSupport;
 using UnityEngine.UI;
 
 public class collectibles : MonoBehaviour
 {
     public GameObject dialogueBox;
     public TextMeshProUGUI englishMsgText;
-    public Text arabicMsgText;
+
     public string englishMsg;
-    public string arabicMsg;
     public GameObject sprite;
 
 
@@ -19,7 +17,7 @@ public class collectibles : MonoBehaviour
     {
         
         dialogueBox.SetActive(false);
-        ArabicFixer.Fix(arabicMsg);
+      
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -35,7 +33,7 @@ public class collectibles : MonoBehaviour
     private void enableDialogue()
     {
         englishMsgText.text = "" + englishMsg;
-        arabicMsgText.text = "" + ArabicFixer.Fix(arabicMsg);
+       
         dialogueBox.SetActive(true);
         LeanTween.scale(dialogueBox, new Vector3(0.5f, 0.5f, 0.5f), 0.3f).setEase(LeanTweenType.easeOutElastic);
     }
